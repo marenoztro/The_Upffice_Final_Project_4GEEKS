@@ -26,15 +26,15 @@ const getState = ({
             },
             loadSomeData: () => {
                 /**
-                        	fetch().then().then(data => setStore({ "foo": data.bar }))
-                        */
+                                	fetch().then().then(data => setStore({ "foo": data.bar }))
+                                */
             },
             login: (email, password) => {
                 /**
-                        	fetch().then().then(data => setStore({ "foo": data.bar }))
-                        */
+                                	fetch().then().then(data => setStore({ "foo": data.bar }))
+                                */
                 fetch(
-                        "https://3000-purple-sawfish-rn2q66p2peu.ws-eu67.gitpod.io/login", {
+                        "https://3001-marenoztro-theupfficefi-kq2qcdh7ya9.ws-us70.gitpod.io/api/login", {
                             method: "POST",
                             body: JSON.stringify({
                                 email: email,
