@@ -22,8 +22,6 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-<<<<<<< HEAD
-=======
 
 # Create a route to authenticate your users and return JWTs. The
 # create_access_token() function is used to actually generate the JWT.
@@ -126,4 +124,3 @@ def login():
 # YA CON ESTO LISTO PODEMOS CONECTARLO CON EL FRONTEND PARA QUE EL USUARIO REALICE SU REGISTRO Y QUEDE DEBDIAMENTE AUTENTICADO POR JWT Y REGISTRADO EN LA BASE DE DATOS
 
 #* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * •
->>>>>>> 5a9eb14d52e7d34f7d1d9a36544b7ed395ff6a46
