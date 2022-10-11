@@ -12,6 +12,9 @@ from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
 
+from flask_jwt_extended import JWTManager
+
+
 #from models import Person
 
 ENV = os.getenv("FLASK_ENV")
@@ -35,6 +38,11 @@ CORS(app)
 
 # add the admin
 setup_admin(app)
+
+app.config["JWT_SECRET_KEY"] = "palabra-secreta-para-configuracion"  # Change this!
+jwt = JWTManager(app)
+
+
 
 # add the admin
 setup_commands(app)
