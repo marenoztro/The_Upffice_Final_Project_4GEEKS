@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
+<<<<<<< HEAD
   const { store, actions } = useContext(Context);
 
   return (
@@ -26,6 +26,11 @@ export const Home = () => {
           Read documentation
         </a>
       </p>
+=======
+  return (
+    <div className="text-center mt-5">
+      <h1>YOU ARE HOME</h1>
+>>>>>>> 6ca67b0706d29065dac68abb1c0b50ddb7f5b27b
     </div>
   );
 };
