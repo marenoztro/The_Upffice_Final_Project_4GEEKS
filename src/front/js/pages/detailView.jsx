@@ -58,9 +58,45 @@ export const DetailView = () => {
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <Link to="/" className="btn btn-warning">
-        Go back
-      </Link>
+      <div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Ubicación: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Ab, commodi magni quibusdam possimus porro, tempore ratione
+            voluptatem rem aliquam nam fuga facere atque in iusto quod
+            excepturi. Ad, excepturi molestiae.
+          </li>
+          <li class="list-group-item">Precio: $100 </li>
+          <li class="list-group-item">
+            Descripción: Lorem ipsum dolor sit amet consectetur, adipisicing
+            elit. Harum, architecto omnis minima fugit quis doloremque quas
+            nihil dolore ad deserunt nisi dolores corrupti enim officiis laborum
+            sequi tempora, quia odit!
+          </li>
+          <li class="list-group-item">
+            Amenidades:
+            <ul>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</ul>
+            <ul>Voluptas necessitatibus, dolorum</ul>
+            <ul>
+              tempora facilis error quam id, consequuntur et fugit tempore nulla
+              accusantium quidem praesentium ab eveniet excepturi harum qui
+              sunt.
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Reviews: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Libero saepe iste debitis error ratione quis soluta. Voluptate eos
+            aliquam dicta recusandae quidem necessitatibus animi cupiditate quae
+            quas! Neque, omnis eaque!
+          </li>
+          <li class="list-group-item"></li>
+        </ul>
+      </div>
+      <div class="text-center">
+        <Link to="/" className="btn btn-warning">
+          Go back
+        </Link>
+      </div>
     </>
   );
 };

@@ -26,25 +26,23 @@ const getState = ({
             },
             loadSomeData: () => {
                 /**
-                                	fetch().then().then(data => setStore({ "foo": data.bar }))
-                                */
+                                                                	fetch().then().then(data => setStore({ "foo": data.bar }))
+                                                                */
             },
             login: (email, password) => {
                 /**
-                                	fetch().then().then(data => setStore({ "foo": data.bar }))
-                                */
-                fetch(
-                        "https://3001-marenoztro-theupfficefi-kq2qcdh7ya9.ws-us70.gitpod.io/api/login", {
-                            method: "POST",
-                            body: JSON.stringify({
-                                email: email,
-                                password: password,
-                            }),
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                        }
-                    )
+                                                                	fetch().then().then(data => setStore({ "foo": data.bar }))
+                                                                */
+                fetch(process.env.BACKEND_URL + "/api/login", {
+                        method: "POST",
+                        body: JSON.stringify({
+                            email: email,
+                            password: password,
+                        }),
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    })
                     .then((response) => {
                         if (response.status === 200) {
                             setStore({
@@ -54,6 +52,7 @@ const getState = ({
                         return response.json();
                     })
                     // .then((data) => console.log(data))
+                    // .catch((error) => console.log(error));
                     .then((data) => localStorage.setItem("token", data.access_token));
             },
             logout: () => {
