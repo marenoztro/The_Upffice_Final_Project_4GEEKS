@@ -5,3 +5,20 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+.container-fluid {
+    background-color: #083c5d;
+}
+
+.login {
+    color: #aaaaaa;
+}
+
+.carousel {
+    height: fit-content;
+    border: solid 12px #1d2731;
+}
+
+.list-group-item {
+    background-color: #083c5d;
+    color: #aaaaaa;
+}
