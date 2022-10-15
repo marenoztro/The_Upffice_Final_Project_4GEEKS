@@ -22,31 +22,33 @@ export const ElementoCatalogo = ({
             alt="..."
           />
           <div className="card-body">
-            <h5 className="card-title">Hola</h5>
-            <p className="card-text">
-              <h1>Esta es la ubicación</h1>
+            <h1 className="card-title">Titulo de la casa</h1>
+            <h6 className="card-text">
+              <h5 className="titulo-catalogo">Esta es la ubicación</h5>
               {ubicacion}
-            </p>
-            <p className="card-text">
-              <h1>Este es el rating que tiene la propiedad</h1>
+            </h6>
+            <h6 className="card-text">
+              <h5 className="titulo-catalogo">
+                Este es el rating que tiene la propiedad
+              </h5>
               {rating}
-            </p>
-            <p className="card-text">
-              <h1>Las amenidades son</h1>
+            </h6>
+            <h6 className="card-text">
+              <h5 className="titulo-catalogo">Las amenidades son</h5>
               {amenidades}
-            </p>
-            <p className="card-text">
-              <h1>Estos reviews tiene el sitio</h1>
+            </h6>
+            <h6 className="card-text">
+              <h5 className="titulo-catalogo">Estos reviews tiene el sitio</h5>
               {reviews}
-            </p>
+            </h6>
             {/* <p className="card-text">
                 <h1>Fotos del sitio</h1>
                 {item.fotos}
               </p> */}
-            <p className="card-text">
-              <h1>Descripción</h1>
+            <h6 className="card-text">
+              <h5 className="titulo-catalogo">Descripción</h5>
               {descripcion}
-            </p>
+            </h6>
           </div>
         </div>
       </div>

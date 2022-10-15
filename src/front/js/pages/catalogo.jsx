@@ -71,13 +71,8 @@ export const Catalogo = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="container">
-      <Searchbar />
-      <br />
-      <br />
-      <br />
-      <br />
-      <div className="row row-cols-3 mt-20">
+    <div className="container-fluid catalogo">
+      <div className="row row-cols-3 mt-20 container-fluid">
         {spaces.map((item, i) => {
           return (
             <ElementoCatalogo
