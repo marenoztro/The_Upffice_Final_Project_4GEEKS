@@ -18,6 +18,7 @@ const getState = ({
             ],
             auth: false,
             perfil: {},
+            spaces: [],
         },
         actions: {
             // Use getActions to call a function within a fuction
@@ -26,13 +27,13 @@ const getState = ({
             },
             loadSomeData: () => {
                 /**
-                                                                	fetch().then().then(data => setStore({ "foo": data.bar }))
-                                                                */
+                                                                                        	fetch().then().then(data => setStore({ "foo": data.bar }))
+                                                                                        */
             },
             login: (email, password) => {
                 /**
-                                                                	fetch().then().then(data => setStore({ "foo": data.bar }))
-                                                                */
+                                                                                        	fetch().then().then(data => setStore({ "foo": data.bar }))
+                                                                                        */
                 fetch(process.env.BACKEND_URL + "/api/login", {
                         method: "POST",
                         body: JSON.stringify({
@@ -102,6 +103,15 @@ const getState = ({
                 setStore({
                     demo: demo,
                 });
+            },
+            traerSpaces: () => {
+                fetch("")
+                    .then((response) => response.json())
+                    .then((data) =>
+                        setStore({
+                            spaces: data,
+                        })
+                    );
             },
         },
     };
