@@ -119,63 +119,6 @@ const getState = ({
                     .then((data) => console.log(data))
             },
 
-            // setStore({
-            //     postedspace: data,
-            // })
-
-
-
-
-
-
-
-
-            //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-
-            //////////////////////////////////////////////////////////////////////////////////
-            // OJOOOOOOO  ALTERNATIVA TRABAJADA EN MENTORÍA ===> SI PARECÍA FUNCIONAR
-            //////////////////////////////////////////////////////////////////////////////////
-
-            //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-            // postspace: async (body) => {
-            //     console.log(body);
-            //     try {
-            //         const resp = await fetch(
-            //             "https://3001-marenoztro-theupfficefi-u7yhopq84cd.ws-us71.gitpod.io/api/postspace", {
-            //                 method: "POST",
-            //                 body: JSON.stringify(body),
-            //                 headers: {
-            //                     "Content-Type": "application/json",
-            //                 },
-            //             }
-            //         );
-            //         const data = await resp.json();
-
-            //         console.log(data);
-            //         return data;
-            //     } catch (error) {
-            //         console.log("Error al completar perfil", error);
-            //     }
-            // },
-            // // setStore({
-            // //     postedspace: data,
-            // // })
-
-
-            //////////////////////////////////////////////////////////////////////////////////
-
-            //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-
-
-
-
-
-
-
-
-
-
 
 
             changeColor: (index, color) => {
