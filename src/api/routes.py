@@ -62,10 +62,6 @@ def login():
 # # AQUÍ VENDRÍA EL Endpoint PARA SUBIR LA FOTO DE LOS ESPACIOS EN RENTA - REV. ROSSINI
 # #///////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
 @api.route('/postspace', methods=['POST'])
 def postspace():
     name = request.json.get("name", None) 
@@ -95,17 +91,12 @@ def postspace():
 
 
 ################################################################
+# - - - - - - - - -  OJO: PROCESO CON FIREBASE - - - - - - - - 
 #ESTE ES UN PROCESO DE TRIANGULACIÓN QUE SE LLEVA 2 TIEMPOS
 #PRIMERO LA CARGA A FIREBASE Y SE ESPERA A QUE SE CONFIRME LA CARGA
 #LUEGO REGISTRO EN MI BASE DE DATOS LA RUTA DONDE SE CARGÓ PARA UTILIZARLA DESPUÉS
 ################################################################
  
-
-
-
-
-
-
 
 @api.route('/uploadPhotoSpace', methods=['POST'])
 @jwt_required() #REQUERIMOS EL id DE jwt PARA IDENTIFICAR QUIEN SUBE LA FOTO

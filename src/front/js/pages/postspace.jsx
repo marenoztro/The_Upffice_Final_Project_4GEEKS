@@ -39,8 +39,6 @@ export const Postspace = (props) => {
     console.log(data);
   };
   const handleSubmit = async (e) => {
-    // let url = await image;
-    // console.log(url);
     // ESTA FUNCIÓN SE VINCULA A UN (evento) QUE ES UN SUBMIT
     e.preventDefault(); // AQUÍ APLICAMOS EL e.preventDefault() PARA QUE NO NOS OBSTACULICE EL GUARDAR LA INFO
     console.log(name, description, image);
