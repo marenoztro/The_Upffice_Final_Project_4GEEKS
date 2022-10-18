@@ -18,8 +18,10 @@ const getState = ({
             ],
             auth: false,
             perfil: {},
+            postedspace: {}
         },
         actions: {
+
             // Use getActions to call a function within a fuction
             exampleFunction: () => {
                 getActions().changeColor(0, "green");
@@ -88,6 +90,94 @@ const getState = ({
                     );
                 // .then((data) => localStorage.setItem("token", data.access_token))
             },
+
+
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // OJO: AQUÍ HACEMOS LA FUNCIÓN onSubmit QUE REALIZA EL FETCH PARA HACER EL POST DEL ESPACIO EN RENTA
+            //////////////////////////////////////////////////////////////////////////////////
+
+            postspace: (name, description, image) => {
+
+                fetch(process.env.BACKEND_URL + "/api/postspace", { // ESTE ES EL LINK DE NUESTRA PLANTILLA BACKEND PARA EL ENDPOINT/RUTA DE login 
+                        method: "POST", // COMO DESDE EL FRONT VAMOS A INSERTAR DATOS... EL MÉTODO ES POST
+                        body: JSON.stringify({ //EL CUERPO QUE LE ENVIAMOS EN UN CUERPO JSON Y ES stringify PARA QUE LO PODAMOS ESCRIBIR EN TEXTO Y LUEGO SE GUARDE COMO json 
+                            name: name,
+                            description: description,
+                            image: image,
+                        }),
+                        headers: {
+                            'Content-Type': 'application/json' //EN EL HEADER, QUE DEBEMOS INCLUIR POR RIGOR, ES Content-Type application/json PORQUE ESTAMOS ENVIANDO UN CUERPO JSON EN EL FETCH
+                        }
+                    })
+                    .then((response) => { //ENTRA EL PRIMER THEN
+                        if (response.status === 200)
+                            return response.json() //  Y POR LO TANTO PODEMOS CONVERTIR LA RESPUESTA A UN json
+                    })
+                    .then((data) => console.log(data))
+            },
+
+            // setStore({
+            //     postedspace: data,
+            // })
+
+
+
+
+
+
+
+
+            //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+            //////////////////////////////////////////////////////////////////////////////////
+            // OJOOOOOOO  ALTERNATIVA TRABAJADA EN MENTORÍA ===> SI PARECÍA FUNCIONAR
+            //////////////////////////////////////////////////////////////////////////////////
+
+            //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+            // postspace: async (body) => {
+            //     console.log(body);
+            //     try {
+            //         const resp = await fetch(
+            //             "https://3001-marenoztro-theupfficefi-u7yhopq84cd.ws-us71.gitpod.io/api/postspace", {
+            //                 method: "POST",
+            //                 body: JSON.stringify(body),
+            //                 headers: {
+            //                     "Content-Type": "application/json",
+            //                 },
+            //             }
+            //         );
+            //         const data = await resp.json();
+
+            //         console.log(data);
+            //         return data;
+            //     } catch (error) {
+            //         console.log("Error al completar perfil", error);
+            //     }
+            // },
+            // // setStore({
+            // //     postedspace: data,
+            // // })
+
+
+            //////////////////////////////////////////////////////////////////////////////////
+
+            //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+
+
+
+
+
+
+
+
+
+
             changeColor: (index, color) => {
                 //get the store
                 const store = getStore();
