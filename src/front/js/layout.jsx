@@ -8,9 +8,10 @@ import { DetailView } from "./pages/detailView.jsx";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Catalogo } from "./pages/catalogo.jsx";
+import { Postspace } from "./pages/postspace.jsx";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar.jsx";
+import Navbar from "./component/navbar.jsx";
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -30,6 +31,7 @@ const Layout = () => {
             <Route element={<Login />} path="/login" />
             <Route element={<DetailView />} path="/detalle" />
             <Route element={<Catalogo />} path="/catalogo" />
+            <Route element={<Postspace />} path="/postspace" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>

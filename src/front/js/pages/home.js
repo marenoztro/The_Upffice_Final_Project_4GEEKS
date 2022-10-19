@@ -12,9 +12,7 @@ export const Home = () => {
       <Link to="/catalogo">
         <button className="btn btn-primary">Ver catalogo</button>
       </Link>
-      <p>
-        <img src={rigoImageUrl} />
-      </p>
+      <p>{/* <img src={rigoImageUrl} /> */}</p>
       <div className="alert alert-info">
         {store.message ||
           "Loading message from the backend (make sure your python backend is running)..."}
