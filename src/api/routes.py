@@ -5,11 +5,6 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Spaces
 from api.utils import generate_sitemap, APIException
 
-# AQUÍ IMPORTO storage Y tempfile DE firebase PARA EL ARCHIVO TEMPORAL 
-# QUE SE GENERA EN LA RUTA DE SUBIR FOTO
-# ESTE STORAGE ESTÁ CONECTADO LOS BUCKETS DE firebase DONDE SE GUARDAN LAS FOTOS
-from firebase_admin import storage
-import tempfile
 
 
 
@@ -52,12 +47,15 @@ def login():
     return jsonify(access_token=access_token)  #//// ... Y EL access_token ES JUSTO LO QUE SE MANDA COMO RESPUESTA.
 
 
-# #///////////////////////////////////////////////////
-# # OJO: AHORA PUEDO CREAR UN USUARIO DESDE ACÁ EN EL simple browser CON SU email Y password. 
-# # ENTONCES PUEDO IRME A POSTMAN Y PROBAR MI LOGIN CON EL MÉTODO POST
-# # AL HACER EL POST DEBO COLOCAR UN body json EN POSTMAN CON LOS DOS DATOS QUE INDIQUÉ PARA ESTA RUTA email Y password TAL Y COMO LOS PUSE EN EL simple browser de acá
-# # SI EL email Y EL password COINCIDEN CON LOS REGISTRADOS ENTONCES TE GENERA EL TOKEN DE INGRESO. 
-# #///////////////////////////////////////////////////
+
+
+
+
+
+
+# #///////////////////////////////////////////////////////////////////////////////////////
+# # AQUÍ VENDRÍA EL Endpoint PARA SUBIR LA FOTO DE LOS ESPACIOS EN RENTA - REV. ROSSINI
+# #///////////////////////////////////////////////////////////////////////////////////////
 
 @api.route('/postspace', methods=['POST'])
 def postspace():
@@ -77,32 +75,23 @@ def postspace():
         "message": "Has posteado tu Space :D"
     }
 
-
-@api.route('/postspace', methods=['POST'])
-def postspace():
-    name = request.json.get("name", None) 
-    description = request.json.get("description", None) 
-    image = request.json.get("image", None) 
-    # print(name, description, image)
-
-
-# #* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * •
-
-# # A ESTE PUNTO YO TENGO COMPLETAMENTE INTEGRADO JWT CON MI CODIGO 
-# # JWT YA ESTÁ DENTRO DE MI APLICACIÓN
-# # REALIZA CONSULTAS A MI BASE DE DATOS PARA VERIFICAR SI EL USARIO DE TURNO ESTÁ DEBIDAMENTE REGISTRADO EN MI APLICACIÓN
-# # SI ESTÁ REGISTRADO DEVUELVE UN TOKEN
-# # SI NO... LE DA UN MENSAJE DE ADVERTENCIA
-
-# #* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * •
-
     return jsonify(response_body), 200
 
 
 
-# # >>>>>>>> AHORA PODEMOS CREAR CONTENIDO EXCLUSIVO <<<<<
-# # >>>>>>>>>>>>>>>>> RUTAS PROTEGIDAS <<<<<<<<<<<<<<<<<<<
 
+
+
+
+
+
+################################################################
+# - - - - - - - - -  OJO: PROCESO CON FIREBASE - - - - - - - - 
+#ESTE ES UN PROCESO DE TRIANGULACIÓN QUE SE LLEVA 2 TIEMPOS
+#PRIMERO LA CARGA A FIREBASE Y SE ESPERA A QUE SE CONFIRME LA CARGA
+#LUEGO REGISTRO EN MI BASE DE DATOS LA RUTA DONDE SE CARGÓ PARA UTILIZARLA DESPUÉS
+################################################################
+ 
 
 @api.route('/uploadPhotoSpace', methods=['POST'])
 @jwt_required() #REQUERIMOS EL id DE jwt PARA IDENTIFICAR QUIEN SUBE LA FOTO
@@ -114,13 +103,6 @@ def uploadPhotoSpace():
     #ESTA EXTENSIÓN ES NECESARIA PORQUE EN firebase SE TRUNCA Y HAY QUE ESPECIFICARLA
     extension=file.filename.split(".")[1]
 
-# #* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • 
-# # AHORA PUEDO PROCEDER A INGRESASR A UNA RUTA PROTEGIDA (PORQUE DEBÉS AUTENTICARTE) COMO profile
-# # PARA ACCEDER A ESA RUTA PROTEGIDA DEBO USAR EL MÉTODO GET. 
-# # PERO OJO: TENGO QUE AUTENTICARME Y PARA ESO TENGO QUE IRME EN POSTMAN A Authorization 
-# # AHÍ SELECCIONAR bearer token Y COLOCAR EL token QUE SE TE GENERÓ (ARRIBA) CON EL LOGIN 
-# # UNA VEZ QUE INGRESO EL TOKEN, ENTONCES 
-# #* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • 
 
 
     #N.3 - AQUÍ DEFINO EN QUÉ RUTA VOY A UBICAR EL ARCHIVO Y EL NOMBRE QUE SE GENERARÁ USANDO LA AYUDA DEL id de jwt
@@ -170,4 +152,4 @@ def uploadPhotoSpace():
     db.session.commit()
     
 
-#* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * •
+    return "Ok", 200
