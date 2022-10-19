@@ -18,16 +18,6 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
-class Spaces(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(120), unique=True, nullable=False)
-    descripcion = db.Column(db.String(80), unique=False, nullable=False)
-
-    def __repr__(self):
-        return '<Spaces %r>' % self.id
-
-
-
 
 # Spaces con sólo 3 campos para probar que funcione
 class Spaces(db.Model):
