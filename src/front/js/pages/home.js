@@ -38,14 +38,14 @@ export const Home = () => {
               Looking for
               <span class="text-muted"> spaces? </span>
             </h1>
-            <a
-              href="#"
-              class="btn btn-primary btn-lg active text-center"
+            <Link
+              to="/catalogo"
+              className="btn btn-primary btn-lg active text-center"
               role="button"
               aria-pressed="true"
             >
               Search
-            </a>
+            </Link>
           </div>
           <div class="col-3">
             <img

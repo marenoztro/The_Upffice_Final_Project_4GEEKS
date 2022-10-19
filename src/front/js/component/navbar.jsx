@@ -70,8 +70,8 @@ export const Navbar = () => {
           </ul>
 
           <form className="d-flex">
-            <div class="input-group">
-              <span class="input-group-text" id="basic-addon1">
+            <div className="input-group">
+              <span className="input-group-text" id="basic-addon1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -85,7 +85,7 @@ export const Navbar = () => {
               </span>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder=""
                 aria-expanded="false"
                 aria-haspopup="listbox"
@@ -96,7 +96,7 @@ export const Navbar = () => {
           </form>
 
           <li className="nav-item">
-            <a class="btn btn-primary" href="#" role="button">
+            <a className="btn btn-primary" href="#" role="button">
               Sign In
             </a>
           </li>
@@ -112,3 +112,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar;

@@ -97,13 +97,3 @@ class Spaces(db.Model):
 
 
 
-
-
-
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "nombre": self.nombre,
-            # do not serialize the password, its a security breach
-        }
