@@ -50,9 +50,6 @@ def login():
 
 
 
-
-
-
 # #///////////////////////////////////////////////////////////////////////////////////////
 # # AQUÍ VENDRÍA EL Endpoint PARA SUBIR LA FOTO DE LOS ESPACIOS EN RENTA - REV. ROSSINI
 # #///////////////////////////////////////////////////////////////////////////////////////
@@ -72,8 +69,7 @@ def postspace():
 
     response_body = {
 
-        "message": "Has posteado tu Space :D"
+        "message": "Has posteado tu Space :D!"
     }
 
     return jsonify(response_body), 200
-
