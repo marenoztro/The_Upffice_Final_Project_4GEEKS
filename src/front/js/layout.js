@@ -1,3 +1,4 @@
+/*
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
@@ -39,3 +40,4 @@ const Layout = () => {
 };
 
 export default injectContext(Layout);
+*/

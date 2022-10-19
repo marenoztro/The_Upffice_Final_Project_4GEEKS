@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, {useState, useEffect, useContext } from "react";
+//import { Link } from "react-router-dom";
 // import { ElementoCatalogo } from "./component/ElementoCatalogo.jsx";
 import { ElementoCatalogo } from "../component/elementoCatalogo.jsx";
-import { Searchbar } from "../component/searchBar.jsx";
+//import { Searchbar } from "../component/searchBar.jsx";
 import { Context } from "../store/appContext";
 
 // use effect para que cuando cargue la pagina traiga el getspaces
