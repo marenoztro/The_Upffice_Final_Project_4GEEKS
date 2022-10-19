@@ -24,16 +24,6 @@ from flask_jwt_extended import JWTManager
 
 
 
-############################################################################
-# OJO AQUÍ IMPORTÉ LOS ELEMENTOS DE LA DOCUMENTACIÓN DE FIREBASE
-# IMPORTO EL administrador de firebase Y LAS credenciales de firebase
-############################################################################
-import firebase_admin
-from firebase_admin import credentials
-
-
-
-
 
 #OJO AQUÍ PEGUÉ LA CONFIGURACIÓN QUE BRINDA CLOUDINARY 
 cloudinary.config( 
@@ -99,20 +89,6 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0 # avoid cache memory
     return response
 
-
-
-############################################################################
-# OJO AQUÍ CREO LAS CREDECIALES E INICIALIZO LA APLICACIÓN DE firebase
-# SE CREA EL CERTIFICADO DE CREDENCIALES Y LE PASAMOS EL ARCHIVO fb_credentials.json
-# QUE SE DESCARGÓ DE FB->Configuración del Proyecto->Cuentas de Servicio->Generar nueva clave privada
-# LUEGO SIMPLEMENTE 
-############################################################################
-
-cred=credentials.Certificate("fb_credentials.json")
-firebase_admin.initialize_app(cred)
-
-#--------------------------IMPORTANTE----------------------------------
-# A PARTIR DE AQUÍ TODOS LOS SERVICIOS DE fire base ESTÁN INSTALADOS EN MI PROYECTO
 
 
 

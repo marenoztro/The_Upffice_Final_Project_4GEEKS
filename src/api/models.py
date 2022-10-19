@@ -13,6 +13,9 @@ class User(db.Model):
             "email": self.email,
             # do not serialize the password, its a security breach
         }
+
+
+
 # Spaces con sólo 3 campos para probar que funcione
 class Spaces(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -64,4 +67,8 @@ class Spaces(db.Model):
     #         "description": self.description,
     #         "amenities": self.amenities,
     #         "images": self.images,
+    #     }
+
+
+
 
