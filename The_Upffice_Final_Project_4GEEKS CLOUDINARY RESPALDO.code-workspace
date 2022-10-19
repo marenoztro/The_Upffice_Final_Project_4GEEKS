@@ -1,0 +1,12 @@
+{
+  "folders": [
+	{
+		"name": "The_Upffice_Final_Project_4GEEKS",
+		"path": "."
+	}
+],
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
