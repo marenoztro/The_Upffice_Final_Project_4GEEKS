@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import { Link, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
