@@ -8,132 +8,132 @@ export const Home = () => {
 
   return (
     <>
-      <div class="text-bg-dark container-flex w-100">
+      <div className="text-bg-dark container-flex w-100">
         <img
           src="https://ichef.bbci.co.uk/news/976/cpsprodpb/722C/production/_121782292_gettyimages-1220634080.jpg"
-          class="card-img"
+          className="card-img"
           alt="..."
         />
-        <div class="card-img-overlay d-block mt-3">
+        <div className="card-img-overlay d-block mt-3">
           <br />
         </div>
-        <div class="card-img-overlay d-block mt-3">
+        <div className="card-img-overlay d-block mt-3">
           <p>
             <br />
             <br />
           </p>
-          <h1 class="bg-light text-center display-1 mt-3 fw-bolder">
+          <h1 className="bg-light text-center display-1 mt-3 fw-bolder">
             The Upffice
           </h1>
-          <div class="bg-light text-center fs-2 mt-3">
+          <div className="bg-light text-center fs-2 mt-3">
             <h1>The world of work is now infinite</h1>
           </div>
         </div>
       </div>
-      <div class="container-flex text center p-3 mb-2 bg-white mt-5 text-dark">
-        <div class="row mt-5 mb-5">
-          <div class="col-1"></div>
-          <div class="col-7">
+      <div className="container-flex text center p-3 mb-2 bg-white mt-5 text-dark">
+        <div className="row mt-5 mb-5">
+          <div className="col-1"></div>
+          <div className="col-7">
             <h1 id="First_heading">
               Looking for
-              <span class="text-muted"> spaces? </span>
+              <span className="text-muted"> spaces? </span>
             </h1>
             <Link
               to="/catalogo"
-              className="btn btn-primary btn-lg active text-center"
+              classNameName="btn btn-primary btn-lg active text-center"
               role="button"
               aria-pressed="true"
             >
               Search
             </Link>
           </div>
-          <div class="col-3">
+          <div className="col-3">
             <img
               src="https://cdn.shopify.com/s/files/1/0374/7155/1628/t/8/assets/010--standing-desk--small-desk--ergonomic-desk--modular-desk--sustainable-desk--working-desk--work-from-home-desks-1633654040281_1200x.jpg?v=1633654066g"
-              class="img-fluid rounded-circle"
+              className="img-fluid rounded-circle"
               alt="..."
             />
           </div>
-          <div class="col-1"></div>
+          <div className="col-1"></div>
         </div>
       </div>
       <div
         id="SecondHeading"
-        class="container-flex text center p-3 mb-2 bg-white mt-5 text-dark"
+        className="container-flex text center p-3 mb-2 bg-white mt-5 text-dark"
       >
-        <div class="row mt-5 mb-5">
-          <div class="col-3">
+        <div className="row mt-5 mb-5">
+          <div className="col-3">
             <img
               src="https://www.thetimes.co.uk/money-mentor/wp-content/uploads/2020/10/GettyImages-1223377524.jpg?w=600&strip=all&quality=75"
-              class="img-fluid rounded-circle"
+              className="img-fluid rounded-circle"
               alt="..."
             />
           </div>
-          <div class="col-7">
+          <div className="col-7">
             <h1>
-              Mission & <span class="text-muted"> Vision </span>
+              Mission & <span className="text-muted"> Vision </span>
             </h1>
-            <p class="lead">
+            <p className="lead">
               Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
               ligula porta felis euismod semper. Praesent commodo cursus magna,
               vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
               commodo.
             </p>
           </div>
-          <div class="col-3"> </div>
-          <div class="col-1"></div>
+          <div className="col-3"> </div>
+          <div className="col-1"></div>
         </div>
       </div>
-      <div id="Portfolio" class="container bg-white text center">
+      <div id="Portfolio" className="container bg-white text center">
         <h1>Perks of using Upffice</h1>
-        <p class="lead">
+        <p className="lead">
           Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
           ligula porta felis euismod semper. Praesent commodo cursus magna, vel
           scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
         </p>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card h-100">
+        <div className="row row-cols-1 row-cols-md-3 g-4">
+          <div className="col">
+            <div className="card h-100">
               <img
                 src="https://imageio.forbes.com/specials-images/imageserve/601db1e43c76a444ae39fb6d/Implementing-work-from-home-strategies-can-help-you-stay-motivated-/960x0.jpg?format=jpg&width=960"
-                class="card-img-top"
+                className="card-img-top"
                 alt="Card"
               />
-              <div class="card-body">
-                <h5 class="card-title text-primary">Work & Travel</h5>
-                <p class="card-text">
+              <div className="card-body">
+                <h5 className="card-title text-primary">Work & Travel</h5>
+                <p className="card-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Mollitia iure sed quidem totam, magnam reprehenderit culpa.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="card h-100">
+          <div className="col">
+            <div className="card h-100">
               <img
                 src="https://media.istockphoto.com/photos/happy-indian-woman-working-in-a-call-center-picture-id1223341967?k=20&m=1223341967&s=612x612&w=0&h=j5fiJWZHyBAheZmuN3vpgQZrNRBtiK17o0ihOtNOlig="
-                class="card-img-top"
+                className="card-img-top"
                 alt="..."
               />
-              <div class="card-body">
-                <h5 class="card-title text-primary"> Project Name </h5>
-                <p class="card-text">
+              <div className="card-body">
+                <h5 className="card-title text-primary"> Project Name </h5>
+                <p className="card-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Mollitia iure sed quidem totam, magnam reprehenderit culpa.{" "}
                 </p>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="card h-100">
+          <div className="col">
+            <div className="card h-100">
               <img
                 src="https://www.thetimes.co.uk/money-mentor/wp-content/uploads/2020/10/GettyImages-1223377524.jpg?w=600&strip=all&quality=75"
-                class="card-img-top"
+                className="card-img-top"
                 alt="..."
               />
-              <div class="card-body">
-                <h5 class="card-title text-primary"> Project Name </h5>
-                <p class="card-text">
+              <div className="card-body">
+                <h5 className="card-title text-primary"> Project Name </h5>
+                <p className="card-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Mollitia iure sed quidem totam, magnam reprehenderit culpa.
                 </p>

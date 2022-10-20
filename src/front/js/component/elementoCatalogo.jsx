@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 // import { useContext } from "react";
 import { Link } from "react-router-dom";
-export const ElementoCatalogo = ({
-  ubicacion,
-  rating,
-  amenidades,
-  reviews,
-  descripcion,
-}) => {
+export const ElementoCatalogo = ({ name, description, images }) => {
   // const { store, actions } = useContext(Context); //consumir el contexto
   return (
     <div>
@@ -26,13 +20,7 @@ export const ElementoCatalogo = ({
               <h5 className="titulo-catalogo">Esta es la ubicación</h5>
               {ubicacion}
             </h6>
-            <h6 className="card-text">
-              <h5 className="titulo-catalogo">
-                Este es el rating que tiene la propiedad
-              </h5>
-              {rating}
-            </h6>
-            <h6 className="card-text">
+            {/* <h6 className="card-text">
               <h5 className="titulo-catalogo">Las amenidades son</h5>
               {amenidades}
             </h6>
