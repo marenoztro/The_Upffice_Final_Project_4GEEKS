@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom"; // sin useParams no tenes id
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 
 export const DetailView = () => {
   const { store, actions } = useContext(Context); // traemos el store y actions del flux
