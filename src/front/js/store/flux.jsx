@@ -17,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       perfil: {},
       postedspace: {},
       catalogo: [],
-      detailedSpaces: [],
+      // detailedSpaces: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -93,7 +93,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       getDetailedSpace: (id) => {
         // argumento se utiliza especificar los datos que se necesitan traer
 
-        fetch(process.env.BACKEND_URL + "/api/catalogo/" + id)
+        fetch(process.env.BACKEND_URL + "/api/postspace/" + id)
           .then((response) => response.json()) // transformar el contenido en un json
           .then((data) =>
             setStore({
