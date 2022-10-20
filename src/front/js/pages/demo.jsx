@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 
 export const Demo = () => {
   const { store, actions } = useContext(Context);
@@ -24,10 +24,10 @@ export const Demo = () => {
   return (
     <div className="container">
       <div className="mb-3">
-        <img src={store.profilePic}></img>
+        <img src={store.profilePic}> </img>{" "}
         <label htmlFor="formFile" className="form-label">
-          Default file input example
-        </label>
+          Default file input example{" "}
+        </label>{" "}
         <form onSubmit={submitPhoto}>
           <input
             className="form-control"
