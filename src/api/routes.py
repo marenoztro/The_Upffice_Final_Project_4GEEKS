@@ -2,8 +2,14 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Spaces
 from api.utils import generate_sitemap, APIException
+
+
+
+
+
+
 
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -41,86 +47,29 @@ def login():
     return jsonify(access_token=access_token)  #//// ... Y EL access_token ES JUSTO LO QUE SE MANDA COMO RESPUESTA.
 
 
-# #///////////////////////////////////////////////////
-# # OJO: AHORA PUEDO CREAR UN USUARIO DESDE ACÁ EN EL simple browser CON SU email Y password. 
-# # ENTONCES PUEDO IRME A POSTMAN Y PROBAR MI LOGIN CON EL MÉTODO POST
-# # AL HACER EL POST DEBO COLOCAR UN body json EN POSTMAN CON LOS DOS DATOS QUE INDIQUÉ PARA ESTA RUTA email Y password TAL Y COMO LOS PUSE EN EL simple browser de acá
-# # SI EL email Y EL password COINCIDEN CON LOS REGISTRADOS ENTONCES TE GENERA EL TOKEN DE INGRESO. 
-# #///////////////////////////////////////////////////
 
 
 
+# #///////////////////////////////////////////////////////////////////////////////////////
+# # AQUÍ VENDRÍA EL Endpoint PARA SUBIR LA FOTO DE LOS ESPACIOS EN RENTA - REV. ROSSINI
+# #///////////////////////////////////////////////////////////////////////////////////////
+
+@api.route('/postspace', methods=['POST'])
+def postspace():
+    name = request.json.get("name", None) 
+    description = request.json.get("description", None) 
+    image = request.json.get("image", None) 
+    # print(name, description, image)
 
 
+ ## ESTAS 3 LÍNEAS DE CODIGO SON RECOMENDADAS POR FLASK ALCHEMY PARA AGREGAR DATOS NUEVOS
+    post = Spaces(name=name, description=description, images=image)
+    db.session.add(post)
+    db.session.commit()
 
+    response_body = {
 
+        "message": "Has posteado tu Space :D!"
+    }
 
-
-# #* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * •
-
-# # A ESTE PUNTO YO TENGO COMPLETAMENTE INTEGRADO JWT CON MI CODIGO 
-# # JWT YA ESTÁ DENTRO DE MI APLICACIÓN
-# # REALIZA CONSULTAS A MI BASE DE DATOS PARA VERIFICAR SI EL USARIO DE TURNO ESTÁ DEBIDAMENTE REGISTRADO EN MI APLICACIÓN
-# # SI ESTÁ REGISTRADO DEVUELVE UN TOKEN
-# # SI NO... LE DA UN MENSAJE DE ADVERTENCIA
-
-# #* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * •
-
-
-
-
-# # >>>>>>>> AHORA PODEMOS CREAR CONTENIDO EXCLUSIVO <<<<<
-# # >>>>>>>>>>>>>>>>> RUTAS PROTEGIDAS <<<<<<<<<<<<<<<<<<<
-
-
-
-
-# #* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • 
-# # AHORA PUEDO PROCEDER A INGRESASR A UNA RUTA PROTEGIDA (PORQUE DEBÉS AUTENTICARTE) COMO profile
-# # PARA ACCEDER A ESA RUTA PROTEGIDA DEBO USAR EL MÉTODO GET. 
-# # PERO OJO: TENGO QUE AUTENTICARME Y PARA ESO TENGO QUE IRME EN POSTMAN A Authorization 
-# # AHÍ SELECCIONAR bearer token Y COLOCAR EL token QUE SE TE GENERÓ (ARRIBA) CON EL LOGIN 
-# # UNA VEZ QUE INGRESO EL TOKEN, ENTONCES 
-# #* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • 
-
-
-
-
-# #///////////////////////////////////////////////////
-# # OJO AQUÍ CREAMOS LAS RUTAS PROTEGIDAS / 
-# # ES DECIR: CONTENIDO AL QUE SE PUEDE INGRESAR SOLO SI ESTAS AUTENTICADO
-# # COMO MI PERFIL O MI BANDEJA DE ENTRADA
-# #///////////////////////////////////////////////////
-
-# # Protect a route with jwt_required, which will kick out requests
-# # without a valid JWT present.
-# # @app.route("/profile", methods=["GET"])
-# # @jwt_required() #/// OJO /// ESTE ES EL GUARDA DE LA PUERTA / AQUÍ ACTIVA LA FUNCIÓN jwt_required PARA PROTEGER ESA RUTA
-# # def protected():
-# #     # Access the identity of the current user with get_jwt_identity
-# #     current_user = get_jwt_identity() #/// CON ESTA FUNCIÓN JWT OBTIENE LA IDENTIDAD DEL USUARIO Y LA GUARDA EN LA VARIABLE current_user
-# #     user = User.query.filter_by(email=current_user).first() #//// ACÁ HAGO UNA CONSULTA ESPECÍFICA (query) PARA VERIFICAR QUE EL USUARIO EXISTA EN LOS REGISTRO  ***IMPORTANTE*** ACÁ LO FILTRO POR LA PROPIEDAD email PERO APROVECHANDO QUE LA FUNCIÓN get_jwt_identity QUE OBTIENE LA IDENTIDAD DEL USUARIO... Y ESA IDENTIDAD QUEDA GUARDADA EN LA VARIABLE current_user
-# #     if current_user != user.email:
-# #         return jsonify({"msg":"Ud no está registrado"}), 401
-   
-# #     return jsonify(user.serialize()), 200 #//// ACÁ DOY LA RESPUESTA POSITIVA PERO NO LA PUEDO ENVIAR ASÍ NO MÁS PORQUE NECESITO QUE SE TRADUZCA A ALGO LEGIBLE PARA EL FRONT POR ESO LE APLICO EL .serialize()
-
-
-# # if __name__ == "__main__":
-# #     app.run()
-
-
-
-
-
-# # this only runs if `$ python src/main.py` is executed
-# if __name__ == '__main__':
-#     PORT = int(os.environ.get('PORT', 3000))
-#     app.run(host='0.0.0.0', port=PORT, debug=False)
-
-
-#* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * •
-
-# YA CON ESTO LISTO PODEMOS CONECTARLO CON EL FRONTEND PARA QUE EL USUARIO REALICE SU REGISTRO Y QUEDE DEBDIAMENTE AUTENTICADO POR JWT Y REGISTRADO EN LA BASE DE DATOS
-
-#* • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * • * •
+    return jsonify(response_body), 200

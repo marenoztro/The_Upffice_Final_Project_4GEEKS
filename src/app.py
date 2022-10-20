@@ -2,6 +2,13 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 import os
+
+#OJO AQUÍ IMPORTÉ LOS ARCHIVOS DE LA DOCUMENTACIÓN DE CLOUDINARY... ESTO LUEGO DE HACER EL pip install cloudinary
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+
 from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
 from flask_swagger import swagger
@@ -13,6 +20,17 @@ from api.admin import setup_admin
 from api.commands import setup_commands
 
 from flask_jwt_extended import JWTManager
+
+
+
+
+
+#OJO AQUÍ PEGUÉ LA CONFIGURACIÓN QUE BRINDA CLOUDINARY 
+cloudinary.config( 
+  cloud_name = "marenoztro", 
+  api_key = "289591917132747", 
+  api_secret = "FLse2qJ_6AP1v7FU7qviLmCK6hI" 
+)
 
 
 #from models import Person
@@ -70,6 +88,9 @@ def serve_any_other_file(path):
     response = send_from_directory(static_file_dir, path)
     response.cache_control.max_age = 0 # avoid cache memory
     return response
+
+
+
 
 
 # this only runs if `$ python src/main.py` is executed

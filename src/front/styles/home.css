@@ -38,9 +38,7 @@
     color: #aaaaaa;
 }
 
-/*
-Seccion de estilo para el overlay en el navbar
-*/
+/*Seccion de estilo para el overlay en el navbar*/
 body{
     background-color: #1d2731;
     background-size: cover;
@@ -122,3 +120,4 @@ input[type=submit]:hover{
 .closebtn:hover{
     color: #ccc;
 }
+/* termina seccion de navbar*/

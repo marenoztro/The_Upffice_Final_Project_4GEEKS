@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import { Link, useNavigate } from "react-router-dom";
-
 
 export const Navbar = () => {
     const { store, actions } = useContext(Context);
@@ -13,15 +12,6 @@ export const Navbar = () => {
         navigate.push("/login");
       }
     };
-
-    function openform(){
-      document.getElementById("overlay").style.display = "block"
-    }
-    
-    function closeform(){
-      document.getElementById("overlay").style.display = "none"
-    }
-  
 	return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -32,59 +22,48 @@ export const Navbar = () => {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-                      <li className="nav-item">
-                      <a className="nav-link active" aria-current="page" href="#">Home</a>
-                      </li>
+                    <li className="nav-item">
+                    <a className="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
 
-                      <li className="nav-item dropdown">
-                      <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recursos</a>
-                      <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a className="dropdown-item" href="#">Hacer una reserva</a></li>
-                          <li><a className="dropdown-item" href="#">Convirtete en un host</a></li>
-                          <li><a className="dropdown-item" href="#">Ayuda</a></li>
-                      </ul>
-                      </li>
-                  </ul>
+                    <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recursos</a>
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a className="dropdown-item" href="#">Hacer una reserva</a></li>
+                        <li><a className="dropdown-item" href="#">Convirtete en un host</a></li>
+                        <li><a className="dropdown-item" href="#">Ayuda</a></li>
+                    </ul>
+                    </li>
+                </ul>
 
-                  <form className="d-flex">
-                    <div className="input-group">
-                      <span className="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
-                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                      </svg></span>
-                      <input type="text" className="form-control" placeholder="" aria-expanded="false" aria-haspopup="listbox" role="combobox" value=""></input>
-                    </div>
-                  </form>
-
-                  <div>
-                    <div id="overlay" className="overlay">
-                      <span className="closebtn" onClick={closeform} title="Cerrar overlay"> X </span>
-                      <div className="wrap">
-                        <h2>Sign Up Here</h2>
-                        <form>
-                            <input type="text" placeholder="Ingresa Nombre"></input>
-                            <input type="text" placeholder="Ingresa Apellido"></input>
-                            <input type="text" placeholder="Ingresa Email"></input>
-                            <input type="password" placeholder="Ingresa contraseña"></input>
-                            <input type="submit" placeholder="Sign up"></input>
-                        </form>
-                      </div>
-                    </div>    
-                      <button className="openbtn" onClick={openform}>Sign up</button>              
-                  </div>
-
-                </div>
-            </div>
-            <Link to="/login">
-              {store.auth ? (
-                <button className="btn btn-primary" onClick={handleLogout}>
-                  Log out
-                </button>
-              ) : null}
-            </Link>
-        </nav>
-	);
+                <form className="d-flex">
+						<div class="input-group">
+							<span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+							<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+							</svg></span>
+							<input type="text" class="form-control" placeholder="" aria-expanded="false" aria-haspopup="listbox" role="combobox" value=""></input>
+						</div>
+				</form>
+				
+	
+          <div className="nav-item">
+            <a className="btn btn-primary" href="#" role="button">
+              Sign In
+            </a>
+          </div>
+        </div>
+      </div>
+      <Link to="/login">
+        {store.auth ? (
+          <button className="btn btn-primary" onClick={handleLogout}>
+            Log out
+          </button>
+        ) : null}
+      </Link>
+    </nav>
+  );
 };
 
 export default Navbar;
