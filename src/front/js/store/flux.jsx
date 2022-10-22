@@ -17,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       perfil: {},
       postedspace: {},
       catalogo: [],
-      detailedSpace: [],
+      detailedSpace: {},
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -96,7 +96,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((response) => response.json()) // transformar el contenido en un json
           .then((data) =>
             setStore({
-              detailedSpace: data, // result porque esta en la api
+              detailedSpace: data.results, // result porque esta en la api
             })
           );
       },

@@ -1,7 +1,18 @@
 import React, { Component } from "react";
-// import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Context } from "../store/appContext.jsx";
+import { useContext, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+
 export const DetailSpace = () => {
+  const { store, actions } = useContext(Context);
+  const params = useParams();
+  useEffect(() => {
+    actions.getDetailedSpace(params.theid);
+    console.log(store.detailedSpace.name);
+    console.log(store.detailedSpace.description);
+    console.log(store.detailedSpace);
+  }, []);
+
   return (
     <>
       <div className="container-fluid">
@@ -35,7 +46,7 @@ export const DetailSpace = () => {
           <div className="carousel-inner">
             <div className="carousel-item active" data-bs-interval="10000">
               <img
-                src="https://wearecloudworks.com/wp-content/uploads/2022/01/beneficios-coworking.jpeg"
+                src={store.detailedSpace.images}
                 className="d-block w-100"
                 alt="..."
               />
@@ -47,11 +58,7 @@ export const DetailSpace = () => {
               </div>
             </div>
             <div className="carousel-item" data-bs-interval="2000">
-              <img
-                src="https://www.arquitecturaydiseno.es/medio/2017/05/22/moreysmith-deskopolitan-paris-table_812x550_8e1e06a9.jpg"
-                className="d-block w-100"
-                alt="..."
-              />
+              <img src="..." className="d-block w-100" alt="..." />
               <div className="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>
@@ -62,7 +69,7 @@ export const DetailSpace = () => {
             <div className="carousel-item">
               <img
                 src="https://actiucdn.net/uploads/images/actualidad/descripciones/los-coworkings-en-la-era-de-la-flexibilidad-_782_651.jpg"
-                class="d-block w-100"
+                className="d-block w-100"
                 alt="..."
               />
               <div className="carousel-caption d-none d-md-block">
@@ -101,9 +108,11 @@ export const DetailSpace = () => {
       </div>
       <div>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">{item.name}</li>
           <li className="list-group-item">
-            <h3>Ubicación</h3>
+            <h3>{store.detailedSpace?.name}</h3>
+          </li>
+          <li className="list-group-item">
+            <h3>{store.detailedSpace.description}</h3>
             {/* {item.ubicacion}  */}
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab,
             commodi magni quibusdam possimus porro, tempore ratione voluptatem
@@ -123,10 +132,7 @@ export const DetailSpace = () => {
           <li className="list-group-item">
             <h3>Amenidades</h3>
             <ul>
-              <li>
-                {/* {item.amenidades} Lorem ipsum, dolor sit amet consectetur */}
-                adipisicing elit.
-              </li>
+              <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
             </ul>
             <ul>
               <li>Voluptas necessitatibus, dolorum</li>
