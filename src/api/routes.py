@@ -28,6 +28,18 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
+@api.route('/catalogo', methods=['GET'])
+def get_spaces():
+    spaces= Spaces.query.all()
+
+    results = list(map(lambda item: item.serialize(),spaces))
+
+    response_body = {
+        "msg":"Todo creado con exito",
+        "results": results
+    }
+
+    return jsonify(results), 200
 
 # Create a route to authenticate your users and return JWTs. The
 # create_access_token() function is used to actually generate the JWT.
