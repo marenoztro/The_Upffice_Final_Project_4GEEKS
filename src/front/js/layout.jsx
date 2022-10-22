@@ -9,6 +9,7 @@ import { Demo } from "./pages/demo.jsx";
 import { Single } from "./pages/single.jsx";
 import { Catalogo } from "./pages/catalogo.jsx";
 import { Postspace } from "./pages/postspace.jsx";
+import { Postreview } from "./pages/postreview.jsx";
 import injectContext from "./store/appContext.jsx";
 
 import { Navbar } from "./component/navbar.jsx";
@@ -32,6 +33,7 @@ const Layout = () => {
             <Route element={<DetailView />} path="/detail/:theid" />
             <Route element={<Catalogo />} path="/catalogo" />
             <Route element={<Postspace />} path="/postspace" />
+            <Route element={<Postreview />} path="/postreview" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
