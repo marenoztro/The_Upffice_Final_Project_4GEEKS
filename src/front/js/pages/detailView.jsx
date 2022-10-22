@@ -5,10 +5,13 @@ import { DetailSpace } from "../component/elementoDetalle.jsx";
 
 export const DetailView = () => {
   const { store, actions } = useContext(Context); // traemos el store y actions del flux
-
+  const params = useParams();
+  useEffect(() => {
+    actions.getDetailedSpace(params.theid);
+  }, []);
   return (
     <>
-      {store.catalogo.map((item, i) => {
+      {store.detailedSpace.map((item, i) => {
         return (
           <DetailSpace
             name={item.name}

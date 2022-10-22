@@ -40,12 +40,21 @@ export const Home = () => {
             </h1>
             <Link
               to="/catalogo"
-              classNameName="btn btn-primary btn-lg active text-center"
+              classNameName="btn btn-warning"
               role="button"
               aria-pressed="true"
             >
               Search
             </Link>
+            {/* <span> OR </span>
+            <Link
+              to="/postspace"
+              classNameName="btn btn-primary"
+              role="button"
+              aria-pressed="true"
+            >
+              Post a space
+            </Link> */}
           </div>
           <div className="col-3">
             <img

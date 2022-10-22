@@ -103,26 +103,28 @@ export const DetailSpace = () => {
         <ul className="list-group list-group-flush">
           <li className="list-group-item">{item.name}</li>
           <li className="list-group-item">
-            <h3>Ubicación</h3> {item.ubicacion} Lorem ipsum dolor sit amet,
-            consectetur adipisicing elit. Ab, commodi magni quibusdam possimus
-            porro, tempore ratione voluptatem rem aliquam nam fuga facere atque
-            in iusto quod excepturi. Ad, excepturi molestiae.
+            <h3>Ubicación</h3>
+            {/* {item.ubicacion}  */}
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab,
+            commodi magni quibusdam possimus porro, tempore ratione voluptatem
+            rem aliquam nam fuga facere atque in iusto quod excepturi. Ad,
+            excepturi molestiae.
           </li>
           <li className="list-group-item">
             <h3>Precio: $100</h3>
           </li>
           <li className="list-group-item">
-            <h3>Descripción</h3> {item.description}
+            {/* <h3>Descripción</h3> {item.description}
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
             architecto omnis minima fugit quis doloremque quas nihil dolore ad
             deserunt nisi dolores corrupti enim officiis laborum sequi tempora,
-            quia odit!
+            quia odit! */}
           </li>
           <li className="list-group-item">
             <h3>Amenidades</h3>
             <ul>
               <li>
-                {item.amenidades} Lorem ipsum, dolor sit amet consectetur
+                {/* {item.amenidades} Lorem ipsum, dolor sit amet consectetur */}
                 adipisicing elit.
               </li>
             </ul>
@@ -138,11 +140,11 @@ export const DetailSpace = () => {
             </ul>
           </li>
           <li className="list-group-item">
-            <h3>Reviews</h3> {item.reviews}
+            {/* <h3>Reviews</h3> {item.reviews}
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero
             saepe iste debitis error ratione quis soluta. Voluptate eos aliquam
             dicta recusandae quidem necessitatibus animi cupiditate quae quas!
-            Neque, omnis eaque!
+            Neque, omnis eaque! */}
           </li>
           <li className="list-group-item"></li>
         </ul>
