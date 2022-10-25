@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Spaces
+from api.models import db, User, Spaces, Reviews, Myspaces
 from api.utils import generate_sitemap, APIException
 
 
@@ -40,6 +40,7 @@ def get_spaces():
     }
 
     return jsonify(results), 200
+
 
 # Create a route to authenticate your users and return JWTs. The
 # create_access_token() function is used to actually generate the JWT.
@@ -94,7 +95,7 @@ def postspace():
 # #///////////////////////////////////////////////////////////////////////////////////////
 
 
-@api.route('/review', methods=['POST'])
+@api.route('/postreview', methods=['POST'])
 def postingreview():
     message = request.json.get("message", None) 
     user_id = request.json.get("user_id", None) 
@@ -102,9 +103,9 @@ def postingreview():
     
     print(message, user_id, space_id)
 
-    # post = Review(message=message,user_id=user_id,space_id=space_id)
-    # db.session.add(post)
-    # db.session.commit()
+    post = Reviews(message=message,user_id=user_id,space_id=space_id)
+    db.session.add(post)
+    db.session.commit()
 
     response_body = {
 
