@@ -21,6 +21,7 @@ export const Catalogo = () => {
               description={item.description}
               images={item.images}
               key={item.id}
+              id={item.id}
             />
           );
         })}

@@ -15,7 +15,6 @@ class User(db.Model):
         }
 
 
-
 # Spaces con sólo 3 campos para probar que funcione
 class Spaces(db.Model):
     id = db.Column(db.Integer, primary_key=True)

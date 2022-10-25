@@ -90,7 +90,7 @@ export const Navbar = () => {
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 role="combobox"
-                value=""
+                // value=""
               ></input>
             </div>
           </form>

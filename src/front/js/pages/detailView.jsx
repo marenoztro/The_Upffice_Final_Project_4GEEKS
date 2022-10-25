@@ -1,13 +1,17 @@
-import React, { useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom"; // sin useParams no tenes id
+import React, { Component } from "react";
 import { Context } from "../store/appContext.jsx";
+import { useContext, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 
-export const DetailView = () => {
-  const { store, actions } = useContext(Context); // traemos el store y actions del flux
+export const DetailSpace = () => {
+  const { store, actions } = useContext(Context);
   const params = useParams();
-  //  useEffect(() => {
-  //     actions.getCharactersId(params.id)
-  //   }, [])
+  useEffect(() => {
+    actions.getDetailedSpace(params.theid);
+    console.log(store.detailedSpace.name);
+    console.log(store.detailedSpace.description);
+    console.log(store.detailedSpace);
+  }, []);
 
   return (
     <>
@@ -42,7 +46,7 @@ export const DetailView = () => {
           <div className="carousel-inner">
             <div className="carousel-item active" data-bs-interval="10000">
               <img
-                src="https://wearecloudworks.com/wp-content/uploads/2022/01/beneficios-coworking.jpeg"
+                src={store.detailedSpace.images}
                 className="d-block w-100"
                 alt="..."
               />
@@ -54,11 +58,7 @@ export const DetailView = () => {
               </div>
             </div>
             <div className="carousel-item" data-bs-interval="2000">
-              <img
-                src="https://www.arquitecturaydiseno.es/medio/2017/05/22/moreysmith-deskopolitan-paris-table_812x550_8e1e06a9.jpg"
-                className="d-block w-100"
-                alt="..."
-              />
+              <img src="..." className="d-block w-100" alt="..." />
               <div className="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>
@@ -69,7 +69,7 @@ export const DetailView = () => {
             <div className="carousel-item">
               <img
                 src="https://actiucdn.net/uploads/images/actualidad/descripciones/los-coworkings-en-la-era-de-la-flexibilidad-_782_651.jpg"
-                class="d-block w-100"
+                className="d-block w-100"
                 alt="..."
               />
               <div className="carousel-caption d-none d-md-block">
@@ -109,19 +109,19 @@ export const DetailView = () => {
       <div>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
-            <h3>Ubicación</h3> Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Ab, commodi magni quibusdam possimus porro,
-            tempore ratione voluptatem rem aliquam nam fuga facere atque in
-            iusto quod excepturi. Ad, excepturi molestiae.
+            <h3> Name </h3>
+            {store.detailedSpace.name}
+          </li>
+          <li className="list-group-item">
+            <h3>Description</h3>
+            {store.detailedSpace.description}
           </li>
           <li className="list-group-item">
             <h3>Precio: $100</h3>
           </li>
           <li className="list-group-item">
-            <h3>Descripción</h3> Lorem ipsum dolor sit amet consectetur,
-            adipisicing elit. Harum, architecto omnis minima fugit quis
-            doloremque quas nihil dolore ad deserunt nisi dolores corrupti enim
-            officiis laborum sequi tempora, quia odit!
+            <h3>Location</h3>
+            {store.detailedSpace.location}
           </li>
           <li className="list-group-item">
             <h3>Amenidades</h3>
@@ -140,16 +140,17 @@ export const DetailView = () => {
             </ul>
           </li>
           <li className="list-group-item">
-            <h3>Reviews</h3> Lorem ipsum dolor sit, amet consectetur adipisicing
-            elit. Libero saepe iste debitis error ratione quis soluta. Voluptate
-            eos aliquam dicta recusandae quidem necessitatibus animi cupiditate
-            quae quas! Neque, omnis eaque!
+            {/* <h3>Reviews</h3> {item.reviews}
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero
+            saepe iste debitis error ratione quis soluta. Voluptate eos aliquam
+            dicta recusandae quidem necessitatibus animi cupiditate quae quas!
+            Neque, omnis eaque! */}
           </li>
           <li className="list-group-item"></li>
         </ul>
       </div>
       <div className="text-center">
-        <Link to="/" className="btn btn-warning">
+        <Link to="/catalogo" className="btn btn-warning">
           Go back
         </Link>
       </div>
