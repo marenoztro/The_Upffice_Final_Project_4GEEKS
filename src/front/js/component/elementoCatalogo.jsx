@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-// import { useContext } from "react";
+import { useContext } from "react";
+import { Context } from "../store/appContext.jsx";
 import { Link } from "react-router-dom";
-export const ElementoCatalogo = ({ name, description, images }) => {
-  // const { store, actions } = useContext(Context); //consumir el contexto
+export const ElementoCatalogo = ({ name, description, images, id }) => {
+  const { store, actions } = useContext(Context); //consumir el contexto
   return (
     <div>
       <div className="container">
@@ -21,7 +22,7 @@ export const ElementoCatalogo = ({ name, description, images }) => {
             </div>
             <br />
             <div className="d-flex justify-content-end">
-              <Link to="/detalle" className="btn btn-primary btn-sm">
+              <Link to={"/detail/" + id} className="btn btn-primary btn-sm">
                 Ver detalles
               </Link>
             </div>

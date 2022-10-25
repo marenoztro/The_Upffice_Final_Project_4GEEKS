@@ -4,8 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home.jsx";
 import { Login } from "./pages/login.jsx";
-// import { DetailView } from "./pages/detailView.jsx";
-import { DetailSpace } from "./component/elementoDetalle.jsx";
+import { DetailSpace } from "./pages/detailView.jsx";
 import { Demo } from "./pages/demo.jsx";
 import { Single } from "./pages/single.jsx";
 import { Catalogo } from "./pages/catalogo.jsx";
@@ -31,7 +30,7 @@ const Layout = () => {
             <Route element={<Home />} path="/" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Login />} path="/login" />
-            <Route element={<DetailSpace />} path="/detail/:theid" />
+            <Route element={<DetailSpace />} exact path="/detail/:theid" />
             <Route element={<Catalogo />} path="/catalogo" />
             <Route element={<Postspace />} path="/postspace" />
             <Route element={<Postreview />} path="/postreview" />
