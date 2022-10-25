@@ -158,19 +158,23 @@ class Reviews(db.Model):
 
 
 
-
-class Reviews(db.Model):
+#/////////////////////////////////////////////
+#             MODEL REVIEWS
+#/////////////////////////////////////////////
+class Reviews(db.Model):                                                                                                                                                                            
     id = db.Column(db.Integer, primary_key=True)
     message = db.Column(db.String(1000), unique=True, nullable=False)
-    favorites=db.relationship('Favorites' backref='user',lazy=True)
-
+    
+    # user_id = db/Column(db.Integer, db.ForeignKey('user.id'))
+    # space_id = db/Column(db.Integer, db.ForeignKey('space.id'))
+    
 
     def __repr__(self):
         return '<User %r>' % self.id
     def serialize(self):
         return {
             "id": self.id,
-            "email": self.email,
+            "message": self.message,
             # do not serialize the password, its a security breach
 
 
@@ -206,6 +210,7 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
+   
     user = db.relationship("User", secondary=user_spaces_reviews_table, back_populates='spaces')
 
 
@@ -236,6 +241,7 @@ class Spaces(db.Model):
             "amenities": self.amenities,
             "price": self.price,
             "images": self.images,
+   
     spaces = db.relationship("Spaces", secondary=user_spaces_reviews_table, back_populates='user')
 
 
