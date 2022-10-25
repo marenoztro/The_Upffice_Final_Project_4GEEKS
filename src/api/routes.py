@@ -85,3 +85,30 @@ def postspace():
     }
 
     return jsonify(response_body), 200
+
+
+
+
+# #///////////////////////////////////////////////////////////////////////////////////////
+# # AQUÍ VIENE EL Endpoint PARA POSTEAR UN REVIEW
+# #///////////////////////////////////////////////////////////////////////////////////////
+
+
+@api.route('/review', methods=['POST'])
+def postingreview():
+    message = request.json.get("message", None) 
+    user_id = request.json.get("user_id", None) 
+    space_id = request.json.get("space_id", None) 
+    
+    print(message, user_id, space_id)
+
+    # post = Review(message=message,user_id=user_id,space_id=space_id)
+    # db.session.add(post)
+    # db.session.commit()
+
+    response_body = {
+
+        "message": "Has posteado tu Review :D!"
+    }
+
+    return jsonify(response_body), 200
