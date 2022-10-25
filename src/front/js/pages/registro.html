@@ -1,41 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
-</head>
+    <link rel="stylesheet" href="/src/front/styles/nav.css" />
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  </head>
 
-<body>
+  <body>
     <div id="overlay" class="overlay">
-        <span class="closebtn" onclick="closeform()" title="Cerrar overlay"> &#215 </span>
-        <div class="wrap">
-            <h2>Sign Up Here</h2>
-            <form>
-                <input type="text" placeholder="Ingresa Nombre">
-                <input type="text" placeholder="Ingresa Apellido">
-                <input type="text" placeholder="Ingresa Email">
-                <input type="password" placeholder="Ingresa contraseña">
-                <input type="submit" placeholder="Sign up">                
-            </form>
-        </div>
-    </div>    
+      <span class="closebtn" onclick="closeform()" title="Cerrar overlay">X</span>
+      <div class="wrap">
+
+        <!--inicio de sesion-->
+        <section class="container forms">
+          <div class="form login">
+              <div class="form-content">
+
+                <!--Parte de Login-->
+                  <header>Log In</header>
+                  <form action="#">
+                      <div class="field input-field">
+                          <input type="email" placeholder="Email" class="input">
+                      </div>
+
+                      <div class="field input-field">
+                          <input type="password" placeholder="Password" class="password">
+                          <i class='bx bx-hide eye-icon'></i>
+                      </div>
+
+                      <div class="form-link">
+                          <a href="#" class="forgot-pass">Forgot password?</a>
+                      </div>
+
+                      <div class="field button-field">
+                          <button>Log In</button>
+                      </div>
+                  </form>
+
+                  <div class="form-link">
+                      <span>Don't have an account? <a href="#" class="link signup-link">Sign Up</a></span>
+                  </div>
+              </div>
+
+              <div class="line"></div>
+
+              <div class="login-google">
+                <inicioG> inicioG /</inicioG>
+              </div>
+
+          </div>
+
+          <!-- Parte de Signup-->
+
+          <div class="form signup">
+              <div class="form-content">
+                  <header>Sign Up</header>
+                  <form action="#">
+                      <div class="field input-field">
+                          <input type="email" placeholder="Email" class="input">
+                      </div>
+
+                      <div class="field input-field">
+                          <input type="password" placeholder="Create password" class="password">
+                      </div>
+
+                      <div class="field input-field">
+                          <input type="password" placeholder="Confirm password" class="password">
+                          <i class='bx bx-hide eye-icon'></i>
+                      </div>
+
+                      <div class="field button-field">
+                          <button>Signup</button>
+                      </div>
+                  </form>
+
+                  <div class="form-link">
+                      <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+                  </div>
+              </div>
+
+              <div class="line"></div>
+
+            <div class="login-google">
+              <inicioG> inicioG /</inicioG>
+            </div>
+          </div>
+        </section>
+
+        <!-- JavaScript -->
+        <script src="/src/front/js/component/login.js"></script>
+      </div>
+
+    </div>
     <button class="openbtn" onclick="openform()">Sign up</button>
     <script>
-        function openform(){
-            document.getElementById("overlay").style.display = "block";
-            
-        }
+      function openform() {
+        document.getElementById("overlay").style.display = "block";
+      }
     </script>
     <script>
-        function closeform(){
-            document.getElementById("overlay").style.display = "none";
-            
-        }
-    </script>   
-
-</body>
+      function closeform() {
+        document.getElementById("overlay").style.display = "none";
+      }
+    </script>
+  </body>
 </html>
 
 <!-- termina la seccion de sign in -->

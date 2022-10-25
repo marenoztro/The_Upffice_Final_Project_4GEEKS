@@ -5,7 +5,6 @@ function InicioG() {
 
     const respuestaG =(respuesta)=>{
         console.log(respuesta);
-        console.log(respuesta.profileobj);
     }
     
     return(
