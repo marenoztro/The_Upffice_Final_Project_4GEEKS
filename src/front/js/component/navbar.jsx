@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext.jsx";
 import { Link, useNavigate } from "react-router-dom";
-import InicioG from "./Logingoogle";
+import InicioG from "./Logingoogle.jsx";
+import { openform, closeform } from "./overlay.jsx";
+//import {isEmail, setSuccessFor, setErrorFor, CheckInputs} from "./Validation.jsx";
+//import {forms, pwShowHide, links} from "./login.jsx";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -39,9 +42,9 @@ export const Navbar = () => {
               </a>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <InicioG />
-            </li>
+            </li> */}
 
             <li className="nav-item dropdown">
               <a
@@ -73,47 +76,133 @@ export const Navbar = () => {
               </ul>
             </li>
           </ul>
-
-          <form className="d-flex">
-            <div className="input-group">
-              <span className="input-group-text" id="basic-addon1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-search"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
-              </span>
-              <input
-                type="text"
-                className="form-control"
-                placeholder=""
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                role="combobox"
-                // value=""
-              ></input>
-            </div>
-          </form>  
-
-
-            
-          
         </div>
       </div>
 
-      {/* <Link to="/login">
-        {store.auth ? (
-          <button className="btn btn-primary" onClick={handleLogout}>
-            Log out
-          </button>
-        ) : null}
-      </Link> */}
+      {/*boton para iniciar sesion */}
+      <div id="overlay" class="overlay">
+        <closeform>
+        <span class="closebtn" onclick="closeform()" title="Cerrar overlay">X</span>
+        </closeform>
+        <div class="wrap">
+          {/*inicio de sesion*/}
+          <section class="container forms">
+            <div class="form login">
+              <div class="form-content">
+                {/*Parte de Login*/}
+                <header>Log In</header>
+                <form id="form" action="#">
+                  <div class="field input-field">
+                    <input type="email" placeholder="Email" id="email"></input>
+                    {/*mensaje de error*/}
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                  </div>
 
+                  <div class="field input-field">
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      id="password"
+                    ></input>
+                    <i class="bx bx-hide eye-icon"></i>
+                  </div>
+
+                  <div class="form-link">
+                    <a href="#" class="forgot-pass">
+                      Forgot password?
+                    </a>
+                  </div>
+
+                  <div class="field button-field">
+                    <button>Log In</button>
+                  </div>
+                </form>
+
+                <div class="form-link">
+                  <span>
+                    Don't have an account?{" "}
+                    <a href="#" class="link signup-link">
+                      Sign Up
+                    </a>
+                  </span>
+                </div>
+              </div>
+
+              <div class="line"></div>
+
+              <div class="login-google">
+                <InicioG />
+              </div>
+            </div>
+
+            {/*Parte de Signup*/}
+            <div class="form signup">
+              <div class="form-content">
+                <header>Create Account</header>
+                <form id="form" action="#">
+                  <div class="field input-field">
+                    <input type="email" placeholder="Email" id="email"></input>
+                    {/*mensaje de error*/}
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                  </div>
+
+                  <div class="field input-field">
+                    <input
+                      type="password"
+                      placeholder="Create password"
+                      id="password"
+                    ></input>
+                    <i class="bx bx-hide eye-icon"></i>
+                    {/*mensaje de error*/}
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                  </div>
+
+                  <div class="field input-field">
+                    <input
+                      type="password"
+                      placeholder="Re-enter password"
+                      id="password2"
+                    ></input>
+                    <i class="bx bx-hide eye-icon"></i>
+                    {/*mensaje de error*/}
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                  </div>
+
+                  <div class="field button-field">
+                    <button>Sign Up</button>
+                  </div>
+                </form>
+
+                <div class="form-link">
+                  <span>
+                    Already have an account?{" "}
+                    <a href="#" class="link login-link">
+                      Login
+                    </a>
+                  </span>
+                </div>
+              </div>
+
+              <div class="line"></div>
+
+              <div class="login-google">
+                <InicioG />
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <openform>
+      <button class="openbtn" onclick="openform()">Sign up</button>
+      </openform>
     </nav>
   );
 };

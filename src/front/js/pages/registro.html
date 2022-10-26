@@ -7,6 +7,9 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="/src/front/styles/nav.css" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- JavaScript -->
+    <script defer src="/src/front/js/component/Validation.js"></script>
+    <script src="/src/front/js/component/login.js"></script>
   </head>
 
   <body>
@@ -21,13 +24,17 @@
 
                 <!--Parte de Login-->
                   <header>Log In</header>
-                  <form action="#">
+                  <form id="form" action="#">
                       <div class="field input-field">
-                          <input type="email" placeholder="Email" class="input">
+                          <input type="email" placeholder="Email" id="email">
+                          <!--parte de error-->
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                       </div>
 
                       <div class="field input-field">
-                          <input type="password" placeholder="Password" class="password">
+                          <input type="password" placeholder="Password" id="password">
                           <i class='bx bx-hide eye-icon'></i>
                       </div>
 
@@ -50,30 +57,41 @@
               <div class="login-google">
                 <inicioG> inicioG /</inicioG>
               </div>
-
           </div>
 
           <!-- Parte de Signup-->
-
           <div class="form signup">
               <div class="form-content">
-                  <header>Sign Up</header>
-                  <form action="#">
+                  <header>Create Account</header>
+                  <form id="form" action="#">
                       <div class="field input-field">
-                          <input type="email" placeholder="Email" class="input">
+                          <input type="email" placeholder="Email" id="email">
+                          <!--mensaje de error-->
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <small>Error message</small>
                       </div>
 
                       <div class="field input-field">
-                          <input type="password" placeholder="Create password" class="password">
-                      </div>
-
-                      <div class="field input-field">
-                          <input type="password" placeholder="Confirm password" class="password">
+                          <input type="password" placeholder="Create password" id="password">
                           <i class='bx bx-hide eye-icon'></i>
+                          <!--mensaje de error-->
+                          <i class="fas fa-check-circle"></i>
+                          <i class="fas fa-exclamation-circle"></i>
+                          <small>Error message</small>
                       </div>
 
+                      <div class="field input-field">
+                          <input type="password" placeholder="Re-enter password" id="password2">   
+                          <i class='bx bx-hide eye-icon'></i>                       
+                          <!--mensaje de error-->
+                          <i class="fas fa-check-circle"></i>
+                          <i class="fas fa-exclamation-circle"></i>
+                          <small>Error message</small>
+                      </div>
+                        
                       <div class="field button-field">
-                          <button>Signup</button>
+                          <button>Sign Up</button>
                       </div>
                   </form>
 
@@ -89,9 +107,6 @@
             </div>
           </div>
         </section>
-
-        <!-- JavaScript -->
-        <script src="/src/front/js/component/login.js"></script>
       </div>
 
     </div>
