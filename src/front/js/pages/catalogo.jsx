@@ -10,11 +10,53 @@ import { Context } from "../store/appContext.jsx";
 
 export const Catalogo = () => {
   const { store, actions } = useContext(Context);
+  const [search, setSearch] = useState(null);
+
+  let user = store.catalogo;
+  let results = [];
+
+  if (!search) {
+    results = user;
+  } else {
+    results = user.filter(
+      (dato) =>
+        dato.name.toLowerCase().includes(search.toLowerCase()) ||
+        dato.description.toLowerCase().includes(search.toLowerCase())
+    );
+  }
+
+  const handleSearch = (e) => {
+    console.log("Ejecutando");
+    setSearch(e.target.value);
+    console.log(search);
+    console.log(results);
+  };
 
   return (
     <div className="container-fluid catalogo">
+      <div>
+        <div className="main position-absolute top-40 start-50 translate-middle-x">
+          <h1>Find the best spaces</h1>
+          <div>
+            <input
+              style={{ width: "24rem" }}
+              type="text"
+              id="header-search"
+              placeholder="Search spaces"
+              name=""
+              value={search}
+              onChange={handleSearch}
+            />
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div className="row row-cols-3 mt-20 container-fluid">
-        {store.catalogo.map((item, i) => {
+        {results.map((item, i) => {
           return (
             <ElementoCatalogo
               name={item.name}

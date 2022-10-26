@@ -8,11 +8,11 @@ export const ElementoCatalogo = ({ name, description, images, id }) => {
   return (
     <div>
       <div className="container">
-        <div className="card col-4 mt-30" style={{ width: "24rem" }}>
+        <div className="card col-lg mt-30 mb-30" style={{ height: "40rem" }}>
           <img
             src={images}
             className="card-img-top"
-            style={{ width: "24rem", height: "20rem" }}
+            style={{ width: "20rem", height: "20rem" }}
             alt="https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg"
           />
           <div className="card-body">
@@ -29,6 +29,8 @@ export const ElementoCatalogo = ({ name, description, images, id }) => {
             </div>
           </div>
         </div>
+        <br />
+        <br />
       </div>
     </div>
   );
