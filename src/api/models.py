@@ -31,32 +31,36 @@ class User(db.Model):
 #/////////////////////////////////////////////
 #             MODEL SPACES
 #/////////////////////////////////////////////
-# Spaces con sólo 3 campos para probar que funcione
-class Spaces(db.Model):
+class Spaces(db.Model):                                                                                                                                                                 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=False, nullable=False)
-    description = db.Column(db.String(200), unique=False, nullable=False)
+    location = db.Column(db.String(120), unique=False, nullable=False)
+    space_type = db.Column(db.String(120), unique=False, nullable=True)
+    description = db.Column(db.String(200), unique=False, nullable=True)
+    amenities = db.Column(db.String(200), unique=False, nullable=True)
+    price = db.Column(db.Integer, unique=False, nullable=False)
     images = db.Column(db.String (400), unique=False, nullable=True)
-
 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     reviews = db.relationship('Reviews', backref='spaces', lazy=True) 
     myspaces = db.relationship('Myspaces', backref='spaces', lazy=True) 
-    
-    
+
+
     def __repr__(self):
         return '<Spaces %r>' % self.id
-        
+
     def serialize(self):
         return {
             "id": self.id,
             "name": self.name,
+            "location": self.location,
+            "space_type": self.space_type,
             "description": self.description,
+            "amenities": self.amenities,
+            "price": self.price,
             "images": self.images,
-             }
-
-
+}
 
 
 #/////////////////////////////////////////////
@@ -166,3 +170,27 @@ class Myspaces(db.Model):
     
 
 
+# # Spaces con sólo 3 campos para probar que funcione
+# class Spaces(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(50), unique=False, nullable=False)
+#     description = db.Column(db.String(200), unique=False, nullable=False)
+#     images = db.Column(db.String (400), unique=False, nullable=True)
+
+
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+#     reviews = db.relationship('Reviews', backref='spaces', lazy=True) 
+#     myspaces = db.relationship('Myspaces', backref='spaces', lazy=True) 
+    
+    
+#     def __repr__(self):
+#         return '<Spaces %r>' % self.id
+        
+#     def serialize(self):
+#         return {
+#             "id": self.id,
+#             "name": self.name,
+#             "description": self.description,
+#             "images": self.images,
+#              }
