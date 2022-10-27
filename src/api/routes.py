@@ -41,9 +41,9 @@ def get_spaces():
 
     return jsonify(results), 200
 
-    @api.route('/api/detail/<int:spaces_id>', methods=['GET'])
-    def get_one_space(spaces_id):
-        Space = Spaces.query.filter_by(id='spaces_id').first()
+@api.route('/detail/<int:spaces_id>', methods=['GET'])
+def get_one_space(spaces_id):
+    space = Spaces.query.filter_by(id=spaces_id).first()
 
     # results = list(map(lambda item: item.serialize(),spaces))
     print(space.serialize())
@@ -52,6 +52,7 @@ def get_spaces():
     }
 
     return jsonify(response_body), 200
+        # return jsonify("ok"), 200
 
 
 # Create a route to authenticate your users and return JWTs. The
