@@ -1,5 +1,7 @@
 import "/workspace/The_Upffice_Final_Project_4GEEKS/src/front/styles/nav.css";
 
+
+{/*Esta Validacion es para crear la cuenta solamente*/}
 const form = document.getElementById('form');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
@@ -61,6 +63,47 @@ function setSuccessFor(input) {
 	
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+export const Validacion = () => {
+  return(
+    <div class="container">
+    <div class="header">
+      <h2>Create Account</h2>
+    </div>
+      <form id="form" class="form">
+        <div class="form-control">
+          <label for="username">Username</label>
+          <input type="text" placeholder="florinpop17" id="username" />
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small>Error message</small>
+        </div>
+      <div class="form-control">
+        <label for="username">Email</label>
+        <input type="email" placeholder="a@florin-pop.com" id="email" />
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+      </div>
+      <div class="form-control">
+        <label for="username">Password</label>
+        <input type="password" placeholder="Password" id="password"/>
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+      </div>
+      <div class="form-control">
+        <label for="username">Password check</label>
+        <input type="password" placeholder="Password two" id="password2"/>
+        <i class="fas fa-check-circle"></i>
+        <i class="fas fa-exclamation-circle"></i>
+        <small>Error message</small>
+      </div>
+      <button>Submit</button> {/*Hacer que este boton mande el registro */}
+    </form>
+  </div>
+  );
 }
 
 export {isEmail, setErrorFor, setSuccessFor, checkInputs}

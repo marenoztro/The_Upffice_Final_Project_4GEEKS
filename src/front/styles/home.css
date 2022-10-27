@@ -1,4 +1,4 @@
-/*
+/* 
     home.css: This website contains selectors only used in home.css
 
     All pages share the styles on index.css but you should create 
@@ -37,3 +37,11 @@
     background-color: #083c5d;
     color: #aaaaaa;
 } */
+
+.title-text {
+    font-family: "Roboto Slab", serif;
+}
+
+.body-text {
+    font-family: "Noto Sans", sans-serif;
+}
