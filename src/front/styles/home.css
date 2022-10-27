@@ -37,11 +37,31 @@
     background-color: #083c5d;
     color: #aaaaaa;
 } */
-
 .title-text {
     font-family: "Roboto Slab", serif;
 }
 
 .body-text {
     font-family: "Noto Sans", sans-serif;
+}
+
+.footer-color {
+    background-color: #a425e8;
+}
+
+.navbar {
+    background-color: #652cb3;
+}
+
+.nav-text {
+    color: #fbfbfb;
+}
+
+.btn-lg {
+    background-color: #a425e8;
+    color: #fbfbfb;
+}
+
+.card-group {
+    margin-top: 15%;
 }

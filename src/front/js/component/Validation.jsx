@@ -1,6 +1,5 @@
 import "/workspace/The_Upffice_Final_Project_4GEEKS/src/front/styles/nav.css";
 
-
 {/*Esta Validacion es para crear la cuenta solamente*/}
 const form = document.getElementById('form');
 const username = document.getElementById('username');
@@ -105,5 +104,3 @@ export const Validacion = () => {
   </div>
   );
 }
-
-export {isEmail, setErrorFor, setSuccessFor, checkInputs}

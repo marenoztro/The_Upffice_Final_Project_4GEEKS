@@ -35,19 +35,18 @@ def get_spaces():
 
     return jsonify(results), 200
 
-# # Ruta Get para Calificaciones
-@api.route('/calificaciones', methods=['GET'])
-def get_Reviews():
-    calificaciones= reviews.query.all()
+@api.route('/detail/<int:spaces_id>', methods=['GET'])
+def get_one_space(spaces_id):
+    space = Spaces.query.filter_by(id=spaces_id).first()
 
-    results = list(map(lambda item: item.serialize(),calificaciones))
-
+    # results = list(map(lambda item: item.serialize(),spaces))
+    print(space.serialize())
     response_body = {
-        "msg":"Todo creado con exito",
-        "results": results
+        "results": space.serialize(),
     }
 
     return jsonify(response_body), 200
+        # return jsonify("ok"), 200
 
 
 # Create a route to authenticate your users and return JWTs. The
@@ -133,3 +132,12 @@ def postingreview():
 
     return jsonify(response_body), 200
 
+@api.route('/reviews', methods=['GET'])
+def get_Reviews():
+    reviews = Reviews.query.all()
+    results = list(map(lambda item: item.serialize(), reviews))
+    response_body = {
+        "msg":"Todo creado con exito",
+        "results": results
+    }
+    return jsonify(results), 200

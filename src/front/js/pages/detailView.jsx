@@ -68,7 +68,7 @@ export const DetailSpace = () => {
             </div>
             <div className="carousel-item">
               <img
-                src="https://actiucdn.net/uploads/images/actualidad/descripciones/los-coworkings-en-la-era-de-la-flexibilidad-_782_651.jpg"
+                src={store.detailedSpace.images}
                 className="d-block w-100"
                 alt="..."
               />
@@ -117,7 +117,7 @@ export const DetailSpace = () => {
             {store.detailedSpace.description}
           </li>
           <li className="list-group-item">
-            <h3>Precio: $100</h3>
+            <h3>{store.detailedSpace.price}</h3>
           </li>
           <li className="list-group-item">
             <h3>Location</h3>
@@ -126,25 +126,18 @@ export const DetailSpace = () => {
           <li className="list-group-item">
             <h3>Amenidades</h3>
             <ul>
-              <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
+              <li>{store.detailedSpace.amenities}</li>
             </ul>
             <ul>
-              <li>Voluptas necessitatibus, dolorum</li>
+              <li>{store.detailedSpace.amenities}</li>
             </ul>
             <ul>
-              <li>
-                Tempora facilis error quam id, consequuntur et fugit tempore
-                nulla accusantium quidem praesentium ab eveniet excepturi harum
-                qui sunt.
-              </li>
+              <li>{store.detailedSpace.amenities}</li>
             </ul>
           </li>
           <li className="list-group-item">
-            {/* <h3>Reviews</h3> {item.reviews}
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero
-            saepe iste debitis error ratione quis soluta. Voluptate eos aliquam
-            dicta recusandae quidem necessitatibus animi cupiditate quae quas!
-            Neque, omnis eaque! */}
+            <h3>Reviews</h3>
+            <li>{store.detailedSpace.reviews}</li>
           </li>
           <li className="list-group-item"></li>
         </ul>
