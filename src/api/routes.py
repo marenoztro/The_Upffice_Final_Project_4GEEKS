@@ -41,6 +41,19 @@ def get_spaces():
 
     return jsonify(results), 200
 
+@api.route('/detail/<int:spaces_id>', methods=['GET'])
+def get_one_space(spaces_id):
+    space = Spaces.query.filter_by(id=spaces_id).first()
+
+    # results = list(map(lambda item: item.serialize(),spaces))
+    print(space.serialize())
+    response_body = {
+        "results": space.serialize(),
+    }
+
+    return jsonify(response_body), 200
+        # return jsonify("ok"), 200
+
 
 # Create a route to authenticate your users and return JWTs. The
 # create_access_token() function is used to actually generate the JWT.
