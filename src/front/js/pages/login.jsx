@@ -15,9 +15,9 @@ export const Login = () => {
     actions.login(email, password);
   };
 
-  const handleClick = () => {
-    setClick(true);
-  };
+  // const handleClick = () => {
+  //   setClick(true);
+  // };
 
   return (
     <div className="container-fluid">
@@ -57,7 +57,7 @@ export const Login = () => {
             <button
               type="submit"
               className="btn btn-warning"
-              onClick={handleClick}
+              // onClick={handleClick}
             >
               Log in
             </button>

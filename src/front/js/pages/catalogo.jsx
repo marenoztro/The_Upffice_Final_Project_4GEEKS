@@ -36,7 +36,9 @@ export const Catalogo = () => {
     <div className="container-fluid catalogo">
       <div>
         <div className="main position-absolute top-40 start-50 translate-middle-x">
-          <h1 className="title-text">Find the best spaces</h1>
+          <h1 className="title-text" style={{ color: "#652cb3" }}>
+            Find the best spaces
+          </h1>
           <div>
             <input
               style={{ width: "24rem" }}

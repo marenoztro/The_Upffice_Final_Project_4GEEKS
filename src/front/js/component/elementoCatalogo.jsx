@@ -12,7 +12,6 @@ export const ElementoCatalogo = ({ name, description, images, id }) => {
           <img
             src={images}
             className="card-img-top"
-            style={{ width: "25rem", height: "20rem" }}
             alt="https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg"
           />
           <div className="card-body">
@@ -22,11 +21,11 @@ export const ElementoCatalogo = ({ name, description, images, id }) => {
               {description}
             </div>
             <br />
-            <div className="d-flex justify-content-end align-self-baseline">
+            <div className="d-flex justify-content-end card-read-more">
               <Link
                 to={"/detail/" + id}
-                className="btn btn-primary btn-sm"
-                style={{ backgroundColor: "#A425E8" }}
+                className="btn btn-link btn-block"
+                style={{ backgroundColor: "#A425E8", color: "#fbfbfb" }}
               >
                 View Details
               </Link>
