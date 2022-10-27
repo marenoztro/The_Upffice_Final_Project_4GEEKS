@@ -82,13 +82,24 @@ def login():
 @api.route('/postspace', methods=['POST'])
 def postspace():
     name = request.json.get("name", None) 
+    location = request.json.get("location", None) 
+    space_type = request.json.get("space_type", None) 
     description = request.json.get("description", None) 
+    amenities = request.json.get("amenities", None) 
+    price = request.json.get("price", None) 
     image = request.json.get("image", None) 
-    # print(name, description, image)
+    print (
+        name,
+        location,
+        space_type,
+        description,
+        amenities,
+        price,
+        image) 
 
 
  ## ESTAS 3 LÍNEAS DE CODIGO SON RECOMENDADAS POR FLASK ALCHEMY PARA AGREGAR DATOS NUEVOS
-    post = Spaces(name=name, description=description, images=image)
+    post = Spaces(name=name, location=location, space_type=space_type, description=description, amenities=amenities, price=price, images=image)
     db.session.add(post)
     db.session.commit()
 
