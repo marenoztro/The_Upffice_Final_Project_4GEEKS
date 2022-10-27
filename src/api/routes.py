@@ -5,12 +5,6 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Spaces, Reviews, Myspaces
 from api.utils import generate_sitemap, APIException
 
-
-
-
-
-
-
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
@@ -40,6 +34,20 @@ def get_spaces():
     }
 
     return jsonify(results), 200
+
+# # Ruta Get para Calificaciones
+@api.route('/calificaciones', methods=['GET'])
+def get_Reviews():
+    calificaciones= reviews.query.all()
+
+    results = list(map(lambda item: item.serialize(),calificaciones))
+
+    response_body = {
+        "msg":"Todo creado con exito",
+        "results": results
+    }
+
+    return jsonify(response_body), 200
 
 
 # Create a route to authenticate your users and return JWTs. The
@@ -124,3 +132,4 @@ def postingreview():
     }
 
     return jsonify(response_body), 200
+
