@@ -137,3 +137,13 @@ def postingreview():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/reviews', methods=['GET'])
+def get_Reviews():
+    reviews = Reviews.query.all()
+    results = list(map(lambda item: item.serialize(), reviews))
+    response_body = {
+        "msg":"Todo creado con exito",
+        "results": results
+    }
+    return jsonify(response_body), 200

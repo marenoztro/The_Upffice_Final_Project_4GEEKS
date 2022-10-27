@@ -43,64 +43,83 @@ export const Home = () => {
             />
           </div>
         </div>
-        <hr />
-        <div className="card-group">
-          <div className="card">
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p className="card-text">
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </p>
+        <section class="wrapper">
+          <div class="container-fostrap">
+            <div>
+              <img src="" class="fostrap-logo" />
+              <h1 class="heading">Perks of using Upffice</h1>
+            </div>
+            <div class="content">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-4">
+                    <div class="card">
+                      <a class="img-card" href="">
+                        <img
+                          src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Endless_Possibilites_rhz19k.png"
+                          style={{ width: "16rem" }}
+                        />
+                      </a>
+                      <div class="card-content">
+                        <h4 class="body-text text-center card-title">
+                          Endless Possibilities
+                        </h4>
+                        <p class="">
+                          Tutorial to make a carousel bootstrap by adding more
+                          wonderful effect fadein ...
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-4">
+                    <div class="card">
+                      <a
+                        class="img-card"
+                        href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html"
+                      >
+                        <img
+                          src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Save_Your_Favorites_vo8zfy.png"
+                          style={{ width: "16rem" }}
+                        />
+                      </a>
+                      <div class="card-content">
+                        <h4 class="body-text text-center card-title">
+                          Material Design Responsive Menu
+                        </h4>
+                        <p class="">
+                          Material Design is a visual programming language made
+                          by Google. Language programming...
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-4">
+                    <div class="card">
+                      <a
+                        class="img-card"
+                        href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html"
+                      >
+                        <img
+                          src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Hi-Speed_Connection_nycna4.png"
+                          style={{ width: "18rem" }}
+                        />
+                      </a>
+                      <div class="card-content">
+                        <h4 class="body-text text-center card-title">
+                          Hi-Speed Connection Guaranteed
+                        </h4>
+                        <p class="">
+                          tutorials button hover animation, although very much a
+                          hover button is very beauti...
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="card">
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This card has supporting text below as a natural lead-in to
-                additional content.
-              </p>
-              <p className="card-text">
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-          <div className="card">
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
-              </p>
-              <p className="card-text">
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-          <div className="card">
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
-              </p>
-              <p className="card-text">
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-        </div>
+        </section>
       </div>
     </>
   );
