@@ -106,7 +106,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       //////////////////////////////////////////////////////////////////////////////////
 
       postspace: (name, description, image) => {
-        fetch(process.env.BACKEND_URL + "/api/postspace", {
+        fetch(process.env.BACKEND_URL + "api/postspace", {
           // ESTE ES EL LINK DE NUESTRA PLANTILLA BACKEND PARA EL ENDPOINT/RUTA DE login
           method: "POST", // COMO DESDE EL FRONT VAMOS A INSERTAR DATOS... EL MÉTODO ES POST
           body: JSON.stringify({
@@ -127,7 +127,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       traerCatalogo: () => {
-        fetch(process.env.BACKEND_URL + "/api/catalogo")
+        fetch(process.env.BACKEND_URL + "api/catalogo")
           .then((response) => response.json())
           .then((data) => setStore({ catalogo: data }));
       },

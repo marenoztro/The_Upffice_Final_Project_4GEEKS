@@ -37,3 +37,11 @@
     background-color: #083c5d;
     color: #aaaaaa;
 } */
+
+.title-text {
+    font-family: "Roboto Slab", serif;
+}
+
+.body-text {
+    font-family: "Noto Sans", sans-serif;
+}
