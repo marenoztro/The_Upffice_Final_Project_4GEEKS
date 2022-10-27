@@ -105,14 +105,26 @@ const getState = ({ getStore, getActions, setStore }) => {
       // OJO: AQUÍ HACEMOS LA FUNCIÓN onSubmit QUE REALIZA EL FETCH PARA HACER EL POST DEL ESPACIO EN RENTA
       //////////////////////////////////////////////////////////////////////////////////
 
-      postspace: (name, description, image) => {
-        fetch(process.env.BACKEND_URL + "api/postspace", {
+      postspace: (
+        name,
+        location,
+        space_type,
+        description,
+        amenities,
+        price,
+        image
+      ) => {
+        fetch(process.env.BACKEND_URL + "/api/postspace", {
           // ESTE ES EL LINK DE NUESTRA PLANTILLA BACKEND PARA EL ENDPOINT/RUTA DE login
           method: "POST", // COMO DESDE EL FRONT VAMOS A INSERTAR DATOS... EL MÉTODO ES POST
           body: JSON.stringify({
             //EL CUERPO QUE LE ENVIAMOS EN UN CUERPO JSON Y ES stringify PARA QUE LO PODAMOS ESCRIBIR EN TEXTO Y LUEGO SE GUARDE COMO json
             name: name,
+            location: location,
+            space_type: space_type,
             description: description,
+            amenities: amenities,
+            price: price,
             image: image,
           }),
           headers: {
