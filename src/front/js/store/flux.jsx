@@ -139,7 +139,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       traerCatalogo: () => {
-        fetch(process.env.BACKEND_URL + "api/catalogo")
+        fetch(process.env.BACKEND_URL + "/api/catalogo")
           .then((response) => response.json())
           .then((data) => setStore({ catalogo: data }));
       },

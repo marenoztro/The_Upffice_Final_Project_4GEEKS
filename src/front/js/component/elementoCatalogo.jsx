@@ -18,7 +18,7 @@ export const ElementoCatalogo = ({ name, description, images, id }) => {
           <div className="card-body">
             <p className="card-title display-6 body-text">{name}</p>
             <div className="card-text">
-              <h5 className="titulo-catalogo body-text">Descripción</h5>
+              <h5 className="titulo-catalogo body-text">Description</h5>
               {description}
             </div>
             <br />
@@ -28,7 +28,7 @@ export const ElementoCatalogo = ({ name, description, images, id }) => {
                 className="btn btn-primary btn-sm"
                 style={{ backgroundColor: "#A425E8" }}
               >
-                Ver detalles
+                View Details
               </Link>
             </div>
           </div>
