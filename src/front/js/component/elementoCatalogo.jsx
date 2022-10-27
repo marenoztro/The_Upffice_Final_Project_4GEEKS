@@ -7,7 +7,7 @@ export const ElementoCatalogo = ({ name, description, images, id }) => {
   return (
     <div>
       <div className="container">
-        <div className="card col-4 mt-30" style={{ width: "24rem" }}>
+        <div className="card col-lg mt-30" style={{ width: "24rem" }}>
           <img
             src={images}
             className="card-img-top"

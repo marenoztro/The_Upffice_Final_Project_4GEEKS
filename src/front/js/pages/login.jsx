@@ -6,12 +6,17 @@ import "../../styles/home.css";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [login, setLogin] = useState("");
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     actions.login(email, password);
+  };
+
+  const handleClick = () => {
+    setClick(true);
   };
 
   return (
@@ -49,7 +54,11 @@ export const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-warning">
+            <button
+              type="submit"
+              className="btn btn-warning"
+              onClick={handleClick}
+            >
               Log in
             </button>
           </form>

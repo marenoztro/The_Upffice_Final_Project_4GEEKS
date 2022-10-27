@@ -13,9 +13,14 @@ export const Navbar = () => {
     }
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <img
+          src="https://res.cloudinary.com/marenoztro/image/upload/v1666820926/theUpffice/Logo_U_solo_para_Navbar_a5ah0t.png"
+          style={{ width: "5rem" }}
+          className="mx-auto d-block"
+        />
+        <a className="nav-text navbar-brand" href="#">
           The Upffice
         </a>
         <button
@@ -33,12 +38,16 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a
+                className=" nav-text nav-link active"
+                aria-current="page"
+                href="#"
+              >
                 Home
               </a>
             </li>
 
-            <li className="nav-item dropdown">
+            <li className="nav-text nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
@@ -95,7 +104,7 @@ export const Navbar = () => {
             </div>
           </form>
 
-          <li className="nav-item">
+          <li className="nav-text nav-item">
             <a className="btn btn-primary" href="#" role="button">
               Sign In
             </a>
@@ -104,7 +113,7 @@ export const Navbar = () => {
       </div>
       <Link to="/login">
         {store.auth ? (
-          <button className="btn btn-primary" onClick={handleLogout}>
+          <button className="nav-text btn btn-primary" onClick={handleLogout}>
             Log out
           </button>
         ) : null}
