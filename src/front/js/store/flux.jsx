@@ -18,6 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       postedspace: {},
       catalogo: [],
       detailedSpace: {},
+      mySpaces: [],
+      wishlist: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -142,6 +144,110 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch(process.env.BACKEND_URL + "/api/catalogo")
           .then((response) => response.json())
           .then((data) => setStore({ catalogo: data }));
+      },
+
+      // ////////////////////////////////////////////////////////////////////////////////
+      // OJO: AQUÍ HACEMOS LA FUNCIÓN FETCH PARA TRAER MYSPACES
+      // ////////////////////////////////////////////////////////////////////////////////
+
+      getMySpaces: () => {
+        // argumento se utiliza especificar los datos que se necesitan traer
+        fetch(process.env.BACKEND_URL + "/api/myprofile/myspaces/")
+          .then((response) => response.json())
+          .then((data) => setStore({ catalogo: data }));
+      },
+
+      //////////////////////////////////////////////////////////////////////////////////
+      // OJO: AQUÍ HACEMOS LA FUNCIÓN FETCH PARA TRAER MYSPACES
+      //////////////////////////////////////////////////////////////////////////////////
+
+      getMySpaces: (user_id) => {
+        // argumento se utiliza especificar los datos que se necesitan traer
+        fetch(process.env.BACKEND_URL + "/api/myprofile/myspaces/" + id, {
+          //DUDA: ESTE ID sería el de USUARIO o el del ESPACIO RESERVADO???
+          method: "GET",
+          // headers: {
+          //   'Content-Type': 'application/json',
+          //   Authorization: 'Bearer' +token
+          // }
+        })
+          .then((response) => response.json()) // transformar el contenido en un json
+          .then(
+            (data) => console.log(data)
+            // .then((data) =>
+            //   setStore({
+            //     perfil: data, // result porque esta en la api
+            //   })
+          );
+      },
+
+      ////////////////////////////////////////////////////////////////////////////////
+      // OJO: AQUÍ HACEMOS LA FUNCIÓN FETCH PARA LAS VISTAS PROTEGIDAS POR MI PERFIL
+      ////////////////////////////////////////////////////////////////////////////////
+      getProfile: () => {
+        let token = localStorage.getItem("token");
+        // argumento se utiliza especificar los datos que se necesitan traer
+        fetch(process.env.BACKEND_URL + "/api/myprofile", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        })
+          .then((response) => {
+            return response.json();
+          }) // transformar el contenido en un json
+          .then((data) => {
+            setStore({ perfil: data });
+            var id = data.id;
+            getActions().getMySpaces(data.id);
+          });
+      },
+
+      postreview: (message) => {
+        fetch(process.env.BACKEND_URL + "/api/postreview", {
+          // ESTE ES EL LINK DE NUESTRA PLANTILLA BACKEND PARA EL ENDPOINT/RUTA DE login
+          method: "POST", // COMO DESDE EL FRONT VAMOS A INSERTAR DATOS... EL MÉTODO ES POST
+          body: JSON.stringify({
+            //EL CUERPO QUE LE ENVIAMOS EN UN CUERPO JSON Y ES stringify PARA QUE LO PODAMOS ESCRIBIR EN TEXTO Y LUEGO SE GUARDE COMO json
+            message: message,
+          }),
+          headers: {
+            "Content-Type": "application/json", //EN EL HEADER, QUE DEBEMOS INCLUIR POR RIGOR, ES Content-Type application/json PORQUE ESTAMOS ENVIANDO UN CUERPO JSON EN EL FETCH
+          },
+        })
+          .then((response) => {
+            //ENTRA EL PRIMER THEN
+            if (response.status === 200) return response.json(); //  Y POR LO TANTO PODEMOS CONVERTIR LA RESPUESTA A UN json
+          })
+          .then((data) => console.log(data));
+      },
+
+      //////////////////////////////////////////////////////////////////////////////////
+      // OJO: AQUÍ HACEMOS LA FUNCIÓN PARA AGREGAR AL WISHLIST
+      //////////////////////////////////////////////////////////////////////////////////
+      addWishlist: (param) => {
+        const store = getStore();
+        if (store.favorites.includes(param)) {
+          console.log("YA LO AGREGASTE COMO WISHLIST");
+        } else {
+          setStore({
+            favorites: [...store.wishlist, param],
+          });
+        }
+      },
+
+      //////////////////////////////////////////////////////////////////////////////////
+      // OJO: AQUÍ HACEMOS LA FUNCIÓN PARA ELIMINAR DEL WISHLIST
+      //////////////////////////////////////////////////////////////////////////////////
+      deleteWishlist: (itemToDelete) => {
+        const store = getStore();
+        const newFavorites = store.favorites.filter(
+          (item) => item !== itemToDelete
+        );
+        setStore({
+          wishlist: newFavorites,
+        });
       },
 
       changeColor: (index, color) => {

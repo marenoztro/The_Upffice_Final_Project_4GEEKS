@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export const Footer = () => {
   return (
     <>
-      <footer className="footer-color text-center text-white">
+      <footer className=" footer-fixed footer-color text-center text-white">
         {/* <!-- Grid container --> */}
         <div className="container p-4 pb-0">
           {/* <!-- Section: Social media --> */}

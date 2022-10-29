@@ -22,6 +22,7 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
+            "myspaces": list(map(lambda item: item.serialize2(), self.myspaces))
             # do not serialize the password, its a security breach
         }
 
@@ -96,16 +97,24 @@ class Myspaces(db.Model):
     space_id = db.Column(db.Integer, db.ForeignKey('spaces.id'))
     
 
+    
+
     def __repr__(self):
-        return '<User %r>' % self.id
+        return '<Myspaces %r>' % self.id
 
     def serialize(self):
         return {
             "user_id": self.user_id,
             "space_id": self.space_id,
+            # "myspaces": list(map(lambda item: item.serialize(), self.myspaces))
              }
 
+    def serialize2(self):
+       spacex = Spaces.query.filter_by(id=self.space_id).first()
 
+       return {
+            "space": spacex.serialize(),
+             }
 
 
 

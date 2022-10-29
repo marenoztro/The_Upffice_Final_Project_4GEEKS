@@ -37,8 +37,8 @@ export const Home = () => {
           <div className="col-sm-4 mr-auto">
             <img
               src="https://ichef.bbci.co.uk/news/976/cpsprodpb/722C/production/_121782292_gettyimages-1220634080.jpg"
-              className="rounded float-start"
-              style={{ width: "58rem" }}
+              className="rounded float-start img-fixed"
+              // style={{ width: "58rem" }}
               alt="..."
             />
           </div>
