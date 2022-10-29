@@ -147,3 +147,54 @@ def get_Reviews():
         "results": results
     }
     return jsonify(response_body), 200
+
+
+    # #///////////////////////////////////////////////////////////////////////////////////////
+# # AQUÍ VIENE EL Endpoint PARA MY PROFILE
+# #///////////////////////////////////////////////////////////////////////////////////////
+@api.route('/myprofile', methods=['GET'])
+def get_myprofile():
+
+    return jsonify('SI FUNCIONA MY PROFILE :D'), 200
+
+
+
+
+# #///////////////////////////////////////////////////////////////////////////////////////
+# # AQUÍ VIENE EL Endpoint PARA MYSPACES DENTRO DE MYPROFILE
+# #///////////////////////////////////////////////////////////////////////////////////////
+@api.route('/myprofile/myspaces/<int:user_id>', methods=['GET'])
+def get_myspaces(user_id):
+    myspaces = Spaces.query.filter_by(id=user_id).first()
+
+    print(myspaces.serialize())
+
+
+    response_body = {
+        "results": myspaces.serialize(),
+    }
+
+    # return jsonify('SI FUNCIONA MYSPACES DENTRO DE MY PROFILE :D'), 200
+
+    return jsonify(response_body), 200
+
+
+
+
+# #///////////////////////////////////////////////////////////////////////////////////////
+# # AQUÍ VIENE EL Endpoint PARA MYREVIEWS DENTRO DE MYPROFILE
+# #///////////////////////////////////////////////////////////////////////////////////////
+@api.route('/myprofile/myreviews/<int:user_id>', methods=['GET'])
+def get_myreviews(user_id):
+    myreviews = Reviews.query.filter_by(id=user_id).first()
+
+    print(myreviews.serialize())
+
+
+    response_body = {
+        "results": myreviews.serialize(),
+    }
+
+    # return jsonify('SI FUNCIONA MYREVIEWWWS DENTRO DE MY PROFILE :D'), 200
+
+    return jsonify(response_body), 200

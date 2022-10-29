@@ -24,20 +24,15 @@ export const Home = () => {
             </div>
             <br />
             <div className="text-center">
-              <button
-                type="button"
-                className="btn-lg btn"
-                data-bs-toggle="button"
-                autocomplete="off"
-              >
+              <Link to="/catalogo" className="btn-lg btn">
                 Looking for spaces?
-              </button>
+              </Link>
             </div>
           </div>
           <div className="col-sm-4 mr-auto">
             <img
               src="https://ichef.bbci.co.uk/news/976/cpsprodpb/722C/production/_121782292_gettyimages-1220634080.jpg"
-              className="rounded float-start"
+              className="rounded float-start img-fixed"
               style={{ width: "58rem" }}
               alt="..."
             />
@@ -65,52 +60,46 @@ export const Home = () => {
                           Endless Possibilities
                         </h4>
                         <p class="">
-                          Tutorial to make a carousel bootstrap by adding more
-                          wonderful effect fadein ...
+                          You can choose the spaces that inspire you to do the
+                          best work.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-xs-12 col-sm-4">
-                    <div class="card">
-                      <a
-                        class="img-card"
-                        href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html"
-                      >
+                  <div className="col-xs-12 col-sm-4">
+                    <div className="card">
+                      <a className="img-card" href="">
                         <img
                           src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Save_Your_Favorites_vo8zfy.png"
                           style={{ width: "16rem" }}
                         />
                       </a>
-                      <div class="card-content">
-                        <h4 class="body-text text-center card-title">
-                          Material Design Responsive Menu
+                      <div className="card-content">
+                        <h4 className="body-text text-center card-title">
+                          Save your Favorite Spaces
                         </h4>
-                        <p class="">
-                          Material Design is a visual programming language made
-                          by Google. Language programming...
+                        <p className="">
+                          Become a frequent guest at the most pleasing
+                          workspaces for you
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-xs-12 col-sm-4">
-                    <div class="card">
-                      <a
-                        class="img-card"
-                        href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html"
-                      >
+                  <div className="col-xs-12 col-sm-4">
+                    <div className="card">
+                      <a className="img-card" href="/">
                         <img
                           src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Hi-Speed_Connection_nycna4.png"
                           style={{ width: "18rem" }}
                         />
                       </a>
-                      <div class="card-content">
-                        <h4 class="body-text text-center card-title">
-                          Hi-Speed Connection Guaranteed
+                      <div className="card-content">
+                        <h4 className="body-text text-center card-title">
+                          Hi-Speed Connection
                         </h4>
-                        <p class="">
-                          tutorials button hover animation, although very much a
-                          hover button is very beauti...
+                        <p className="">
+                          All of spaces offer a high-speed connection, with over
+                          500mbps fibre broadband
                         </p>
                       </div>
                     </div>
@@ -121,6 +110,12 @@ export const Home = () => {
           </div>
         </section>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };

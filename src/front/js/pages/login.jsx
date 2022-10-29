@@ -6,7 +6,7 @@ import "../../styles/home.css";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [login, setLogin] = useState("");
+  // const [login, setLogin] = useState("");
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
@@ -15,9 +15,9 @@ export const Login = () => {
     actions.login(email, password);
   };
 
-  const handleClick = () => {
-    setClick(true);
-  };
+  // const handleClick = () => {
+  //   setClick(true);
+  // };
 
   return (
     <div className="container-fluid">
@@ -56,8 +56,8 @@ export const Login = () => {
             </div>
             <button
               type="submit"
-              className="btn btn-warning"
-              onClick={handleClick}
+              className="btn"
+              // onClick={handleClick}
             >
               Log in
             </button>
