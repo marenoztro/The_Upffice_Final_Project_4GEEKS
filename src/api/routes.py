@@ -138,63 +138,47 @@ def postingreview():
 
     return jsonify(response_body), 200
 
-@api.route('/reviews', methods=['GET'])
-def get_Reviews():
-    reviews = Reviews.query.all()
-    results = list(map(lambda item: item.serialize(), reviews))
-    response_body = {
-        "msg":"Todo creado con exito",
-        "results": results
-    }
-    return jsonify(response_body), 200
 
 
-    # #///////////////////////////////////////////////////////////////////////////////////////
-# # AQUÍ VIENE EL Endpoint PARA MY PROFILE
+
+# @swag_from('./docs/auth/register.yaml')
 # #///////////////////////////////////////////////////////////////////////////////////////
-@api.route('/myprofile', methods=['GET'])
-def get_myprofile():
-
-    return jsonify('SI FUNCIONA MY PROFILE :D'), 200
-
-
-
-
+# # AQUÍ VIENE EL Endpoint PARA REGISTRARSE
 # #///////////////////////////////////////////////////////////////////////////////////////
-# # AQUÍ VIENE EL Endpoint PARA MYSPACES DENTRO DE MYPROFILE
-# #///////////////////////////////////////////////////////////////////////////////////////
-@api.route('/myprofile/myspaces/<int:user_id>', methods=['GET'])
-def get_myspaces(user_id):
-    myspaces = Spaces.query.filter_by(id=user_id).first()
+@api.route('/register', methods=['POST'])
+def register():
+    username = request.json['username']
+    email = request.json['email']
+    password = request.json['password']
 
-    print(myspaces.serialize())
+    if len(password) < 6:
+        return jsonify({'error': "Password is too short"}), HTTP_400_BAD_REQUEST
 
+    if len(username) < 3:
+        return jsonify({'error': "User is too short"}), HTTP_400_BAD_REQUEST
 
-    response_body = {
-        "results": myspaces.serialize(),
-    }
+    if not username.isalnum() or " " in username:
+        return jsonify({'error': "Username should be alphanumeric, also no spaces"}), HTTP_400_BAD_REQUEST
 
-    # return jsonify('SI FUNCIONA MYSPACES DENTRO DE MY PROFILE :D'), 200
+    if not validators.email(email):
+        return jsonify({'error': "Email is not valid"}), HTTP_400_BAD_REQUEST
 
-    return jsonify(response_body), 200
+    if User.query.filter_by(email=email).first() is not None:
+        return jsonify({'error': "Email is taken"}), HTTP_409_CONFLICT
 
+    if User.query.filter_by(username=username).first() is not None:
+        return jsonify({'error': "username is taken"}), HTTP_409_CONFLICT
 
+    pwd_hash = generate_password_hash(password)
 
+    user = User(username=username, password=pwd_hash, email=email)
+    db.session.add(user)
+    db.session.commit()
 
-# #///////////////////////////////////////////////////////////////////////////////////////
-# # AQUÍ VIENE EL Endpoint PARA MYREVIEWS DENTRO DE MYPROFILE
-# #///////////////////////////////////////////////////////////////////////////////////////
-@api.route('/myprofile/myreviews/<int:user_id>', methods=['GET'])
-def get_myreviews(user_id):
-    myreviews = Reviews.query.filter_by(id=user_id).first()
+    return jsonify({
+        'message': "User created",
+        'user': {
+            'username': username, "email": email
+        }
 
-    print(myreviews.serialize())
-
-
-    response_body = {
-        "results": myreviews.serialize(),
-    }
-
-    # return jsonify('SI FUNCIONA MYREVIEWWWS DENTRO DE MY PROFILE :D'), 200
-
-    return jsonify(response_body), 200
+    }), HTTP_201_CREATED
