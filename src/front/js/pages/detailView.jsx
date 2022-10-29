@@ -15,133 +15,78 @@ export const DetailSpace = () => {
 
   return (
     <>
-      <div className="container-fluid">
-        <div
-          id="carouselExampleDark"
-          className="carousel carousel-dark slide"
-          data-bs-ride="carousel"
-        >
-          <div className="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleDark"
-              data-bs-slide-to="0"
-              className="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleDark"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleDark"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
-          <div className="carousel-inner">
-            <div className="carousel-item active" data-bs-interval="10000">
-              <img
-                src={store.detailedSpace.images}
-                className="d-block w-100"
-                alt="..."
-              />
-              <div className="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>
-                  Some representative placeholder content for the first slide.
-                </p>
-              </div>
-            </div>
-            <div className="carousel-item" data-bs-interval="2000">
-              <img src="..." className="d-block w-100" alt="..." />
-              <div className="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>
-                  Some representative placeholder content for the second slide.
-                </p>
-              </div>
-            </div>
-            <div className="carousel-item">
-              <img
-                src={store.detailedSpace.images}
-                className="d-block w-100"
-                alt="..."
-              />
-              <div className="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>
-                  Some representative placeholder content for the third slide.
-                </p>
-              </div>
-            </div>
-          </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide="prev"
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
       <div>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">
-            <h3> Name </h3>
-            {store.detailedSpace.name}
+          <li
+            className="list-group-item d-flex rounded"
+            style={{ margin: "20px 12% 20px 12%", background: "#DCDCDC" }}
+          >
+            <h1 className="display-5">
+              {" "}
+              <strong>{store.detailedSpace.name}</strong> @{" "}
+              {store.detailedSpace.location}
+            </h1>
+            <p style={{ padding: "10px 10px 10px 10px" }}>⭐⭐⭐⭐</p>
           </li>
-          <li className="list-group-item">
-            <h3>Description</h3>
+          <div
+            className="container rounded w-100"
+            style={{ marginTop: "1rem", background: "#a425e8" }}
+          >
+            <img
+              src={store.detailedSpace.images}
+              className="w-100"
+              alt="..."
+              style={{ padding: "35px 35px 35px 35px" }}
+            />
+          </div>
+          <li
+            className="list-group-item rounded "
+            style={{ background: "#DCDCDC", margin: "10px 12% 10px 12%" }}
+          >
+            <h3 className="display-6">
+              <u>
+                <strong>Description</strong>
+              </u>
+            </h3>
             {store.detailedSpace.description}
           </li>
           {console.log(store.detailedSpace.description)}
-          <li className="list-group-item">
-            <h3> Price </h3>
-            {store.detailedSpace.price}
+          <li
+            className="list-group-item border border-dark rounded"
+            style={{ margin: "10px 12% 10px 12%" }}
+          >
+            <h3 className="display-6">
+              {" "}
+              <u>
+                <strong>Price</strong>{" "}
+              </u>
+            </h3>
+            <p>USD ${store.detailedSpace.price}</p>
           </li>
-          <li className="list-group-item">
-            <h3>Location</h3>
-            {store.detailedSpace.location}
-          </li>
-          <li className="list-group-item">
-            <h3>Amenidades</h3>
+          <li
+            className="list-group-item rounded"
+            style={{ background: "#DCDCDC", margin: "10px 12% 10px 12%" }}
+          >
+            <h3 className="display-6">
+              <u>
+                <strong>Amenidades</strong>
+              </u>
+            </h3>
             <ul>
               <li>{store.detailedSpace.amenities}</li>
             </ul>
-            <ul>
-              <li>{store.detailedSpace.amenities}</li>
-            </ul>
-            <ul>
-              <li>{store.detailedSpace.amenities}</li>
-            </ul>
           </li>
-          <li className="list-group-item">
-            <h3>Reviews</h3>
+          <li
+            className="list-group-item rounded border border-dark"
+            style={{ margin: "10px 12% 10px 12%" }}
+          >
+            <h3 className="display-6">
+              <u>
+                <strong>Reviews</strong>
+              </u>
+            </h3>
             <li>{store.detailedSpace.reviews}</li>
           </li>
-          <li className="list-group-item"></li>
         </ul>
       </div>
       <div className="text-center">

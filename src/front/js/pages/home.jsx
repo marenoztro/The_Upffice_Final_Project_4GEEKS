@@ -38,28 +38,28 @@ export const Home = () => {
             />
           </div>
         </div>
-        <section class="wrapper">
-          <div class="container-fostrap">
+        <section className="wrapper">
+          <div className="container-fostrap">
             <div>
-              <img src="" class="fostrap-logo" />
-              <h1 class="heading">Perks of using Upffice</h1>
+              <img src="" className="fostrap-logo" />
+              <h1 className="heading">Perks of using Upffice</h1>
             </div>
-            <div class="content">
-              <div class="container">
-                <div class="row">
-                  <div class="col-xs-12 col-sm-4">
-                    <div class="card">
-                      <a class="img-card" href="">
+            <div className="content">
+              <div className="container">
+                <div className="row">
+                  <div className="col-xs-12 col-sm-4">
+                    <div className="card">
+                      <a className="img-card" href="">
                         <img
                           src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Endless_Possibilites_rhz19k.png"
                           style={{ width: "16rem" }}
                         />
                       </a>
-                      <div class="card-content">
-                        <h4 class="body-text text-center card-title">
+                      <div className="card-content">
+                        <h4 className="body-text text-center card-title">
                           Endless Possibilities
                         </h4>
-                        <p class="">
+                        <p className="">
                           You can choose the spaces that inspire you to do the
                           best work.
                         </p>

@@ -65,6 +65,9 @@ export const Postspace = (props) => {
       image
     ); // *I-M-P-O-R-T-A-N-T-E* > AQUÍ, EN LA FUNCIÓN handleSubmit.... LLAMAMOS A LA FUNCIÓN postspace *LA QUE HACE EL FETCH* QUE ESTÁ EN actions (DENTRO DEL FLUX ... Y COMO PARTE DEL CONTEXTO QUE ESTAMOS CONSUMIENDO)... ¿PAAAARA QUÉ?.... PARA ENVIARLE COMO ARGUMENTO LOS VALORES.... Y QUE SUCEDA LA MAGIA!!!
   };
+  const handleClick = () => {
+    alert("Congratulations! You posted your space correctly 🥳😁👍");
+  };
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // A CONTINUACIÓN VEMOS EL RETURN QUE ES EL JSX QUE NOS MUESTRA LO QUE RENDERIZARÁ
@@ -167,7 +170,7 @@ export const Postspace = (props) => {
         onChange={uploadImage}
       />
 
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary" onClick={handleClick}>
         Submit
       </button>
     </form>

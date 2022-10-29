@@ -10,7 +10,7 @@ import { Context } from "../store/appContext.jsx";
 
 export const Catalogo = () => {
   const { store, actions } = useContext(Context);
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState("");
 
   let user = store.catalogo;
   let results = [];
