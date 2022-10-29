@@ -18,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       postedspace: {},
       catalogo: [],
       detailedSpace: {},
+      mySpaces: {},
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -61,6 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           auth: false,
         });
       },
+
       getProfile: () => {
         let token = localStorage.getItem("token");
         fetch(
@@ -97,6 +99,17 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) =>
             setStore({
               detailedSpace: data.results, // result porque esta en la api
+            })
+          );
+      },
+
+      getMySpaces: (id) => {
+        // argumento se utiliza especificar los datos que se necesitan traer
+        fetch(process.env.BACKEND_URL + "/api/myprofile/myspaces/" + id)
+          .then((response) => response.json()) // transformar el contenido en un json
+          .then((data) =>
+            setStore({
+              mySpaces: data.results, // result porque esta en la api
             })
           );
       },

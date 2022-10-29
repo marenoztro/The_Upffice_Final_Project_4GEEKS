@@ -62,6 +62,7 @@ export const Catalogo = () => {
               name={item.name}
               description={item.description}
               images={item.images}
+              price={item.price}
               key={item.id}
               id={item.id}
             />

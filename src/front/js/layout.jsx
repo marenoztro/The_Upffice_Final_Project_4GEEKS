@@ -7,6 +7,7 @@ import { Login } from "./pages/login.jsx";
 import { DetailSpace } from "./pages/detailView.jsx";
 import { Demo } from "./pages/demo.jsx";
 import { Single } from "./pages/single.jsx";
+import { MySpaces } from "./pages/myspaces.jsx";
 import { Catalogo } from "./pages/catalogo.jsx";
 import { Postspace } from "./pages/postspace.jsx";
 import { Postreview } from "./pages/postreview.jsx";
@@ -22,7 +23,7 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
   const { store, actions } = useContext(Context);
 
-  const protectedRoute = (route) => (!store.auth ? "" : route);
+  const protectedRoute = (route) => (store.auth ? "" : route);
 
   return (
     <div>
@@ -42,6 +43,11 @@ const Layout = () => {
 
             <Route element={<DetailSpace />} exact path="/detail/:theid" />
             <Route element={<Catalogo />} path="/catalogo" />
+            <Route
+              element={<MySpaces />}
+              exact
+              path="/myprofile/myspaces/:theid"
+            />
 
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>You need to login first!</h1>} path="*" />

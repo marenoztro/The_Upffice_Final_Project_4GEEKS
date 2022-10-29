@@ -19,19 +19,18 @@ export const Searchbar = () => {
 
   return (
     <div>
-      <div className="main position-absolute top-40 start-50 translate-middle-x">
-        <h1>Find the best spaces</h1>
-        <div>
-          <input
-            style={{ width: "24rem" }}
-            type="text"
-            id="header-search"
-            placeholder="Search spaces"
-            name="s"
-            value={search}
-            onChange={handleSearch}
-          />
-        </div>
+      <h1>Find the best spaces</h1>
+      <div class="search-box">
+        <button class="btn-search">
+          <i class="fas fa-search"></i>
+        </button>
+        <input
+          type="text"
+          className="input-search"
+          placeholder="Type to Search..."
+          value={search}
+          onChange={handleSearch}
+        />
       </div>
     </div>
   );
