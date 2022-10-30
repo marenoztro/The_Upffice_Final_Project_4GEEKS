@@ -63,33 +63,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           auth: false,
         });
       },
-      getProfile: () => {
-        let token = localStorage.getItem("token");
-        fetch(
-          "https://3000-purple-sawfish-rn2q66p2peu.ws-eu67.gitpod.io/profile",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + token,
-            },
-          }
-        )
-          .then((response) => {
-            // if (response.status === 200) {
-            //     setStore({
-            //         auth: true
-            //     })
-            // }
-            return response.json();
-          })
-          .then((data) =>
-            setStore({
-              perfil: data,
-            })
-          );
-        // .then((data) => localStorage.setItem("token", data.access_token))
-      },
 
       /////////funcion para traer los detalles de los espacios
       getDetailedSpace: (id) => {
@@ -163,7 +136,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       getMySpaces: (user_id) => {
         // argumento se utiliza especificar los datos que se necesitan traer
-        fetch(process.env.BACKEND_URL + "/api/myprofile/myspaces/" + id, {
+        fetch(process.env.BACKEND_URL + "/api/myprofile/myspaces/" + user_id, {
           //DUDA: ESTE ID sería el de USUARIO o el del ESPACIO RESERVADO???
           method: "GET",
           // headers: {
@@ -172,12 +145,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           // }
         })
           .then((response) => response.json()) // transformar el contenido en un json
-          .then(
-            (data) => console.log(data)
-            // .then((data) =>
-            //   setStore({
-            //     perfil: data, // result porque esta en la api
-            //   })
+          .then((data) =>
+            setStore({
+              mySpaces: data.results, // results porque esta en la api
+            })
           );
       },
 
@@ -199,7 +170,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           }) // transformar el contenido en un json
           .then((data) => {
             setStore({ perfil: data });
-            var id = data.id;
             getActions().getMySpaces(data.id);
           });
       },

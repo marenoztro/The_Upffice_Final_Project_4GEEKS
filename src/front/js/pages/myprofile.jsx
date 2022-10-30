@@ -17,7 +17,7 @@ export const Myprofile = () => {
     console.log(store.mySpaces.location);
   }, []);
 
-  console.log(store.perfil);
+  console.log(store.mySpaces);
 
   return (
     <div style={{ marginBlockStart: "70 px" }}>
