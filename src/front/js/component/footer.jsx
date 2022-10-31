@@ -3,7 +3,11 @@ import React, { Component } from "react";
 export const Footer = () => {
   return (
     <>
+<<<<<<< HEAD
       <footer className=" footer-fixed footer-color text-center text-white">
+=======
+      <footer className="footer-fixed footer-color text-center text-white">
+>>>>>>> 7dcad37dd4c875984435ea29fd3094092de63ab3
         {/* <!-- Grid container --> */}
         <div className="container p-4 pb-0">
           {/* <!-- Section: Social media --> */}

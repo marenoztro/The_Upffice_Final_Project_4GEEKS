@@ -116,8 +116,10 @@ export const DetailSpace = () => {
             <h3>Description</h3>
             {store.detailedSpace.description}
           </li>
+          {console.log(store.detailedSpace.description)}
           <li className="list-group-item">
-            <h3>{store.detailedSpace.price}</h3>
+            <h3> Price </h3>
+            {store.detailedSpace.price}
           </li>
           <li className="list-group-item">
             <h3>Location</h3>
@@ -143,8 +145,14 @@ export const DetailSpace = () => {
         </ul>
       </div>
       <div className="text-center">
-        <Link to="/catalogo" className="btn btn-warning">
+        <Link to="/catalogo" className="btn">
           Go back
+        </Link>
+        <Link to="/" className="btn">
+          Make a reservation!
+        </Link>
+        <Link to="/postreview" className="btn">
+          Post a Review
         </Link>
       </div>
     </>

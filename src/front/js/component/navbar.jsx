@@ -15,11 +15,13 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
-        <img
-          src="https://res.cloudinary.com/marenoztro/image/upload/v1666820926/theUpffice/Logo_U_solo_para_Navbar_a5ah0t.png"
-          style={{ width: "5rem" }}
-          className="mx-auto d-block"
-        />
+        <Link to="/">
+          <img
+            src="https://res.cloudinary.com/marenoztro/image/upload/v1666820926/theUpffice/Logo_U_solo_para_Navbar_a5ah0t.png"
+            style={{ width: "5rem" }}
+            className="mx-auto d-block"
+          />
+        </Link>
         <a className="nav-text navbar-brand" href="#">
           The Upffice
         </a>
@@ -37,27 +39,7 @@ export const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a
-                className=" nav-text nav-link active"
-                aria-current="page"
-                href="#"
-              >
-                Home
-              </a>
-            </li>
-
             <li className="nav-text nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Recursos
-              </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
                   <a className="dropdown-item" href="#">
@@ -105,15 +87,15 @@ export const Navbar = () => {
           </form>
 
           <li className="nav-text nav-item">
-            <a className="btn btn-primary" href="#" role="button">
+            <Link to="/login" className="btn sign">
               Sign In
-            </a>
+            </Link>
           </li>
         </div>
       </div>
       <Link to="/login">
         {store.auth ? (
-          <button className="nav-text btn btn-primary" onClick={handleLogout}>
+          <button className="nav-text btn" onClick={handleLogout}>
             Log out
           </button>
         ) : null}

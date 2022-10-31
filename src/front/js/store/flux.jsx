@@ -20,6 +20,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       detailedSpace: {},
       mySpaces: [],
       wishlist: [],
+      mySpaces: {},
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -64,6 +65,34 @@ const getState = ({ getStore, getActions, setStore }) => {
         });
       },
 
+      getProfile: () => {
+        let token = localStorage.getItem("token");
+        fetch(
+          "https://3000-purple-sawfish-rn2q66p2peu.ws-eu67.gitpod.io/profile",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+            },
+          }
+        )
+          .then((response) => {
+            // if (response.status === 200) {
+            //     setStore({
+            //         auth: true
+            //     })
+            // }
+            return response.json();
+          })
+          .then((data) =>
+            setStore({
+              perfil: data,
+            })
+          );
+        // .then((data) => localStorage.setItem("token", data.access_token))
+      },
+
       /////////funcion para traer los detalles de los espacios
       getDetailedSpace: (id) => {
         // argumento se utiliza especificar los datos que se necesitan traer
@@ -72,6 +101,17 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) =>
             setStore({
               detailedSpace: data.results, // result porque esta en la api
+            })
+          );
+      },
+
+      getMySpaces: (id) => {
+        // argumento se utiliza especificar los datos que se necesitan traer
+        fetch(process.env.BACKEND_URL + "/api/myprofile/myspaces/" + id)
+          .then((response) => response.json()) // transformar el contenido en un json
+          .then((data) =>
+            setStore({
+              mySpaces: data.results, // result porque esta en la api
             })
           );
       },

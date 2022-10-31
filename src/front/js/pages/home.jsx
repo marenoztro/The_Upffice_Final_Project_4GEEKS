@@ -24,84 +24,98 @@ export const Home = () => {
             </div>
             <br />
             <div className="text-center">
-              <button
-                type="button"
-                className="btn-lg btn"
-                data-bs-toggle="button"
-                autocomplete="off"
-              >
+              <Link to="/catalogo" className="btn-lg btn">
                 Looking for spaces?
-              </button>
+              </Link>
             </div>
           </div>
           <div className="col-sm-4 mr-auto">
             <img
               src="https://ichef.bbci.co.uk/news/976/cpsprodpb/722C/production/_121782292_gettyimages-1220634080.jpg"
               className="rounded float-start img-fixed"
-              // style={{ width: "58rem" }}
+              style={{ width: "58rem" }}
               alt="..."
             />
           </div>
         </div>
-        <hr />
-        <div className="card-group">
-          <div className="card">
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p className="card-text">
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </p>
+        <section class="wrapper">
+          <div class="container-fostrap">
+            <div>
+              <img src="" class="fostrap-logo" />
+              <h1 class="heading">Perks of using Upffice</h1>
+            </div>
+            <div class="content">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-4">
+                    <div class="card">
+                      <a class="img-card" href="">
+                        <img
+                          src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Endless_Possibilites_rhz19k.png"
+                          style={{ width: "16rem" }}
+                        />
+                      </a>
+                      <div class="card-content">
+                        <h4 class="body-text text-center card-title">
+                          Endless Possibilities
+                        </h4>
+                        <p class="">
+                          You can choose the spaces that inspire you to do the
+                          best work.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-xs-12 col-sm-4">
+                    <div className="card">
+                      <a className="img-card" href="">
+                        <img
+                          src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Save_Your_Favorites_vo8zfy.png"
+                          style={{ width: "16rem" }}
+                        />
+                      </a>
+                      <div className="card-content">
+                        <h4 className="body-text text-center card-title">
+                          Save your Favorite Spaces
+                        </h4>
+                        <p className="">
+                          Become a frequent guest at the most pleasing
+                          workspaces for you
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-xs-12 col-sm-4">
+                    <div className="card">
+                      <a className="img-card" href="/">
+                        <img
+                          src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Hi-Speed_Connection_nycna4.png"
+                          style={{ width: "18rem" }}
+                        />
+                      </a>
+                      <div className="card-content">
+                        <h4 className="body-text text-center card-title">
+                          Hi-Speed Connection
+                        </h4>
+                        <p className="">
+                          All of spaces offer a high-speed connection, with over
+                          500mbps fibre broadband
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="card">
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This card has supporting text below as a natural lead-in to
-                additional content.
-              </p>
-              <p className="card-text">
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-          <div className="card">
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
-              </p>
-              <p className="card-text">
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-          <div className="card">
-            <img src="..." className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
-              </p>
-              <p className="card-text">
-                <small className="text-muted">Last updated 3 mins ago</small>
-              </p>
-            </div>
-          </div>
-        </div>
+        </section>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 import "../../styles/home.css";
 
@@ -34,9 +34,12 @@ export const Postreview = () => {
           </label>
         </div>
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn">
         Submit your review
       </button>
+      <Link to="/" className="btn">
+        Go home
+      </Link>
     </form>
   );
 };
