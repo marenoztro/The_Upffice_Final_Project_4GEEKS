@@ -46,11 +46,11 @@ const Layout = () => {
 
             <Route element={<DetailSpace />} exact path="/detail/:theid" />
             <Route element={<Catalogo />} path="/catalogo" />
-            <Route
+            {/* <Route
               element={<MySpaces />}
               exact
               path="/myprofile/myspaces/:theid"
-            />
+            /> */}
 
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>You need to login first!</h1>} path="*" />
