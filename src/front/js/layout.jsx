@@ -3,7 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { Context } from "./store/appContext.jsx";
 import { Home } from "./pages/home.jsx";
+import { Faq } from "./pages/faq.jsx";
 import { Login } from "./pages/login.jsx";
+import { Signup } from "./pages/signup.jsx";
 import { DetailSpace } from "./pages/detailView.jsx";
 import { Demo } from "./pages/demo.jsx";
 import { Single } from "./pages/single.jsx";
@@ -32,8 +34,10 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route element={<Home />} path="/" />
+            <Route element={<Faq />} path="/faq" />
             <Route element={<Demo />} path="/demo" />
             <Route element={<Login />} path="/login" />
+            <Route element={<Signup />} path="/signup" />
             {protectedRoute(
               <Route element={<Postspace />} path="/postspace" />
             )}

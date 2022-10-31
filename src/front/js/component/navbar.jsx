@@ -22,10 +22,12 @@ export const Navbar = () => {
             className="mx-auto d-block"
           />
         </Link>
-        <a className="nav-text navbar-brand" href="#">
-          The Upffice
-        </a>
-        <button
+        <Link to="/">
+          <h2>
+            The Upffice
+          </h2>
+          </Link>
+        {/* <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -35,9 +37,10 @@ export const Navbar = () => {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
-        </button>
+        </button> */}
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-text nav-item dropdown">
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -81,16 +84,35 @@ export const Navbar = () => {
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 role="combobox"
-                // value=""
               ></input>
             </div>
           </form>
 
-          <li className="nav-text nav-item">
-            <Link to="/login" className="btn sign">
-              Sign In
-            </Link>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <svg
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 448 512"
+                style={{ width: "2rem" }}>
+                <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 
+                256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 
+                17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+              </svg>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link to="/login" className="btn sign">
+                Log In
+              </Link>
+              <Link to="/signup" className="btn sign">
+                Sign Up
+              </Link>
+              <div class="dropdown-divider"></div>
+              <Link to="/faq" className="btn sign">
+                Help
+              </Link>
+            </div>
           </li>
+
         </div>
       </div>
       <Link to="/login">

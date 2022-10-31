@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 import "../../styles/home.css";
+import Google from "/workspace/The_Upffice_Final_Project_4GEEKS/src/front/js/component/googlein.js";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -61,6 +62,10 @@ export const Login = () => {
             >
               Log in
             </button>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Google/>
           </form>
         )}
       </div>
