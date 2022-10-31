@@ -82,10 +82,23 @@ export const DetailSpace = () => {
           >
             <h3 className="display-6">
               <u>
+                <strong>Space Type</strong>
+              </u>
+            </h3>
+            <p>{store.detailedSpace.space_type}</p>
+          </li>
+          <li
+            className="list-group-item rounded"
+            style={{ background: "#DCDCDC", margin: "10px 12% 10px 12%" }}
+          >
+            <h3 className="display-6">
+              <u>
                 <strong>Reviews</strong>
               </u>
             </h3>
-            <li>{store.detailedSpace.reviews}</li>
+            <ul>
+              <li>{store.detailedSpace.reviews}</li>
+            </ul>
           </li>
         </ul>
       </div>
