@@ -89,7 +89,7 @@ export const Navbar = () => {
           </form>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <svg
                 xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 448 512"
@@ -101,14 +101,20 @@ export const Navbar = () => {
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <Link to="/login" className="btn sign">
-                Log In
+                <li className="dropdown-item" >
+                  Log In  
+                </li>
               </Link>
               <Link to="/signup" className="btn sign">
-                Sign Up
+                <li className="dropdown-item" >
+                  Sign Up  
+                </li>
               </Link>
               <div class="dropdown-divider"></div>
-              <Link to="/faq" className="btn sign">
-                Help
+              <Link to="/faq">
+                <a className="dropdown-item">
+                  Help
+                </a>
               </Link>
             </div>
           </li>
@@ -118,7 +124,7 @@ export const Navbar = () => {
       <Link to="/login">
         {store.auth ? (
           <button className="nav-text btn" onClick={handleLogout}>
-            Log out
+            Log In
           </button>
         ) : null}
       </Link>

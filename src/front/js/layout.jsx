@@ -13,6 +13,9 @@ import { MySpaces } from "./pages/myspaces.jsx";
 import { Catalogo } from "./pages/catalogo.jsx";
 import { Postspace } from "./pages/postspace.jsx";
 import { Postreview } from "./pages/postreview.jsx";
+import { Myprofile } from "./pages/myprofile.jsx";
+import { Myspaces } from "./pages/myspaces.jsx";
+import { Wishlist } from "./pages/wishlist.jsx";
 import injectContext from "./store/appContext.jsx";
 
 import { Navbar } from "./component/navbar.jsx";
@@ -25,7 +28,7 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
   const { store, actions } = useContext(Context);
 
-  const protectedRoute = (route) => (store.auth ? "" : route);
+  const protectedRoute = (route) => (!store.auth ? "" : route);
 
   return (
     <div>
@@ -39,7 +42,7 @@ const Layout = () => {
             <Route element={<Login />} path="/login" />
             <Route element={<Signup />} path="/signup" />
             {protectedRoute(
-              <Route element={<Postspace />} path="/postspace" />
+              <Route element={<Postspace />} path="/postspaces" />
             )}
             {protectedRoute(
               <Route element={<Postreview />} path="/postreview" />
@@ -47,14 +50,11 @@ const Layout = () => {
 
             <Route element={<DetailSpace />} exact path="/detail/:theid" />
             <Route element={<Catalogo />} path="/catalogo" />
-            <Route
-              element={<MySpaces />}
-              exact
-              path="/myprofile/myspaces/:theid"
-            />
-
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>You need to login first!</h1>} path="*" />
+            <Route element={<Myprofile />} path="/myprofile" />
+            <Route element={<Myspaces />} path="/myprofile/myspaces" />
+            <Route element={<Wishlist />} path="/myprofile/wishlist" />
           </Routes>
           <Footer />
         </ScrollToTop>
