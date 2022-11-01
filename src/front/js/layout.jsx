@@ -42,7 +42,7 @@ const Layout = () => {
               <Route element={<Postspace />} path="/postspaces" />
             )}
             {protectedRoute(
-              <Route element={<Postreview />} path="/postreview" />
+              <Route element={<Postreview />} path="/postreview/:theid" />
             )}
 
             <Route element={<DetailSpace />} exact path="/detail/:theid" />

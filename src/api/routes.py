@@ -286,29 +286,36 @@ def get_myreviews(user_id):
 
 
 
-# # #///////////////////////////////////////////////////////////////////////////////////////
-# # # AQUÍ VIENE EL Endpoint PARA POSTEAR UN REVIEW
-# # #///////////////////////////////////////////////////////////////////////////////////////
 
 
-# @api.route('/getreview', methods=['GET'])
-# @jwt_required()
-# def postingreview():
-#     message = request.json.get("message", None) 
-#     # user_id = request.json.get("user_id", None) 
-#     space_id = request.json.get("space_id", None) 
-#     user_id = get_jwt_identity()
-   
+@api.route("/reviews/all/<int:user_id>", methods=['GET'])
+def get_all_user_review(user_id):
+    reviews = Reviews.query.filter_by(user_id=user_id).all()
 
-#     print(message, user_id, space_id)
+    results = list(map(lambda item: item.serialize(),reviews))
+    print(results)
+    response_body = {
 
-#     post = Reviews(message=message,user_id=user_id,space_id=space_id)
-#     db.session.add(post)
-#     db.session.commit()
+        "user_id": results[0]["user_id"],
+        "reviews": results,
+    }
 
-#     response_body = {
+    return jsonify(response_body), 200
+    # return jsonify("ok"), 200
 
-#         "message": "Has posteado tu Review :D!"
-#     }
-
-#     return jsonify(response_body), 200
+@api.route("/valid-token", methods=["GET"])
+@jwt_required()
+def valid_token():
+    # Access the identity of the current user with get_jwt_identity
+    current_user = get_jwt_identity()
+    user = User.query.filter_by(email=current_user).first()
+    # Same as login, if the query brings nothing then it doesn't exist
+    if user is None:
+        return jsonify({"status":False}), 404
+    # If user is correct then it shows the user's info
+    response_body = {
+        "status": True,
+        "user": user.serialize()
+        
+    }
+    return jsonify(response_body), 200

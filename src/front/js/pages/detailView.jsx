@@ -119,7 +119,7 @@ export const DetailSpace = () => {
         <button className="btn btn-md" onClick={addReservation}>
           Make a reservation!
         </button>
-        <Link to="/postreview" className="btn">
+        <Link to={"/postreview/" + params.theid} className="btn">
           Post a Review
         </Link>
       </div>
