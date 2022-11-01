@@ -77,14 +77,22 @@ class Reviews(db.Model):
     
 
     def __repr__(self):
-        return '<User %r>' % self.id
+        return '<Reviews %r>' % self.id
 
     def serialize(self):
         return {
-            "id": self.id,
-            "message": self.message
+            "message": self.message,
+            "user_id": self.user_id,
+            "space_id": self.space_id,
+            # "myreview": list(map(lambda item: item.serialize(), self.myreview))
              }
 
+    def serialize2(self):
+       reviewx = Reviews.query.filter_by(id=self.id).first()
+
+       return {
+            "review": reviewx.serialize(),
+             }
 
 
 

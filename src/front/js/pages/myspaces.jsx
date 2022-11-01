@@ -23,7 +23,6 @@ export const Myspaces = () => {
   return (
     <div style={{ marginBlockStart: "70 px" }}>
       <h1 className="title-text p-2 ml-5">My Spaces</h1>
-
       <div
         className="d-flex justify-content-start p-2 ml-5 bg-light border"
         sytle={{ ml: "5000px" }}
@@ -47,18 +46,22 @@ export const Myspaces = () => {
         className=" row row-cols-3 mt-20 d-flex justify-content-start p-2 ml-5 bg-light border"
         sytle={{ ml: "5000px" }}
       >
-        {store.mySpaces.map((item, i) => {
-          return (
-            <ElementoCatalogo
-              name={item.space.name}
-              description={item.space.description}
-              images={item.space.images}
-              price={item.space.price}
-              key={item.space.id}
-              id={item.space.id}
-            />
-          );
-        })}
+        {store.mySpaces.length > 0 ? (
+          store.mySpaces.map((item, i) => {
+            return (
+              <ElementoCatalogo
+                name={item.space.name}
+                description={item.space.description}
+                images={item.space.images}
+                price={item.space.price}
+                key={item.space.id}
+                id={item.space.id}
+              />
+            );
+          })
+        ) : (
+          <p>You don't have any spaces yet</p>
+        )}
       </div>
     </div>
   );

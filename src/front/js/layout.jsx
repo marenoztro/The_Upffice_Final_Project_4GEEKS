@@ -13,6 +13,7 @@ import { Postspace } from "./pages/postspace.jsx";
 import { Postreview } from "./pages/postreview.jsx";
 import { Myprofile } from "./pages/myprofile.jsx";
 import { Myspaces } from "./pages/myspaces.jsx";
+import { Myreviews } from "./pages/myreviews.jsx";
 import { Wishlist } from "./pages/wishlist.jsx";
 import injectContext from "./store/appContext.jsx";
 
@@ -50,6 +51,7 @@ const Layout = () => {
             <Route element={<h1>You need to login first!</h1>} path="*" />
             <Route element={<Myprofile />} path="/myprofile" />
             <Route element={<Myspaces />} path="/myprofile/myspaces" />
+            <Route element={<Myspaces />} path="/myprofile/myreviews" />
             <Route element={<Wishlist />} path="/myprofile/wishlist" />
           </Routes>
           <Footer />
