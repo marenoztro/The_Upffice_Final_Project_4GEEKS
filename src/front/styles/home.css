@@ -25,6 +25,10 @@ body {
     margin-top: 3%;
 }
 
+.vh-75 {
+    height: 75vh;
+}
+
 .wrapper {
     display: table;
     height: 100%;
@@ -169,18 +173,23 @@ h1.heading {
     margin-top: 15%;
 }
 
-.footer-fixed {
+/* .footer-fixed {
     position: fixed;
     margin-top: 2000px;
     left: 0;
     bottom: -18mm;
     width: 100%;
     text-align: center;
-}
+} */
 
 .img-fixed {
     /* width: 153%; */
     width: 1305px;
     height: 700px;
     object-fit: cover;
+}
+
+.cardfixed {
+    max-width: 580px;
+    margin: auto;
 }

@@ -21,7 +21,7 @@ export const Myprofile = () => {
   console.log(store.mySpaces);
 
   return (
-    <div style={{ marginBlockStart: "70 px" }}>
+    <div className="vh-75" style={{ marginBlockStart: "70 px" }}>
       <h1 className="title-text p-2 ml-5">My Profile</h1>
 
       <div
@@ -36,7 +36,10 @@ export const Myprofile = () => {
             {/* <div className="btn-md btn">My Spaces</div> */}
           </div>
           <div className="col">
-            <div className="btn-md btn">My Reviews</div>
+            <Link to="/myprofile/myreviews" className="btn-md btn">
+              My Reviews
+            </Link>
+            {/* <div className="btn-md btn">My Reviews</div> */}
           </div>
           {/* <div className="col">
             <div className="btn-md btn">Wishlist</div>

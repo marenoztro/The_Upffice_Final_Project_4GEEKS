@@ -46,22 +46,18 @@ export const Myspaces = () => {
         className=" row row-cols-3 mt-20 d-flex justify-content-start p-2 ml-5 bg-light border"
         sytle={{ ml: "5000px" }}
       >
-        {store.mySpaces.length > 0 ? (
-          store.mySpaces.map((item, i) => {
-            return (
-              <ElementoCatalogo
-                name={item.space.name}
-                description={item.space.description}
-                images={item.space.images}
-                price={item.space.price}
-                key={item.space.id}
-                id={item.space.id}
-              />
-            );
-          })
-        ) : (
-          <p>You don't have any spaces yet</p>
-        )}
+        {store.mySpaces.length > 0 ? store.mySpaces.map((item, i) => {
+          return (
+            <ElementoCatalogo
+              name={item.space.name}
+              description={item.space.description}
+              images={item.space.images}
+              price={item.space.price}
+              key={item.space.id}
+              id={item.space.id}
+            />
+          );
+        }) : <p>You don't have any spaces yet</p>}
       </div>
     </div>
   );
