@@ -36,7 +36,10 @@ export const Myprofile = () => {
             {/* <div className="btn-md btn">My Spaces</div> */}
           </div>
           <div className="col">
-            <div className="btn-md btn">My Reviews</div>
+            <Link to="/myprofile/myreviews" className="btn-md btn">
+              My Reviews
+            </Link>
+            {/* <div className="btn-md btn">My Reviews</div> */}
           </div>
           {/* <div className="col">
             <div className="btn-md btn">Wishlist</div>

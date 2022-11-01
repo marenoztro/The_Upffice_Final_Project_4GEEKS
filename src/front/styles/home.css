@@ -24,8 +24,9 @@ body {
     justify-content: space-between;
     margin-top: 3%;
 }
-.vh-75{
-    height:75vh;
+
+.vh-75 {
+    height: 75vh;
 }
 
 .wrapper {
@@ -186,4 +187,9 @@ h1.heading {
     width: 1305px;
     height: 700px;
     object-fit: cover;
+}
+
+.cardfixed {
+    max-width: 580px;
+    margin: auto;
 }

@@ -264,21 +264,23 @@ def post_my_spaces():
   # return jsonify('SI FUNCIONA MYSPACES DENTRO DE MY PROFILE :D'), 200
 
 # #///////////////////////////////////////////////////////////////////////////////////////
-# # AQUÍ VIENE EL Endpoint PARA MYREVIEWS DENTRO DE MYPROFILE
-# #///////////////////////////////////////////////////////////////////////////////////////
+# # AQUÍ VIENE EL Endpoint PARA MYREVIEWS DENTRO DE MYPROFILE DE UN USUARIO EN ESPECÍFICO
+# #//////////////////////////////////////////////////////////////////////////////////////
+    
 @api.route('/myprofile/myreviews/<int:user_id>', methods=['GET'])
 def get_myreviews(user_id):
-    myreviews = Reviews.query.filter_by(id=user_id).first()
-
-    print(myreviews.serialize())
-   
+    myreviews = User.query.filter_by(id=user_id).first()
+    myreviews2 = Reviews.query.filter_by(user_id=user_id).all()
+    
+    results= list(map(lambda item: item.serialize2(),myreviews2))
+    # print(myreviews)
+    print(results)
+    # print(myspaces.serialize())
    
     response_body = {
-        "results": myreviews.serialize(),
+    #    'message': 'OK'
+        "results": results,
     }
-   
-    # return jsonify('SI FUNCIONA MYREVIEWWWS DENTRO DE MY PROFILE :D'), 200
-
     return jsonify(response_body), 200
 
 

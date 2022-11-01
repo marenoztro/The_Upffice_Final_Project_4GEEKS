@@ -22,7 +22,7 @@ export const Myreviews = () => {
 
   return (
     <div style={{ marginBlockStart: "70 px" }}>
-      <h1 className="title-text p-2 ml-5">My Spaces</h1>
+      <h1 className="title-text p-2 ml-5">My Reviews</h1>
 
       <div
         className="d-flex justify-content-start p-2 ml-5 bg-light border"
@@ -44,7 +44,7 @@ export const Myreviews = () => {
         </div>
       </div>
       <div
-        className=" row row-cols-3 mt-20 d-flex justify-content-start p-2 ml-5 bg-light border"
+        className=" row row-cols-3  d-flex justify-content-start  ml-5 bg-light border"
         sytle={{ ml: "5000px" }}
       >
         {store.mySpaces.map((item, i) => {
@@ -57,8 +57,19 @@ export const Myreviews = () => {
               key={item.space.id}
               id={item.space.id}
             />
+
           );
         })}
+      </div>
+      <div
+        className=" row row-cols-3  d-flex justify-content-start  ml-5 bg-light border cardfixed"
+        sytle={{ ml: "5000px" }}
+      >
+        <div className="card col-lg mb-30" style={{ width: "2 rem" }}> <h4 className="title-text ml-5"> Your Reviews</h4>
+          <ul>
+            {store.reviews.length > 0 ? store.reviews.map((item) => <li>{item.message}</li>) : <p>There's no reviews yet</p>}
+          </ul>
+        </div>
       </div>
     </div>
   );
