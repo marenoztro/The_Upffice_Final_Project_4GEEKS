@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 import "../../styles/home.css";
+import { gapi } from "gapi-script";
 import Google from "/workspace/The_Upffice_Final_Project_4GEEKS/src/front/js/component/googlein.js";
 
 export const Login = () => {
@@ -10,11 +11,23 @@ export const Login = () => {
   // const [login, setLogin] = useState("");
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
-
+  const clientId = "901008478480-h6t3u5tkvjr8eujmkvu9us9jgcfirroc.apps.googleusercontent.com";
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     actions.login(email, password);
   };
+
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientID: clientId,
+        scope: ""
+      })
+    };
+
+    gapi.load('client:auth2', start);
+  });
 
   // const handleClick = () => {
   //   setClick(true);
@@ -65,7 +78,8 @@ export const Login = () => {
             <br></br>
             <br></br>
             <br></br>
-            <Google/>
+            <Google />
+
           </form>
         )}
       </div>
