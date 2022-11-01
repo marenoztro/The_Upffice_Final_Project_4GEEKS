@@ -27,6 +27,11 @@ export const Home = () => {
               <Link to="/catalogo" className="btn-lg btn">
                 Looking for spaces?
               </Link>
+              {store.auth ? (
+                <Link to="/postspaces" className="btn-lg btn">
+                  Want to post spaces?
+                </Link>
+              ) : null}
             </div>
           </div>
           <div className="col-sm-4 mr-auto">

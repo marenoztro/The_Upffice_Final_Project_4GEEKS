@@ -44,11 +44,14 @@ def get_spaces():
 @api.route('/detail/<int:spaces_id>', methods=['GET'])
 def get_one_space(spaces_id):
     space = Spaces.query.filter_by(id=spaces_id).first()
+    reviews_query = Reviews.query.filter_by(space_id=spaces_id)
+    reviews = list(map(lambda item: item.serialize(), reviews_query))
 
     # results = list(map(lambda item: item.serialize(),spaces))
     print(space.serialize())
     response_body = {
         "results": space.serialize(),
+        "reviews": reviews,
     }
 
     return jsonify(response_body), 200
@@ -120,11 +123,14 @@ def postspace():
 
 
 @api.route('/postreview', methods=['POST'])
+@jwt_required()
 def postingreview():
     message = request.json.get("message", None) 
     user_id = request.json.get("user_id", None) 
     space_id = request.json.get("space_id", None) 
-    
+    # user_id = get_jwt_identity()
+   
+
     print(message, user_id, space_id)
 
     post = Reviews(message=message,user_id=user_id,space_id=space_id)
@@ -182,3 +188,98 @@ def register():
         }
 
     }), HTTP_201_CREATED
+
+
+
+
+
+
+
+# #///////////////////////////////////////////////////////////////////////////////////////
+# # AQUÍ VIENE EL Endpoint PARA MY PROFILE
+# # #///////////////////////////////////////////////////////////////////////////////////////
+
+@api.route("/myprofile", methods=["GET"])
+@jwt_required()
+def protected():
+    # Access the identity of the current user with get_jwt_identity
+    current_user = get_jwt_identity()
+    user = User.query.filter_by(email=current_user).first()
+
+    if current_user != user.email:
+        return jsonify({"msg":"No existes en la app"}), 401
+   
+    return jsonify(user.serialize()), 200
+
+
+# #///////////////////////////////////////////////////////////////////////////////////////
+# # AQUÍ VIENE EL Endpoint PARA MYSPACES DENTRO DE MYPROFILE
+# #///////////////////////////////////////////////////////////////////////////////////////
+@api.route('/myprofile/myspaces/<int:user_id>', methods=['GET'])
+def get_myspaces(user_id):
+    myspaces = User.query.filter_by(id=user_id).first()
+    myspaces2 = Myspaces.query.filter_by(user_id=user_id).all()
+    
+    results= list(map(lambda item: item.serialize2(),myspaces2))
+    # print(myspaces)
+    print(results)
+    # print(myspaces.serialize())
+   
+    response_body = {
+    #    'message': 'OK'
+        "results": results,
+    }
+   
+
+    return jsonify(response_body), 200
+
+
+  # return jsonify('SI FUNCIONA MYSPACES DENTRO DE MY PROFILE :D'), 200
+
+# #///////////////////////////////////////////////////////////////////////////////////////
+# # AQUÍ VIENE EL Endpoint PARA MYREVIEWS DENTRO DE MYPROFILE
+# #///////////////////////////////////////////////////////////////////////////////////////
+@api.route('/myprofile/myreviews/<int:user_id>', methods=['GET'])
+def get_myreviews(user_id):
+    myreviews = Reviews.query.filter_by(id=user_id).first()
+
+    print(myreviews.serialize())
+   
+   
+    response_body = {
+        "results": myreviews.serialize(),
+    }
+   
+    # return jsonify('SI FUNCIONA MYREVIEWWWS DENTRO DE MY PROFILE :D'), 200
+
+    return jsonify(response_body), 200
+
+
+
+
+# # #///////////////////////////////////////////////////////////////////////////////////////
+# # # AQUÍ VIENE EL Endpoint PARA POSTEAR UN REVIEW
+# # #///////////////////////////////////////////////////////////////////////////////////////
+
+
+# @api.route('/getreview', methods=['GET'])
+# @jwt_required()
+# def postingreview():
+#     message = request.json.get("message", None) 
+#     # user_id = request.json.get("user_id", None) 
+#     space_id = request.json.get("space_id", None) 
+#     user_id = get_jwt_identity()
+   
+
+#     print(message, user_id, space_id)
+
+#     post = Reviews(message=message,user_id=user_id,space_id=space_id)
+#     db.session.add(post)
+#     db.session.commit()
+
+#     response_body = {
+
+#         "message": "Has posteado tu Review :D!"
+#     }
+
+#     return jsonify(response_body), 200

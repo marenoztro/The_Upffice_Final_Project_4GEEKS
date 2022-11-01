@@ -18,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       postedspace: {},
       catalogo: [],
       detailedSpace: {},
+      reviews: [],
       mySpaces: {},
     },
     actions: {
@@ -27,12 +28,12 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       loadSomeData: () => {
         /**
-                                                                        	fetch().then().then(data => setStore({ "foo": data.bar }))
+                                                                          fetch().then().then(data => setStore({ "foo": data.bar }))
                                                                         */
       },
       login: (email, password) => {
         /**
-                                                                        	fetch().then().then(data => setStore({ "foo": data.bar }))
+                                                                          fetch().then().then(data => setStore({ "foo": data.bar }))
                                                                         */
         fetch(process.env.BACKEND_URL + "/api/login", {
           method: "POST",
@@ -98,7 +99,19 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((response) => response.json()) // transformar el contenido en un json
           .then((data) =>
             setStore({
-              detailedSpace: data.results, // result porque esta en la api
+              detailedSpace: data.results,
+              // result porque esta en la api
+            })
+          );
+      },
+      getReview: (id) => {
+        // argumento se utiliza especificar los datos que se necesitan traer
+        fetch(process.env.BACKEND_URL + "/api/detail/" + id)
+          .then((response) => response.json()) // transformar el contenido en un json
+          .then((data) =>
+            setStore({
+              reviews: data.reviews,
+              // result porque esta en la api
             })
           );
       },

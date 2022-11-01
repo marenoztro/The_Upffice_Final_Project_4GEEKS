@@ -23,7 +23,7 @@ const Layout = () => {
   const basename = process.env.BASENAME || "";
   const { store, actions } = useContext(Context);
 
-  const protectedRoute = (route) => (store.auth ? "" : route);
+  const protectedRoute = (route) => (!store.auth ? "" : route);
 
   return (
     <div>
@@ -35,7 +35,7 @@ const Layout = () => {
             <Route element={<Demo />} path="/demo" />
             <Route element={<Login />} path="/login" />
             {protectedRoute(
-              <Route element={<Postspace />} path="/postspace" />
+              <Route element={<Postspace />} path="/postspaces" />
             )}
             {protectedRoute(
               <Route element={<Postreview />} path="/postreview" />
