@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 import "../../styles/home.css";
@@ -62,9 +62,16 @@ export const Postspace = (props) => {
       description,
       amenities,
       price,
-      image
+      image,
+      store.perfil.id
     ); // *I-M-P-O-R-T-A-N-T-E* > AQUÍ, EN LA FUNCIÓN handleSubmit.... LLAMAMOS A LA FUNCIÓN postspace *LA QUE HACE EL FETCH* QUE ESTÁ EN actions (DENTRO DEL FLUX ... Y COMO PARTE DEL CONTEXTO QUE ESTAMOS CONSUMIENDO)... ¿PAAAARA QUÉ?.... PARA ENVIARLE COMO ARGUMENTO LOS VALORES.... Y QUE SUCEDA LA MAGIA!!!
   };
+
+  console.log(store.perfil)
+  useEffect(() => {
+    // actions.getMySpaces(params.theid);
+    actions.getProfile();
+  }, []);
 
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,7 +80,7 @@ export const Postspace = (props) => {
 
   return (
     <form
-      className="w-50 mx-auto"
+      className="w-50 mx-auto vh-75"
       onSubmit={handleSubmit}
     // onSubmit={() => actions.postspace(name, description, image)}
     >

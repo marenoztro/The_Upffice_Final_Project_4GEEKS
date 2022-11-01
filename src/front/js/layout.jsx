@@ -47,7 +47,7 @@ const Layout = () => {
             <Route element={<DetailSpace />} exact path="/detail/:theid" />
             <Route element={<Catalogo />} path="/catalogo" />
             <Route element={<Single />} path="/single/:theid" />
-            <Route element={<h1>You need to login first!</h1>} path="*" />
+            <Route element={<div className="vh-75"><h1>You need to login first!</h1></div>} path="*" />
             <Route element={<Myprofile />} path="/myprofile" />
             <Route element={<Myspaces />} path="/myprofile/myspaces" />
             <Route element={<Wishlist />} path="/myprofile/wishlist" />

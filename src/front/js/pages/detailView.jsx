@@ -1,17 +1,27 @@
 import React, { Component } from "react";
 import { Context } from "../store/appContext.jsx";
 import { useContext, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 export const DetailSpace = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+  const navigate = useNavigate();
+  const addReservation = () => {
+    console.log(store.perfil.id, store.detailedSpace.id)
+    actions.postMySpace(store.perfil.id, store.detailedSpace.id)
+    navigate("/myprofile/myspaces")
+  }
   useEffect(() => {
     actions.getDetailedSpace(params.theid);
     actions.getReview(params.theid);
+    actions.getProfile();
     console.log(store.detailedSpace.name);
     console.log(store.detailedSpace.description);
     console.log(store.detailedSpace);
+
   }, []);
+  console.log(store.reviews)
+
   return (
     <>
       <div>
@@ -21,7 +31,6 @@ export const DetailSpace = () => {
             style={{ margin: "20px 12% 20px 12%", background: "#DCDCDC" }}
           >
             <h1 className="display-5">
-              {" "}
               <strong>{store.detailedSpace.name}</strong> @{" "}
               {store.detailedSpace.location}
             </h1>
@@ -98,7 +107,7 @@ export const DetailSpace = () => {
               </u>
             </h3>
             <ul>
-              <li>{store.reviews.message}</li>
+              {store.reviews.length > 0 ? store.reviews.map((item) => <li>{item.message}</li>) : <p>There's no reviews yet</p>}
             </ul>
           </li>
         </ul>
@@ -107,9 +116,9 @@ export const DetailSpace = () => {
         <Link to="/catalogo" className="btn">
           Go back
         </Link>
-        <Link to="/" className="btn">
+        <button className="btn btn-md" onClick={addReservation}>
           Make a reservation!
-        </Link>
+        </button>
         <Link to="/postreview" className="btn">
           Post a Review
         </Link>

@@ -20,7 +20,7 @@ export const Login = () => {
   // };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid vh-75">
       <div className="text-center mt-5">
         {store.auth ? (
           navigate("/")
@@ -57,7 +57,7 @@ export const Login = () => {
             <button
               type="submit"
               className="btn"
-              // onClick={handleClick}
+            // onClick={handleClick}
             >
               Log in
             </button>

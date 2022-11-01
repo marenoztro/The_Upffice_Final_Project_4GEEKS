@@ -73,6 +73,13 @@ export const Navbar = () => {
           </button>
         ) : null}
       </Link>
+      <Link to="/myprofile">
+        {store.auth ? (
+          <button className="nav-text btn" >
+            My profile
+          </button>
+        ) : null}
+      </Link>
     </nav>
   );
 };

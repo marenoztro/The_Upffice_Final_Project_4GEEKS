@@ -19,7 +19,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       catalogo: [],
       detailedSpace: {},
       reviews: [],
-      // mySpaces: {},
+      mySpaces: {},
       mySpaces: [],
       myReviews: [],
     },
@@ -57,7 +57,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           // .then((data) => console.log(data))
           // .catch((error) => console.log(error));
-          .then((data) => localStorage.setItem("token", data.access_token));
+          .then((data) => {
+            localStorage.setItem("token", data.access_token)
+            // getActions().getProfile()
+          });
       },
       logout: () => {
         localStorage.removeItem("token");
@@ -101,7 +104,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         description,
         amenities,
         price,
-        image
+        image,
+        user_id
       ) => {
         fetch(process.env.BACKEND_URL + "/api/postspace", {
           // ESTE ES EL LINK DE NUESTRA PLANTILLA BACKEND PARA EL ENDPOINT/RUTA DE login
@@ -115,6 +119,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             amenities: amenities,
             price: price,
             image: image,
+            user_id: user_id
           }),
           headers: {
             "Content-Type": "application/json", //EN EL HEADER, QUE DEBEMOS INCLUIR POR RIGOR, ES Content-Type application/json PORQUE ESTAMOS ENVIANDO UN CUERPO JSON EN EL FETCH
@@ -126,6 +131,33 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .then((data) => console.log(data));
       },
+
+      postMySpace: (
+        user_id,
+        space_id
+      ) => {
+        let token = localStorage.getItem("token");
+        fetch(process.env.BACKEND_URL + "/api/myprofile/myspaces", {
+          // ESTE ES EL LINK DE NUESTRA PLANTILLA BACKEND PARA EL ENDPOINT/RUTA DE login
+          method: "POST", // COMO DESDE EL FRONT VAMOS A INSERTAR DATOS... EL MÉTODO ES POST
+          body: JSON.stringify({
+            //EL CUERPO QUE LE ENVIAMOS EN UN CUERPO JSON Y ES stringify PARA QUE LO PODAMOS ESCRIBIR EN TEXTO Y LUEGO SE GUARDE COMO json
+            user_id: user_id,
+            space_id: space_id
+          }),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        })
+          .then((response) => {
+            //ENTRA EL PRIMER THEN
+            if (response.status === 200) return response.json(); //  Y POR LO TANTO PODEMOS CONVERTIR LA RESPUESTA A UN json
+          })
+          .then((data) => console.log(data));
+      },
+
+
 
       traerCatalogo: () => {
         fetch(process.env.BACKEND_URL + "/api/catalogo")
@@ -210,16 +242,16 @@ const getState = ({ getStore, getActions, setStore }) => {
       //////////////////////////////////////////////////////////////////////////////////
       // OJO: AQUÍ HACEMOS LA FUNCIÓN PARA AGREGAR AL WISHLIST
       //////////////////////////////////////////////////////////////////////////////////
-      addWishlist: (param) => {
-        const store = getStore();
-        if (store.favorites.includes(param)) {
-          console.log("YA LO AGREGASTE COMO WISHLIST");
-        } else {
-          setStore({
-            favorites: [...store.wishlist, param],
-          });
-        }
-      },
+      // addWishlist: (param) => {
+      //   const store = getStore();
+      //   if (store.favorites.includes(param)) {
+      //     console.log("YA LO AGREGASTE COMO WISHLIST");
+      //   } else {
+      //     setStore({
+      //       favorites: [...store.wishlist, param],
+      //     });
+      //   }
+      // },
 
       //////////////////////////////////////////////////////////////////////////////////
       // OJO: AQUÍ HACEMOS LA FUNCIÓN PARA ELIMINAR DEL WISHLIST
