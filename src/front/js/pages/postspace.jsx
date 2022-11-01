@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 import "../../styles/home.css";
@@ -62,9 +62,17 @@ export const Postspace = (props) => {
       description,
       amenities,
       price,
-      image
+      image,
+      store.perfil.id
     ); // *I-M-P-O-R-T-A-N-T-E* > AQUÍ, EN LA FUNCIÓN handleSubmit.... LLAMAMOS A LA FUNCIÓN postspace *LA QUE HACE EL FETCH* QUE ESTÁ EN actions (DENTRO DEL FLUX ... Y COMO PARTE DEL CONTEXTO QUE ESTAMOS CONSUMIENDO)... ¿PAAAARA QUÉ?.... PARA ENVIARLE COMO ARGUMENTO LOS VALORES.... Y QUE SUCEDA LA MAGIA!!!
   };
+
+  console.log(store.perfil)
+  useEffect(() => {
+    // actions.getMySpaces(params.theid);
+    actions.getProfile();
+  }, []);
+
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // A CONTINUACIÓN VEMOS EL RETURN QUE ES EL JSX QUE NOS MUESTRA LO QUE RENDERIZARÁ
@@ -72,9 +80,9 @@ export const Postspace = (props) => {
 
   return (
     <form
-      className="w-50 mx-auto"
+      className="w-50 mx-auto vh-75"
       onSubmit={handleSubmit}
-      // onSubmit={() => actions.postspace(name, description, image)}
+    // onSubmit={() => actions.postspace(name, description, image)}
     >
       <div className="mb-3">
         <label htmlFor="exampleInputName" className="form-label">
@@ -86,7 +94,8 @@ export const Postspace = (props) => {
           id="exampleInputName"
           placeholder="What's the name of your place?"
           value={name}
-          onChange={(e) => setName(e.target.value)} //AQUÍ CREAMOS EL EVENTO onChange de setName
+          onChange={(e) => setName(e.target.value)}
+          required //AQUÍ CREAMOS EL EVENTO onChange de setName
         />
       </div>
 
@@ -100,7 +109,8 @@ export const Postspace = (props) => {
           id="exampleInputDescription"
           placeholder="Where is it located?"
           value={location}
-          onChange={(e) => setLocation(e.target.value)} //AQUÍ CREAMOS EL EVENTO onChange de setLocation
+          onChange={(e) => setLocation(e.target.value)}
+          required //AQUÍ CREAMOS EL EVENTO onChange de setLocation
         />
       </div>
 
@@ -114,7 +124,8 @@ export const Postspace = (props) => {
           id="exampleInputDescription"
           placeholder="Is it a House an Apartment or a Room?"
           value={space_type}
-          onChange={(e) => setSpace_type(e.target.value)} //AQUÍ CREAMOS EL EVENTO onChange de setSpace_type
+          onChange={(e) => setSpace_type(e.target.value)}
+          required //AQUÍ CREAMOS EL EVENTO onChange de setSpace_type
         />
       </div>
 
@@ -128,7 +139,8 @@ export const Postspace = (props) => {
           id="exampleInputDescription"
           placeholder="Please describe your place"
           value={description}
-          onChange={(e) => setDescription(e.target.value)} //AQUÍ CREAMOS EL EVENTO onChange de setDescription
+          onChange={(e) => setDescription(e.target.value)}
+          required //AQUÍ CREAMOS EL EVENTO onChange de setDescription
         />
       </div>
 
@@ -142,7 +154,8 @@ export const Postspace = (props) => {
           id="exampleInputDescription"
           placeholder="Does it have a garage? A kitchen? A pool? How many bathrooms? "
           value={amenities}
-          onChange={(e) => setAmenities(e.target.value)} //AQUÍ CREAMOS EL EVENTO onChange de setAmenities
+          onChange={(e) => setAmenities(e.target.value)}
+          required //AQUÍ CREAMOS EL EVENTO onChange de setAmenities
         />
       </div>
 
@@ -156,7 +169,8 @@ export const Postspace = (props) => {
           id="exampleInputDescription"
           placeholder="How much are you willing to charge for a day? (in $)"
           value={price}
-          onChange={(e) => setPrice(e.target.value)} //AQUÍ CREAMOS EL EVENTO onChange de setPrice
+          onChange={(e) => setPrice(e.target.value)}
+          required //AQUÍ CREAMOS EL EVENTO onChange de setPrice
         />
       </div>
 
@@ -165,9 +179,9 @@ export const Postspace = (props) => {
         name="file"
         placeholder="Upload your image here!"
         onChange={uploadImage}
+        required
       />
-
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn-md btn">
         Submit
       </button>
     </form>

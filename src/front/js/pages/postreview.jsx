@@ -10,37 +10,38 @@ export const Postreview = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    actions.login(review);
+    actions.postreview(e);
   };
 
   return (
-    // <div className="container-fluid">
-    //   <div className="text-center mt-5">
-    //     {/* {store.auth ? (
-    //       navigate("/") */}
-    //     ) : (
-    <form className="w-50 mx-auto" onSubmit={handleSubmit}>
-      <div className="mb-3" />
-      <div className="mb-3">
-        <div className="form-floating">
-          <textarea
-            className="form-control"
-            placeholder="Leave a comment here"
-            id="floatingTextarea2"
-            style={{ fontSize: "height: 800px" }}
-          ></textarea>
-          <label for="floatingTextarea2">
-            Tell us your opinion about this place
-          </label>
-        </div>
+    <div className="container-fluid vh-75">
+      <div className="text-center mt-5">
+        <h1> {store.detailedSpace.name}</h1>
+
+        <form className="w-50 mx-auto" onSubmit={handleSubmit}>
+          <div className="mb-3" />
+          <div className="mb-3">
+            <div className="form-floating">
+              <textarea
+                className="form-control"
+                placeholder="Leave a comment here"
+                id="floatingTextarea2"
+                style={{ fontSize: "height: 800px" }}
+              ></textarea>
+              <label for="floatingTextarea2">
+                Tell us your opinion about this place
+              </label>
+            </div>
+          </div>
+          <button type="submit" className="btn" onClick={(e) => setReview(e.target.value)}>
+            Submit your review
+          </button>
+          <Link to="/" className="btn">
+            Go home
+          </Link>
+        </form>
       </div>
-      <button type="submit" className="btn">
-        Submit your review
-      </button>
-      <Link to="/" className="btn">
-        Go home
-      </Link>
-    </form>
+    </div>
   );
 };
 

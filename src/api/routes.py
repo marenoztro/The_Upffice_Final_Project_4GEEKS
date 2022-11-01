@@ -92,6 +92,7 @@ def postspace():
     amenities = request.json.get("amenities", None) 
     price = request.json.get("price", None) 
     image = request.json.get("image", None) 
+    user_id = request.json.get("user_id", None)
     print (
         name,
         location,
@@ -99,11 +100,12 @@ def postspace():
         description,
         amenities,
         price,
-        image) 
+        image,
+        user_id) 
 
 
  ## ESTAS 3 LÍNEAS DE CODIGO SON RECOMENDADAS POR FLASK ALCHEMY PARA AGREGAR DATOS NUEVOS
-    post = Spaces(name=name, location=location, space_type=space_type, description=description, amenities=amenities, price=price, images=image)
+    post = Spaces(name=name, location=location, space_type=space_type, description=description, amenities=amenities, price=price, images=image, user_id=user_id)
     db.session.add(post)
     db.session.commit()
 
@@ -232,6 +234,31 @@ def get_myspaces(user_id):
    
 
     return jsonify(response_body), 200
+
+
+@api.route('/myprofile/myspaces', methods=['POST'])
+@jwt_required()
+def post_my_spaces():
+    user_id = request.json.get("user_id", None) 
+    space_id = request.json.get("space_id", None) 
+
+    current_user = get_jwt_identity()
+    user = User.query.filter_by(email=current_user).first()
+
+    if current_user != user.email:
+        return jsonify({"msg":"Debes iniciar sesión"}), 401
+  
+    new_space = Myspaces(user_id=user_id, space_id=space_id)
+    db.session.add(new_space)
+    db.session.commit()
+   
+    response_body = {
+       'message': 'Espacio guardado con exito'
+    }
+   
+
+    return jsonify(response_body), 200
+
 
 
   # return jsonify('SI FUNCIONA MYSPACES DENTRO DE MY PROFILE :D'), 200

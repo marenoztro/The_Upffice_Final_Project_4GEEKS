@@ -21,7 +21,7 @@ export const Myprofile = () => {
   console.log(store.mySpaces);
 
   return (
-    <div style={{ marginBlockStart: "70 px" }}>
+    <div className="vh-75" style={{ marginBlockStart: "70 px" }}>
       <h1 className="title-text p-2 ml-5">My Profile</h1>
 
       <div
