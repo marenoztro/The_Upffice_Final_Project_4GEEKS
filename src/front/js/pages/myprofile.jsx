@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Context } from "../store/appContext.jsx";
 import { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ElementoCatalogo } from "../component/elementoCatalogo.jsx";
 
 // use effect para que cuando cargue la pagina traiga el getspaces
 // usar store para guardar en variable lo que traigo, y mapear store.spaces
@@ -29,14 +30,31 @@ export const Myprofile = () => {
       >
         <div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
           <div className="col">
-            <div className="btn-md btn">My Spaces</div>
+            <Link to="/myprofile/myspaces" className="btn-md btn">
+              My Spaces
+            </Link>
+            {/* <div className="btn-md btn">My Spaces</div> */}
           </div>
           <div className="col">
             <div className="btn-md btn">My Reviews</div>
           </div>
-          <div className="col">
+          {/* <div className="col">
             <div className="btn-md btn">Wishlist</div>
-          </div>
+          </div> */}
+        </div>
+        <div className="row row-cols-3 mt-20 container-fluid">
+          {/* {store.mySpaces.map((item, i) => {
+            return (
+              <ElementoCatalogo
+                name={item.space.name}
+                description={item.space.description}
+                images={item.space.images}
+                price={item.space.price}
+                key={item.space.id}
+                id={item.space.id}
+              />
+            );
+          })} */}
         </div>
       </div>
     </div>

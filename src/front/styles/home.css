@@ -171,8 +171,9 @@ h1.heading {
 
 .footer-fixed {
     position: fixed;
+    margin-top: 2000px;
     left: 0;
-    bottom: 0;
+    bottom: -18mm;
     width: 100%;
     text-align: center;
 }

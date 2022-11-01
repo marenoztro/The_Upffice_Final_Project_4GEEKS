@@ -44,11 +44,14 @@ def get_spaces():
 @api.route('/detail/<int:spaces_id>', methods=['GET'])
 def get_one_space(spaces_id):
     space = Spaces.query.filter_by(id=spaces_id).first()
+    reviews_query = Reviews.query.filter_by(space_id=spaces_id)
+    reviews = list(map(lambda item: item.serialize(), reviews_query))
 
     # results = list(map(lambda item: item.serialize(),spaces))
     print(space.serialize())
     response_body = {
         "results": space.serialize(),
+        "reviews": reviews,
     }
 
     return jsonify(response_body), 200
@@ -120,11 +123,14 @@ def postspace():
 
 
 @api.route('/postreview', methods=['POST'])
+@jwt_required()
 def postingreview():
     message = request.json.get("message", None) 
     user_id = request.json.get("user_id", None) 
     space_id = request.json.get("space_id", None) 
-    
+    # user_id = get_jwt_identity()
+   
+
     print(message, user_id, space_id)
 
     post = Reviews(message=message,user_id=user_id,space_id=space_id)
@@ -207,7 +213,7 @@ def protected():
 
 
 # #///////////////////////////////////////////////////////////////////////////////////////
-# # AQUÍ VIENE EL Endpoint PARA MYSPACES DENTRO DE MYPROFILE
+# # AQUÍ VIENE EL Endpoint PARA MYSPACES DENTRO DE MYPROFILE LOS SPACES DE UN USUARIO EN ESPECÍFICO
 # #///////////////////////////////////////////////////////////////////////////////////////
 @api.route('/myprofile/myspaces/<int:user_id>', methods=['GET'])
 def get_myspaces(user_id):
@@ -247,3 +253,33 @@ def get_myreviews(user_id):
     # return jsonify('SI FUNCIONA MYREVIEWWWS DENTRO DE MY PROFILE :D'), 200
 
     return jsonify(response_body), 200
+
+
+
+
+# # #///////////////////////////////////////////////////////////////////////////////////////
+# # # AQUÍ VIENE EL Endpoint PARA POSTEAR UN REVIEW
+# # #///////////////////////////////////////////////////////////////////////////////////////
+
+
+# @api.route('/getreview', methods=['GET'])
+# @jwt_required()
+# def postingreview():
+#     message = request.json.get("message", None) 
+#     # user_id = request.json.get("user_id", None) 
+#     space_id = request.json.get("space_id", None) 
+#     user_id = get_jwt_identity()
+   
+
+#     print(message, user_id, space_id)
+
+#     post = Reviews(message=message,user_id=user_id,space_id=space_id)
+#     db.session.add(post)
+#     db.session.commit()
+
+#     response_body = {
+
+#         "message": "Has posteado tu Review :D!"
+#     }
+
+#     return jsonify(response_body), 200

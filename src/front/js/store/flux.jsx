@@ -19,7 +19,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       catalogo: [],
       detailedSpace: {},
       mySpaces: [],
-      wishlist: [],
+      myReviews: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
