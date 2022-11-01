@@ -213,7 +213,7 @@ def protected():
 
 
 # #///////////////////////////////////////////////////////////////////////////////////////
-# # AQUÍ VIENE EL Endpoint PARA MYSPACES DENTRO DE MYPROFILE
+# # AQUÍ VIENE EL Endpoint PARA MYSPACES DENTRO DE MYPROFILE LOS SPACES DE UN USUARIO EN ESPECÍFICO
 # #///////////////////////////////////////////////////////////////////////////////////////
 @api.route('/myprofile/myspaces/<int:user_id>', methods=['GET'])
 def get_myspaces(user_id):

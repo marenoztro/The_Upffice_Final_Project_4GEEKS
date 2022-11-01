@@ -25,7 +25,9 @@ export const DetailSpace = () => {
               <strong>{store.detailedSpace.name}</strong> @{" "}
               {store.detailedSpace.location}
             </h1>
-            <p style={{ padding: "10px 10px 10px 10px" }}>:star::star::star::star:</p>
+            <p style={{ padding: "10px 10px 10px 10px" }}>
+              :estrella::estrella::estrella::estrella:
+            </p>
           </li>
           <div
             className="container rounded w-100"
