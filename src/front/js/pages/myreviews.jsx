@@ -7,7 +7,7 @@ import { ElementoCatalogo } from "../component/elementoCatalogo.jsx";
 // use effect para que cuando cargue la pagina traiga el getspaces
 // usar store para guardar en variable lo que traigo, y mapear store.spaces
 
-export const Myspaces = () => {
+export const Myreviews = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   useEffect(() => {

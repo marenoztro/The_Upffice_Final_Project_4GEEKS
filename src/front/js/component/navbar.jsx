@@ -87,9 +87,11 @@ export const Navbar = () => {
           </form>
 
           <li className="nav-text nav-item">
-            <Link to="/login" className="btn sign">
-              Sign In
-            </Link>
+            {!store.auth ? (
+              <Link to="/login" className="btn sign">
+                Sign In
+              </Link>
+            ) : null}
           </li>
         </div>
       </div>
