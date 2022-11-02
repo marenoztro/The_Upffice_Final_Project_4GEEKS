@@ -66,7 +66,8 @@ export const Myreviews = () => {
         sytle={{ ml: "5000px" }}
       >
 
-        <div className="card col-lg mb-30" style={{ width: "2 rem" }}> <h4 className="title-text ml-5"> Reviews</h4>
+        <div className="card col-lg mb-30" style={{ width: "2 rem" }}>
+          {/* <h4 className="title-text ml-5"> Reviews</h4> */}
           <ul>
             <h3 className="title-text ml-5"> {store.detailedSpace.name}</h3>
             {store.myReviews.length > 0 ? store.myReviews.map((item) => <li>{item.message}</li>) : <p>There's no reviews yet</p>}
