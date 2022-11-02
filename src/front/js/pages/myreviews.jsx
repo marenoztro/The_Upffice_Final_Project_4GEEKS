@@ -11,7 +11,7 @@ export const Myreviews = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   useEffect(() => {
-    // actions.getMySpaces(params.theid);
+    actions.getUserReviews(params.theid);
     actions.getProfile();
     console.log(store.mySpaces.name);
     console.log(store.mySpaces.description);
@@ -21,7 +21,7 @@ export const Myreviews = () => {
   console.log(store.mySpaces);
 
   return (
-    <div style={{ marginBlockStart: "70 px" }}>
+    <div className="vh-75" style={{ marginBlockStart: "70 px" }}>
       <h1 className="title-text p-2 ml-5">My Reviews</h1>
 
       <div
@@ -43,7 +43,7 @@ export const Myreviews = () => {
           </div>
         </div>
       </div>
-      <div
+      {/* <div
         className=" row row-cols-3  d-flex justify-content-start  ml-5 bg-light border"
         sytle={{ ml: "5000px" }}
       >
@@ -60,14 +60,17 @@ export const Myreviews = () => {
 
           );
         })}
-      </div>
+      </div> */}
       <div
-        className=" row row-cols-3  d-flex justify-content-start  ml-5 bg-light border cardfixed"
+        className=" row row-cols-3  d-flex justify-content-start  ml-5 bg-light border"
         sytle={{ ml: "5000px" }}
       >
-        <div className="card col-lg mb-30" style={{ width: "2 rem" }}> <h4 className="title-text ml-5"> Your Reviews</h4>
+
+        <div className="card col-lg mb-30" style={{ width: "2 rem" }}>
+          {/* <h4 className="title-text ml-5"> Reviews</h4> */}
           <ul>
-            {store.reviews.length > 0 ? store.reviews.map((item) => <li>{item.message}</li>) : <p>There's no reviews yet</p>}
+            <h3 className="title-text ml-5"> {store.detailedSpace.name}</h3>
+            {store.myReviews.length > 0 ? store.myReviews.map((item) => <li>{item.message}</li>) : <p>There's no reviews yet</p>}
           </ul>
         </div>
       </div>

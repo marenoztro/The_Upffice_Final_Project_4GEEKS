@@ -1,3 +1,5 @@
+import axios from "axios"
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -88,6 +90,23 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) =>
             setStore({
               reviews: data.reviews,
+              // result porque esta en la api
+            })
+          );
+      },
+
+
+
+      ///////////////////////////////////////////////////////////////////////////////
+      // OJO: AQUÍ HACEMOS LA FUNCIÓN getUserReviews PARA OBTENER EL REVIEW DEL USUARIO
+      ///////////////////////////////////////////////////////////////////////////////
+      getUserReviews: (user_id) => {
+        // argumento se utiliza especificar los datos que se necesitan traer
+        fetch(process.env.BACKEND_URL + "/reviews/all/" + user_id)
+          .then((response) => response.json()) // transformar el contenido en un json
+          .then((data) =>
+            setStore({
+              myReviews: data.reviews,
               // result porque esta en la api
             })
           );
@@ -220,22 +239,26 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      postreview: (message) => {
+      postreview: (message, user_id, space_id) => {
+        let token = localStorage.getItem("token");
         fetch(process.env.BACKEND_URL + "/api/postreview", {
           // ESTE ES EL LINK DE NUESTRA PLANTILLA BACKEND PARA EL ENDPOINT/RUTA DE login
           method: "POST", // COMO DESDE EL FRONT VAMOS A INSERTAR DATOS... EL MÉTODO ES POST
           body: JSON.stringify({
             //EL CUERPO QUE LE ENVIAMOS EN UN CUERPO JSON Y ES stringify PARA QUE LO PODAMOS ESCRIBIR EN TEXTO Y LUEGO SE GUARDE COMO json
             message: message,
+            user_id: user_id,
+            space_id: space_id
           }),
           headers: {
-            "Content-Type": "application/json", //EN EL HEADER, QUE DEBEMOS INCLUIR POR RIGOR, ES Content-Type application/json PORQUE ESTAMOS ENVIANDO UN CUERPO JSON EN EL FETCH
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
           },
         })
-          .then((response) => {
+          .then((response) =>
             //ENTRA EL PRIMER THEN
-            if (response.status === 200) return response.json(); //  Y POR LO TANTO PODEMOS CONVERTIR LA RESPUESTA A UN json
-          })
+            response.json() //  Y POR LO TANTO PODEMOS CONVERTIR LA RESPUESTA A UN json
+          )
           .then((data) => console.log(data));
       },
 
@@ -282,6 +305,38 @@ const getState = ({ getStore, getActions, setStore }) => {
           demo: demo,
         });
       },
+
+
+      validToken: async () => {
+        let accessToken = localStorage.getItem("token");
+        try {
+          const response = await axios.get(
+            process.env.BACKEND_URL + "/api/valid-token", {
+            headers: {
+              Authorization: "Bearer " + accessToken,
+            },
+          }
+          );
+          // console.log(accessToken);
+
+          setStore({
+            auth: response.data.status,
+          });
+
+          return;
+        } catch (error) {
+          // console.log(error);
+          if (error.code === "ERR_BAD_REQUEST") {
+            setStore({
+              auth: false,
+            });
+          }
+          return false;
+        }
+      },
+
+
+
     },
   };
 };

@@ -1,16 +1,18 @@
 import React, { useState, useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
 import "../../styles/home.css";
 
 export const Postreview = () => {
   const [review, setReview] = useState("");
   const { store, actions } = useContext(Context);
-  //   const navigate = useNavigate();
+  const { theid } = useParams();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    actions.postreview(e);
+    actions.postreview(review, store.perfil.id, theid)
+    navigate("/detail/" + theid)
   };
 
   return (
@@ -23,6 +25,7 @@ export const Postreview = () => {
           <div className="mb-3">
             <div className="form-floating">
               <textarea
+                onChange={(e) => setReview(e.target.value)}
                 className="form-control"
                 placeholder="Leave a comment here"
                 id="floatingTextarea2"
@@ -33,7 +36,7 @@ export const Postreview = () => {
               </label>
             </div>
           </div>
-          <button type="submit" className="btn" onClick={(e) => setReview(e.target.value)}>
+          <button type="submit" className="btn">
             Submit your review
           </button>
           <Link to="/" className="btn">
