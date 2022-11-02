@@ -303,6 +303,9 @@ def get_all_user_review(user_id):
     return jsonify(response_body), 200
     # return jsonify("ok"), 200
 
+
+
+
 @api.route("/valid-token", methods=["GET"])
 @jwt_required()
 def valid_token():

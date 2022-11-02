@@ -117,7 +117,7 @@ export const DetailSpace = () => {
           Go back
         </Link>
         <button className="btn btn-md" onClick={addReservation}>
-          Make a reservation!
+          Save this space!
         </button>
         <Link to={"/postreview/" + params.theid} className="btn">
           Post a Review

@@ -10,15 +10,15 @@ import { ElementoCatalogo } from "../component/elementoCatalogo.jsx";
 export const Myreviews = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+  console.log("vemos params.user_id", store.perfil.id)
   useEffect(() => {
-    actions.getUserReviews(params.theid);
+    actions.getUserReviews(store.perfil.id);
     actions.getProfile();
-    console.log(store.mySpaces.name);
-    console.log(store.mySpaces.description);
-    console.log(store.mySpaces.location);
+    console.log(store.reviews);
   }, []);
 
-  console.log(store.mySpaces);
+  console.log(store.reviews);
+  console.log(store.myReviews);
 
   return (
     <div className="vh-75" style={{ marginBlockStart: "70 px" }}>
