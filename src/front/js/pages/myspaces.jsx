@@ -10,6 +10,7 @@ import { ElementoCatalogo } from "../component/elementoCatalogo.jsx";
 export const Myspaces = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+
   useEffect(() => {
     // actions.getMySpaces(params.theid);
     actions.getProfile();

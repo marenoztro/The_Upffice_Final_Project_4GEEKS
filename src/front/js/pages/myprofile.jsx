@@ -17,7 +17,7 @@ export const Myprofile = () => {
     console.log(store.mySpaces.description);
     console.log(store.mySpaces.location);
   }, []);
-
+  console.log("params", params)
   console.log(store.mySpaces);
 
   return (
@@ -33,17 +33,12 @@ export const Myprofile = () => {
             <Link to="/myprofile/myspaces" className="btn-md btn">
               My Spaces
             </Link>
-            {/* <div className="btn-md btn">My Spaces</div> */}
           </div>
           <div className="col">
-            <Link to="/myprofile/myreviews" className="btn-md btn">
+            <Link to={"/reviews/all/" + store.perfil.id} className="btn-md btn">
               My Reviews
             </Link>
-            {/* <div className="btn-md btn">My Reviews</div> */}
           </div>
-          {/* <div className="col">
-            <div className="btn-md btn">Wishlist</div>
-          </div> */}
         </div>
         <div className="row row-cols-3 mt-20 container-fluid">
           {/* {store.mySpaces.map((item, i) => {

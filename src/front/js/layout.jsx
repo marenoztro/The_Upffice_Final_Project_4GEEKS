@@ -7,7 +7,7 @@ import { Login } from "./pages/login.jsx";
 import { DetailSpace } from "./pages/detailView.jsx";
 import { Demo } from "./pages/demo.jsx";
 import { Single } from "./pages/single.jsx";
-import { MySpaces } from "./pages/myspaces.jsx";
+// import { MySpaces } from "./pages/myspaces.jsx";
 import { Catalogo } from "./pages/catalogo.jsx";
 import { Postspace } from "./pages/postspace.jsx";
 import { Postreview } from "./pages/postreview.jsx";
@@ -51,7 +51,7 @@ const Layout = () => {
             <Route element={<div className="vh-75"><h1>You need to login first!</h1></div>} path="*" />
             <Route element={<Myprofile />} path="/myprofile" />
             <Route element={<Myspaces />} path="/myprofile/myspaces" />
-            <Route element={<Myreviews />} path="/myprofile/myreviews" />
+            <Route element={<Myreviews />} path="reviews/all/:theid" />
             <Route element={<Wishlist />} path="/myprofile/wishlist" />
           </Routes>
           <Footer />

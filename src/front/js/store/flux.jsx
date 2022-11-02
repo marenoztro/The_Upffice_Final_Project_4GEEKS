@@ -101,16 +101,20 @@ const getState = ({ getStore, getActions, setStore }) => {
       // OJO: AQUÍ HACEMOS LA FUNCIÓN getUserReviews PARA OBTENER EL REVIEW DEL USUARIO
       ///////////////////////////////////////////////////////////////////////////////
       getUserReviews: (user_id) => {
+        console.log("ingresé")
         // argumento se utiliza especificar los datos que se necesitan traer
-        fetch(process.env.BACKEND_URL + "/reviews/all/" + user_id)
+        fetch(process.env.BACKEND_URL + "/api/reviews/all/" + user_id)
           .then((response) => response.json()) // transformar el contenido en un json
-          .then((data) =>
-            setStore({
-              myReviews: data.reviews,
-              // result porque esta en la api
-            })
+          .then((data) => {
+            console.log("myReviews-flux", data.reviews),
+              setStore({
+                myReviews: data.reviews,
+                // result porque esta en la api
+              })
+          }
           );
       },
+
 
       //////////////////////////////////////////////////////////////////////////////////
       // OJO: AQUÍ HACEMOS LA FUNCIÓN onSubmit QUE REALIZA EL FETCH PARA HACER EL POST DEL ESPACIO EN RENTA
