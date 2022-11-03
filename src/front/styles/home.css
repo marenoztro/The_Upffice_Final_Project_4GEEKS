@@ -138,6 +138,7 @@ h1.heading {
 
 .body-text {
     font-family: "Noto Sans", sans-serif;
+    font-weight: 600;
 }
 
 .footer-color {
@@ -156,6 +157,7 @@ h1.heading {
 .btn-lg {
     background-color: #a425e8;
     color: #fbfbfb;
+    margin: 2%;
 }
 
 .btn {
@@ -192,4 +194,12 @@ h1.heading {
 .cardfixed {
     max-width: 580px;
     margin: auto;
+}
+
+.dropdown-menu {
+    left: -150px;
+}
+
+.dropdown-menu[data-bs-popper] {
+    left: -150px;
 }

@@ -11,7 +11,6 @@ export const Home = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-6 float-end align-self-center">
-            {/* <h1 className="title-text text-center">The Upffice</h1> */}
             <img
               src="https://res.cloudinary.com/marenoztro/image/upload/v1666818417/theUpffice/Logo_Upffice_Horizontal_36_2x_a1xqf3.png"
               style={{ width: "30rem" }}
@@ -34,11 +33,10 @@ export const Home = () => {
               ) : null}
             </div>
           </div>
-          <div className="col-sm-4 mr-auto">
+          <div className="col-sm-6 p-0">
             <img
               src="https://ichef.bbci.co.uk/news/976/cpsprodpb/722C/production/_121782292_gettyimages-1220634080.jpg"
-              className="rounded float-start img-fixed"
-              style={{ width: "58rem" }}
+              className="w-100 rounded float-start img-fixed"
               alt="..."
             />
           </div>
