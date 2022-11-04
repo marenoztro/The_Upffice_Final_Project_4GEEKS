@@ -175,6 +175,16 @@ h1.heading {
     margin-top: 15%;
 }
 
+.active {
+    background-color: #a425e8 !important;
+}
+
+.marlon {
+    border-color: #a425e8;
+    box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(217, 0, 255, 0.6);
+}
+
 /* .footer-fixed {
     position: fixed;
     margin-top: 2000px;

@@ -186,7 +186,7 @@ export const Postspace = (props) => {
         />
       </form>
       <div className="text-center mt-3">
-        <button type="submit" className="btn-md btn">
+        <button type="submit" className="btn-md btn" onClick={handleSubmit}>
           Submit
         </button>
         <Link to="/" className="btn-md btn">

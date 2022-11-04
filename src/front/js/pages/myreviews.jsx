@@ -70,7 +70,7 @@ export const Myreviews = () => {
           {/* <h4 className="title-text ml-5"> Reviews</h4> */}
           <ul>
             <h3 className="title-text ml-5"> {store.detailedSpace.name}</h3>
-            {store.myReviews.length > 0 ? store.myReviews.map((item) => <li className="body-text">{item.message}</li>) : <p>There's no reviews yet</p>}
+            {store.myReviews.length > 0 ? store.myReviews.map((item) => <li className="body-text">{item.message}</li>) : <p className="body-text">There's no reviews yet</p>}
           </ul>
         </div>
       </div>
