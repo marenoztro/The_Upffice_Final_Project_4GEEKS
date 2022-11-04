@@ -28,15 +28,12 @@ export const DetailSpace = () => {
         <ul className="list-group list-group-flush">
           <li
             className="list-group-item d-flex rounded"
-            style={{ margin: "20px 12% 20px 12%", background: "#DCDCDC" }}
+            style={{ background: "#FBFBFB", margin: "20px 12% 20px 12%" }}
           >
-            <h1 className="display-5">
+            <h1 className="display-5 title-text">
               <strong>{store.detailedSpace.name}</strong> @{" "}
               {store.detailedSpace.location}
             </h1>
-            <p style={{ padding: "10px 10px 10px 10px" }}>
-              :estrella::estrella::estrella::estrella:
-            </p>
           </li>
           <div
             className="container rounded w-100"
@@ -50,69 +47,68 @@ export const DetailSpace = () => {
             />
           </div>
           <li
-            className="list-group-item rounded "
-            style={{ background: "#DCDCDC", margin: "10px 12% 10px 12%" }}
+            className="list-group-item rounded body-text"
+            style={{ background: "#fbfbfb", margin: "10px 12% 10px 12%" }}
           >
-            <h3 className="display-6">
+            <h4 className="title-text display-6 pb-2">
               <u>
                 <strong>Description</strong>
               </u>
-            </h3>
+            </h4>
             {store.detailedSpace.description}
           </li>
           {console.log(store.detailedSpace.description)}
           <li
-            className="list-group-item border border-dark rounded"
-            style={{ margin: "10px 12% 10px 12%" }}
-          >
-            <h3 className="display-6">
-              {" "}
-              <u>
-                <strong>Price</strong>{" "}
-              </u>
-            </h3>
-            <p>USD ${store.detailedSpace.price}</p>
-          </li>
-          <li
             className="list-group-item rounded"
-            style={{ background: "#DCDCDC", margin: "10px 12% 10px 12%" }}
+            style={{ background: "#FBFBFB", margin: "10px 12% 10px 12%" }}
           >
-            <h3 className="display-6">
+            <h3 className="title-text display-6">
               <u>
-                <strong>Amenidades</strong>
+                <strong>Amenities</strong>
               </u>
             </h3>
             <ul>
-              <li>{store.detailedSpace.amenities}</li>
+              <li className="body-text">{store.detailedSpace.amenities}</li>
             </ul>
           </li>
           <li
-            className="list-group-item rounded border border-dark"
-            style={{ margin: "10px 12% 10px 12%" }}
+            className="list-group-item"
+            style={{ background: "#FBFBFB", margin: "10px 12% 10px 12%" }}
           >
-            <h3 className="display-6">
+            <h3 className="title-text display-6">
               <u>
                 <strong>Space Type</strong>
               </u>
             </h3>
-            <p>{store.detailedSpace.space_type}</p>
+            <p className="body-text">{store.detailedSpace.space_type}</p>
           </li>
           <li
             className="list-group-item rounded"
-            style={{ background: "#DCDCDC", margin: "10px 12% 10px 12%" }}
+            style={{ background: "#FBFBFB", margin: "10px 12% 10px 12%" }}
           >
-            <h3 className="display-6">
+            <h3 className="title-text display-6">
               <u>
                 <strong>Reviews</strong>
               </u>
             </h3>
-            <ul>
+            <ul className="body-text">
               {store.reviews.length > 0 ? store.reviews.map((item) => <li>{item.message}</li>) : <p>There's no reviews yet</p>}
             </ul>
           </li>
+          <li
+            className="list-group-item"
+            style={{ background: "#FBFBFB", margin: "10px 12% 10px 12%" }}
+          >
+            <h2 className="title-text display-6">
+              <u>
+                <strong>Price</strong>
+              </u>
+            </h2>
+            <p className="body-text">USD per hour: ${store.detailedSpace.price}</p>
+          </li>
         </ul>
       </div>
-      <div className="text-center">
+      <div className="text-center mt-3">
         <Link to="/catalogo" className="btn">
           Go back
         </Link>

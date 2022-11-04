@@ -28,7 +28,19 @@ export const Myprofile = () => {
         className="d-flex justify-content-start p-2 ml-5 bg-light border"
         sytle={{ ml: "5000px" }}
       >
-        <div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <Link class="btn-md btn m-2" aria-current="page" to="/myprofile/myspaces">My Spaces</Link>
+          </li>
+          <li class="nav-item">
+            <Link class="btn-md btn m-2" to={"/reviews/all/" + store.perfil.id}>My Reviews</Link>
+          </li>
+          <li class="nav-item">
+            <Link class="btn-md btn m-2" to="/catalogo">Catalogue</Link>
+          </li>
+        </ul>
+
+        {/* <div className="row align-baseline row-cols-3 row-cols-lg-5 g-2 g-lg-3">
           <div className="col">
             <Link to="/myprofile/myspaces" className="btn-md btn">
               My Spaces
@@ -39,9 +51,14 @@ export const Myprofile = () => {
               My Reviews
             </Link>
           </div>
+          <div className="col">
+            <Link to="/catalogo" className="btn-md btn">
+              Catalogue
+            </Link>
+          </div>
         </div>
-        <div className="row row-cols-3 mt-20 container-fluid">
-          {/* {store.mySpaces.map((item, i) => {
+        <div className="row row-cols-3 mt-20 container-fluid"> */}
+        {/* {store.mySpaces.map((item, i) => {
             return (
               <ElementoCatalogo
                 name={item.space.name}
@@ -53,7 +70,6 @@ export const Myprofile = () => {
               />
             );
           })} */}
-        </div>
       </div>
     </div>
   );

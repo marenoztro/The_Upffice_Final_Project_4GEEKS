@@ -11,7 +11,6 @@ export const Home = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-6 float-end align-self-center">
-            {/* <h1 className="title-text text-center">The Upffice</h1> */}
             <img
               src="https://res.cloudinary.com/marenoztro/image/upload/v1666818417/theUpffice/Logo_Upffice_Horizontal_36_2x_a1xqf3.png"
               style={{ width: "30rem" }}
@@ -34,11 +33,10 @@ export const Home = () => {
               ) : null}
             </div>
           </div>
-          <div className="col-sm-4 mr-auto">
+          <div className="col-sm-6 p-0">
             <img
               src="https://ichef.bbci.co.uk/news/976/cpsprodpb/722C/production/_121782292_gettyimages-1220634080.jpg"
-              className="rounded float-start img-fixed"
-              style={{ width: "58rem" }}
+              className="w-100 rounded float-start img-fixed"
               alt="..."
             />
           </div>
@@ -57,14 +55,14 @@ export const Home = () => {
                       <a class="img-card" href="">
                         <img
                           src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Endless_Possibilites_rhz19k.png"
-                          style={{ width: "16rem" }}
+                          style={{ width: "13rem" }}
                         />
                       </a>
                       <div class="card-content">
                         <h4 class="body-text text-center card-title">
                           Endless Possibilities
                         </h4>
-                        <p class="">
+                        <p class="body-text">
                           You can choose the spaces that inspire you to do the
                           best work.
                         </p>
@@ -76,16 +74,16 @@ export const Home = () => {
                       <a className="img-card" href="">
                         <img
                           src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Save_Your_Favorites_vo8zfy.png"
-                          style={{ width: "16rem" }}
+                          style={{ width: "13rem" }}
                         />
                       </a>
                       <div className="card-content">
                         <h4 className="body-text text-center card-title">
                           Save your Favorite Spaces
                         </h4>
-                        <p className="">
+                        <p className="body-text">
                           Become a frequent guest at the most pleasing
-                          workspaces for you
+                          workspaces for you.
                         </p>
                       </div>
                     </div>
@@ -95,16 +93,16 @@ export const Home = () => {
                       <a className="img-card" href="/">
                         <img
                           src="https://res.cloudinary.com/marenoztro/image/upload/v1666828077/theUpffice/Beneficio_Hi-Speed_Connection_nycna4.png"
-                          style={{ width: "18rem" }}
+                          style={{ width: "13rem" }}
                         />
                       </a>
                       <div className="card-content">
                         <h4 className="body-text text-center card-title">
                           Hi-Speed Connection
                         </h4>
-                        <p className="">
+                        <p className="body-text">
                           All of spaces offer a high-speed connection, with over
-                          500mbps fibre broadband
+                          500mbps fibre broadband.
                         </p>
                       </div>
                     </div>

@@ -138,6 +138,7 @@ h1.heading {
 
 .body-text {
     font-family: "Noto Sans", sans-serif;
+    font-weight: 600;
 }
 
 .footer-color {
@@ -156,6 +157,7 @@ h1.heading {
 .btn-lg {
     background-color: #a425e8;
     color: #fbfbfb;
+    margin: 2%;
 }
 
 .btn {
@@ -171,6 +173,16 @@ h1.heading {
 
 .card-group {
     margin-top: 15%;
+}
+
+.active {
+    background-color: #a425e8 !important;
+}
+
+.marlon {
+    border-color: #a425e8;
+    box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(217, 0, 255, 0.6);
 }
 
 /* .footer-fixed {
@@ -192,4 +204,12 @@ h1.heading {
 .cardfixed {
     max-width: 580px;
     margin: auto;
+}
+
+.dropdown-menu {
+    left: -150px;
+}
+
+.dropdown-menu[data-bs-popper] {
+    left: -150px;
 }

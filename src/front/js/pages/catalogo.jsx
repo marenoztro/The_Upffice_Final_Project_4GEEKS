@@ -37,16 +37,17 @@ export const Catalogo = () => {
       <div>
         <div className="main position-absolute top-40 start-50 translate-middle-x">
           <h1 className="title-text">Find the best spaces</h1>
-          <div>
+          <div className="form-outline">
             <input
               style={{ width: "24rem" }}
               type="text"
-              id="header-search"
-              placeholder="Search spaces"
-              name=""
+              id="form12"
+              className="marlon"
+              placeholder="Search spaces..."
               value={search}
               onChange={handleSearch}
             />
+
           </div>
         </div>
       </div>
